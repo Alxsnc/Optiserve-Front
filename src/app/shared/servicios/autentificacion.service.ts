@@ -11,7 +11,7 @@ export class AutentificacionService {
 
   public ingresarAplicativo(obj:any):boolean{
 
-    this.ingresar=obj.usuario == 'alex'&& obj.password=='123';
+    this.ingresar=obj.usuario == 'erika'&& obj.password=='123';
     return this.ingresar;
 
   }
