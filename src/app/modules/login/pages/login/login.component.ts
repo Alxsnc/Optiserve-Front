@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';//jjjj
 import { AutentificacionService } from 'src/app/shared/servicios/autentificacion.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { AutentificacionService } from 'src/app/shared/servicios/autentificacion
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
   public myForm!:FormGroup;
 
-  constructor(private fb:FormBuilder,private loginPrd:AutentificacionService) { }
+  constructor(private fb:FormBuilder,private loginPrd:AutentificacionService,
+    private routerprd:Router) { }
 
   ngOnInit(): void {
     this.myForm=this.createMyForm();
@@ -30,11 +32,12 @@ export class LoginComponent implements OnInit{
       return;
     }
 
-    if(this.loginPrd.ingresarAplicativo(this.myForm.value)){
-      alert("Usuario o Contraseña invalidos")
+    if(!this.loginPrd.ingresarAplicativo(this.myForm.value)){
+      alert("Usuario o contraseña invalido");
+    }else{
+      this.routerprd.navigateByUrl("/sesion/principal")
     }
     
-    console.log(this.myForm.value);
   }
 
   public get f():any{

@@ -1,0 +1,51 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Formulario con Imagen</title>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="login-form">
+        <h2>Iniciar sesión</h2>
+        <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input formControlName="usuario" [class.is-invalid]="f.usuario.errors && f.usuario.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                Email obligatorio.
+              </div>
+          </div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+              <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback">
+              Contraseña obligatoria
+           </div>
+  </div>
+
+          <div class="mb-3">
+            <button class="btn btn-success">Ingresar</button>
+          </div>
+          <div>
+            <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false"> Ingresa aquí </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="login-image">
+        <!-- Aquí colocas la ruta de tu imagen -->
+        <img src="ruta_de_tu_imagen.jpg" alt="Imagen de fondo">
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>

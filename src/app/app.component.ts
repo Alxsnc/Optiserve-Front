@@ -13,7 +13,5 @@ export class AppComponent {
 
   }
 
-  public visualizarMenu():boolean{
-    return this.loginPrd.habilitarlogeo();
-  }
+  
 }
