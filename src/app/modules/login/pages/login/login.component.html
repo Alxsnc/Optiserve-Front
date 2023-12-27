@@ -1,51 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Formulario con Imagen</title>
+  <title>Iniciar Sesión</title>
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+  <!-- MDB -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="login-form">
-        <h2>Iniciar sesión</h2>
-        <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+<section class="login-form">
+  <div class="mask d-flex align-items-center h-100 gradient-custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xl-10">
+          <div class="card">
+            <div class="card-body p-5">
 
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input formControlName="usuario" [class.is-invalid]="f.usuario.errors && f.usuario.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                Email obligatorio.
+
+              <div class="row d-flex align-items-center">
+                <!-- Logo -->
+                <div class="text-center pt-2 pb-2 my-2"> <!-- Modifiqué las clases para reducir el espacio -->
+                  <img src="/assets/imagen/logoOpti.png" class="img-fluid" width="350" height="700"> <!-- Ajusté las dimensiones -->
+                </div>
+                <div class="col-md-6 col-xl-7">
+                  <div class="text-center pt-md-5 pb-5 my-md-5">
+                    <img src="/assets/imagen/login.jpg" class="img-fluid" width="350" height="350">
+
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4 text-center"style="background-color: #E5D4FF;">
+                  <h2 class="fw-bold mb-4" style="font-family: poppins, sans-serif;">Iniciar Sesión</h2>
+                    <!-- Agrega aquí los elementos del formulario -->
+
+                    <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" style="font-family: poppins, sans-serif;">Email</label>
+                        <input formControlName="usuario" [class.is-invalid]="f.usuario.errors && f.usuario.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email Obligatorio</div>
+                      </div>
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Contraseña</label>
+                        <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Contraseña Obligatoria</div>
+                      </div>
+
+                      <div class="mb-3">
+                        <button class="btn btn-success" style= "background-color: #940B92; color: white; font-family: poppins, sans-serif;">Ingresar</button>
+                      </div>
+                      <div>
+                        <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false" style="font-family: poppins, sans-serif;"> Ingresa aquí </a>
+                      </div>
+
+                    </form>
+
+                </div>
               </div>
+            </div>
           </div>
-
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-              <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
-              <div id="validationServerUsernameFeedback" class="invalid-feedback">
-              Contraseña obligatoria
-           </div>
-  </div>
-
-          <div class="mb-3">
-            <button class="btn btn-success">Ingresar</button>
-          </div>
-          <div>
-            <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false"> Ingresa aquí </a>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="login-image">
-        <!-- Aquí colocas la ruta de tu imagen -->
-        <img src="ruta_de_tu_imagen.jpg" alt="Imagen de fondo">
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
+<!-- Incluye los scripts al final del cuerpo del documento para mejorar el rendimiento -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
 </body>
+</html>
