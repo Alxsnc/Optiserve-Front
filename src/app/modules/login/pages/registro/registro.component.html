@@ -1,9 +1,138 @@
-<div class="col-12">Registro de cuenta</div>
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Registro de Usuario</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+  <!-- MDB -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
+
+  <style>
+    body {
+      padding-top: 56px; /* Altura de la barra de navegación */
+    }
+
+    .scrollable-container {
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 110vh; /* Altura máxima del contenedor */
+    }
+
+    /* Estilo adicional para la barra de navegación */
+    .navbar-fixed {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: top 0.3s; /* Animación para ocultar/mostrar la barra de navegación */
+    }
+
+    .navbar-fixed.show {
+      top: 0;
+    }
+
+    .navbar-fixed.hide {
+      top: -56px; /* Oculta la barra de navegación */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed">
+  <div class="container">
+    <!-- Contenido de la barra de navegación -->
+    <!-- Puedes agregar enlaces, botones, etc. aquí -->
   </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</nav>
+
+<section class="login-form" style="border-radius: 50px">
+  <div class="mask d-flex align-items-center h-100 gradient-custom">
+    <div class="container scrollable-container" style="border-radius: 20px;" >
+      <div class="row justify-content-center" style="border-radius: 20px;">
+        <div class="col-12 col-xl-10">
+          <div class="card">
+            <div class="card-body p-5">
+              <div class="row d-flex align-items-center"style="padding: 1rem;">
+
+                <div class="text-center pt-2 pb-2 my-2" style="padding: 1rem;">
+                  <img src="/assets/imagen/logoOpti.png" class="img-fluid" width="350" height="700">
+                </div>
+
+                <div class="container">
+                  <div class="row">
+                    <!-- Div a la Izquierda -->
+                    <div class="col-md-6">
+                      <div class="text-center pt-md-5 pb-5 my-md-5" style="border-radius: 20px;">
+                        <img src="/assets/imagen/registro.png" class="img-fluid" width="500" height="500">
+                      </div>
+                    </div>
+
+                    <!-- Div a la Derecha -->
+                    <div class="col-md-6" style="border-radius: 20px; background-color: #E5D4FF;padding: 1rem;">
+
+                      <h2 class="fw-bold mb-4" style="font-family: poppins, sans-serif;">Iniciar Sesión</h2>
+
+                      <!--Aqui van los elementos del formulario-->
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Nombre</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Nombre Obligatorio</div>
+                      </div>
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Apellido</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido Obligatorio</div>
+                      </div>
+
+                      <div class="mb-3"style="text-align:left">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Fecha de Nacimiento  </label>
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa tu fecha de nacimiento">
+                      </div>
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email Obligatorio</div>
+                      </div>
+
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Contraseña</label>
+                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Contraseña Obligatoria</div>
+                      </div>
+
+                      <div class="mb-3" style="text-align:center;">
+                        <button class="btn btn-success" style= "background-color: #940B92; color: white; font-family: poppins, sans-serif;">Registrarse</button>
+                      </div>
+
+                      <div>
+                        <label>¿Tienes cuenta?</label><a href="#" routerLink="sinsesion/login" onclick="return false" style="font-family: poppins, sans-serif;"> Ingresa aquí </a>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<!-- Incluye los scripts al final del cuerpo del documento para mejorar el rendimiento -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+</body>
+</html>
