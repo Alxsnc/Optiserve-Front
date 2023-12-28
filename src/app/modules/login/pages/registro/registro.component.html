@@ -84,7 +84,7 @@
                       <div class="mb-3" style="text-align: left;">
                         <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Apellido</label>
                         <input formControlName="apellido" [class.is-invalid]="f.apellido.errors && f.apellido.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio, no ingrese números</div>
                       </div>
 
                       <div class="mb-3"style="text-align:left">
@@ -102,7 +102,7 @@
                       <div class="mb-3" style="text-align: left;">
                         <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Contraseña</label>
                         <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Contraseña obligatoria</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Contraseña obligatoria, Use almenos un carácter especial</div>
                       </div>
 
                       <div class="mb-3" style="text-align:center;">
