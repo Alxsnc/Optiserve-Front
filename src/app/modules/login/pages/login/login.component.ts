@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   private createMyForm():FormGroup{
     return this.fb.group({
-      usuario:['',Validators.required],      
-      password:['',Validators.required]
+      email:['',[Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
+      password:['',[Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]]
     });
   }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.routerprd.navigateByUrl("/sesion/principal")
     }
-    
+
   }
 
   public get f():any{
