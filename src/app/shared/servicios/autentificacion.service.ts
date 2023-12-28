@@ -11,8 +11,8 @@ export class AutentificacionService {
 
   public ingresarAplicativo(obj:any):boolean{
 
-    //en esta parte estoy verificando las credenciales de acceso 
-    this.ingresar=obj.usuario == 'alex' && obj.password=='123';
+    //en esta parte estoy verificando las credenciales de acceso
+    this.ingresar=obj.email == 'erika@gmail.com' && obj.password=='123_';
     return this.ingresar;
 
   }
