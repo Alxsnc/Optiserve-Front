@@ -4,16 +4,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,    
     SesionComponent,
-    ContenidoComponent
+    ContenidoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
