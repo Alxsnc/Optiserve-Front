@@ -87,6 +87,12 @@
                         <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio, no ingrese números</div>
                       </div>
 
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Cédula</label>
+                        <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Cedula obligatoria sin guión</div>
+                      </div>
+
                       <div class="mb-3"style="text-align:left">
                         <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Fecha de Nacimiento  </label>
                         <input formControlName="fecha_nac" [class.is-invalid]="f.fecha_nac.errors && f.fecha_nac.touched" type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa tu fecha de nacimiento">
