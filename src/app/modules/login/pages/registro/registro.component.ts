@@ -56,6 +56,7 @@ export class RegistroComponent implements OnInit {
 
   }
 
+
   public get f():any{
     return this.myForm.controls;
   }
