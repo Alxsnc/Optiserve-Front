@@ -13,7 +13,7 @@ const routes: Routes = [{
   path:'sesion', component:ContenidoComponent,canActivate:[PermisosRutasService],canLoad:[PermisosCargarModulos],loadChildren:()=>import('./modules/principal/principal.module').then(m=>m.principalModule)
 },
 {
-  path:"**", redirectTo:'sinsesion/login'
+  path:"**", redirectTo:'sinsesion/login2'
 }];
 
 @NgModule({

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';//jjjj
-import { AutentificacionService } from 'src/app/shared/servicios/autentificacion.service';
 import { RegistroService } from 'src/app/shared/servicios/registro.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class RegistroComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private loginPrd:AutentificacionService,
     private routerprd:Router,
     private registroService:RegistroService) { }
 
@@ -39,13 +37,7 @@ export class RegistroComponent implements OnInit {
       Object.values(this.myForm.controls).forEach(control=>{control.markAllAsTouched()});
       return;
     }
-
-    if(!this.loginPrd.ingresarAplicativo(this.myForm.value)){
-      alert("Usuario o contraseña invalido");
-    }else{
-      this.routerprd.navigateByUrl("/sesion/principal")
-    }
-
+    
     let usuario = this.myForm.value;
 
     console.trace(usuario);
