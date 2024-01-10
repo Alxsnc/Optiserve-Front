@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class RegistroService {
-    private urlEndPoint: string = 'http://localhost:4000/api/auth' + '/registro';
+    private urlEndPoint: string = 'http://localhost:4000/api/auth' + '/singup';
 
     constructor(private http: HttpClient ) { }
 

@@ -43,6 +43,10 @@ export class RegistroComponent implements OnInit {
     console.trace(usuario);
 
     this.registroService.registrarUsuario(usuario).subscribe();
+    
+    alert("Usuario registrado con éxito");
+    
+    this.routerprd.navigateByUrl("/login");
 
   }
 

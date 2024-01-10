@@ -5,7 +5,7 @@ import { CommonModule } from "@angular/common";
 import { loginRoutingModule } from "./login-routing.module";
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PublicacionComponent } from './pages/publicacion/publicacion.component';
-import { Login2Component } from './pages/login2/login2.component';
+import { Login2Component } from './pages/login/login.component';
 
 @NgModule({
     declarations:[Login2Component, RegistroComponent, PublicacionComponent],

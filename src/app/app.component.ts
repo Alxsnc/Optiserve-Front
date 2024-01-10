@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AutentificacionService } from './shared/servicios/autentificacion.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AutentificacionService } from './shared/servicios/autentificacion.servi
 export class AppComponent {
   title = 'Optiservice-Front';
 
-  constructor(private loginPrd:AutentificacionService){
+  constructor(){
 
   }
 

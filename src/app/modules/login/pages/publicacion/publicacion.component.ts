@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';//jjjj
-import { AutentificacionService } from 'src/app/shared/servicios/autentificacion.service';
-
 
 @Component({
   selector: 'app-publicacion',
@@ -15,8 +12,6 @@ export class PublicacionComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private publicacionPrd:AutentificacionService,
-    private routerprd:Router,
     ) { }
 
   ngOnInit(): void {

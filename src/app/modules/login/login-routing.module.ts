@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { RegistroComponent } from "./pages/registro/registro.component";
-import { Login2Component } from './pages/login2/login2.component';
+import { Login2Component } from './pages/login/login.component';
 
 const rutas: Routes=[{
     path:'',children:[
