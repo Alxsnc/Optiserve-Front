@@ -14,6 +14,8 @@
   <!-- MDB -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
 
+  
+
   <style>
     body {
       background-color: #f8f9fa;
@@ -75,7 +77,18 @@
                         <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Falta Contraseña</div>
                       </div>
 
-                      <div class="mb-3" style="text-align:center;">
+                      
+                      <div class="mb-3" style="text-align: left;">
+                        <label for="exampleComboBox" style="font-family: poppins, sans-serif;">Selecciona que deseas realizar</label>
+                        <div class="input-group">
+                          <select class="form-control" id="exampleComboBox">
+                            <option value="opcion1">Publicar trabajos</option>
+                            <option value="opcion2">Buscar trabajos</option>
+                          </select>                            
+                        </div>
+                      </div>                      
+
+                      <div class="mb-3" style="text-align:center;padding: 1rem;">
                         <button class="btn btn-success" style= "background-color: #940B92; color: white; font-family: poppins, sans-serif;">Ingresar</button>
                       </div>
 
@@ -97,6 +110,9 @@
 
 <!-- Incluye los scripts al final del cuerpo del documento para mejorar el rendimiento -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
