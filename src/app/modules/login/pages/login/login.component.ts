@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 
@@ -12,10 +12,14 @@ export class Login2Component implements OnInit {
 
   public myForm!: FormGroup;
 
+  roles = [{ text: 'Seleccione un rol', value: '' }, { text: 'Empleador', value: 'Empleador' }, { text: 'Empleado', value: 'Empleado' }]
+
+  selectedRol: string = '';
+
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private routerprd: Router,
-    private authService: AuthService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +29,8 @@ export class Login2Component implements OnInit {
   private createMyForm(): FormGroup {
     return this.fb.group({
       email: ['', [Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
-      contrasena: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]]
+      contrasena: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]],
+      selectedRol: ['', [Validators.required]],
     });
   }
 
@@ -35,20 +40,20 @@ export class Login2Component implements OnInit {
       return;
     }
 
-    const enteredUser= this.myForm.value;
-    
-    
+    const enteredUser = this.myForm.value;
+
+
     this.authService.getUser(enteredUser)
-    .subscribe(
-      (response) => {
-        // Si la autenticación es exitosa, redirige a la página principal
-        this.routerprd.navigateByUrl("/sesion/principal");
-      },
-      (error) => {
-        // Si hay un error en la autenticación, muestra un mensaje de error
-        alert("Usuario o contraseña inválido");
-      }
-    );
+      .subscribe(
+        (response) => {
+          // Si la autenticación es exitosa, redirige a la página principal
+          this.routerprd.navigateByUrl("/sesion/principal");
+        },
+        (error) => {
+          // Si hay un error en la autenticación, muestra un mensaje de error
+          alert("Usuario o contraseña inválido");
+        }
+      );
   }
 
   get f(): any {

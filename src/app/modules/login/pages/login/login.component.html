@@ -79,13 +79,14 @@
 
                       
                       <div class="mb-3" style="text-align: left;">
-                        <label for="exampleComboBox" style="font-family: poppins, sans-serif;">Seleccione su roll</label>
-                        <div class="input-group">
-                          <select class="form-control" id="exampleComboBox">
-                            <option value="opcion1">Empleador</option>
-                            <option value="opcion2">Empleado</option>
-                          </select>                            
-                        </div>
+                        <label for="exampleComboBox" style="font-family: poppins, sans-serif;">Rol</label>
+                        <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.selectedRol.invalid && f.selectedRol.touched">
+                          <option selected disabled hidden>Seleccione un rol</option>   
+                          <option *ngFor="let role of roles" [ngValue]="role.value">
+                            {{role.text}}
+                          </option>
+                        </select> 
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Debe seleccionar un rol</div>                      
                       </div>                      
 
                       <div class="mb-3" style="text-align:center;padding: 1rem;">
@@ -95,7 +96,7 @@
                       <div>
                         <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false" style="font-family: poppins, sans-serif;"> Ingresa aquí </a>
                       </div>
-
+                        {{ myForm.value | json }}
                     </form>
 
                 </div>
@@ -110,9 +111,6 @@
 
 <!-- Incluye los scripts al final del cuerpo del documento para mejorar el rendimiento -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 

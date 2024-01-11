@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment as ENV } from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
 })
 export class RegistroService {
-    private urlEndPoint: string = 'http://localhost:4000/api/auth' + '/singup';
+    private urlEndPoint: string = ENV.apiAuthUrl + '/singup';
 
     constructor(private http: HttpClient ) { }
 

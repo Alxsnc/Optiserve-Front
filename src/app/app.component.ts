@@ -7,12 +7,9 @@ import { environment } from 'src/environments/environment.prod';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {  
-  title='Optiservice-Front';
-  public prod=environment.production;
-  public variable=environment.urlapi;
-
-  
-
+export class AppComponent {
+  title = 'Optiservice-Front';
+  public produccion = environment.production;
+  public variable = environment.apiAuthUrl;
 
 }

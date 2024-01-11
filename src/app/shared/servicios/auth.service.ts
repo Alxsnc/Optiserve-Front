@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment as ENV} from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class AuthService {
-    private urlEndPoint: string = 'http://localhost:4000/api/auth' + '/singin';
+    private urlEndPoint: string = ENV.apiAuthUrl + '/singin';
 
     constructor(
         private http: HttpClient,
