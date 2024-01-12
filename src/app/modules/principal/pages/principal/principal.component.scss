@@ -1,0 +1,23 @@
+.BarraNav-principal{
+  background-color: #D9D7F1;
+
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;  /* Añade este estilo para eliminar el relleno a la izquierda */
+  padding-right: 0; /* Añade este estilo para eliminar el relleno a la derecha */
+  box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.div_navbar {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
+}

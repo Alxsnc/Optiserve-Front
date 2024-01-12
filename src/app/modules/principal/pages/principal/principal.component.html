@@ -1,7 +1,34 @@
 <!--Barra de navegacion-->
 
 
+  <nav class="navbar navbar-expand-lg  BarraNav-principal">
+    <div class="container-fluid">
+      <!-- Reemplaza 'ruta-a-tu-imagen' con la ruta real de tu imagen -->
+      <a class="navbar-brand mb-2" href="#"><img src="/assets/imagen/logoOpti.png" alt="Logo" width="140" height="50"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active"  routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link active" routerLink="/sinsesion/publicacion" aria-current="page" onclick="return false"> Publicaciones </a>
+          <a class="nav-link" href="cerrarSesion()">Salir</a>
+        </div>
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-success" type="submit" style="background-color: #756AB6; color: white;" >
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
 
 
-  <button (click)="cerrarSesion()" type="button" class="btn btn-outline-primary">Cerrar Sesión</button>
+  <!--Fin de la barra de navegacion-->
+
+
+
 

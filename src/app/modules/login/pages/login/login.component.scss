@@ -1,0 +1,60 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.main-container {
+  border-radius: 20px;
+  overflow-y: auto; /* Añade desbordamiento vertical */
+  max-height: 100vh; /* Altura máxima de la sección, ajusta según sea necesario */
+}
+
+.login-form {
+  border-radius: 50px;
+}
+.contenedor_general{
+
+
+}
+
+.formulario{
+  border-radius: 25px;
+  background-color: #E5D4FF;
+  padding: 1rem;
+  font-family: 'Helvetica', sans-serif
+}
+
+.titulo_iniciar{
+  font-family: 'Geologica', sans-serif;
+  text-align: center;
+}
+
+.email{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+}
+.contrasena{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+}
+.selec_Rol{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+}
+
+.invalid-feedback{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+}
+.btnIngresar{
+  color: white;
+  background-color: #5D3587;
+  font-family: 'Geologica', sans-serif;
+  text-align:center;
+  padding: 1rem;
+}
+.registro{
+  font-family: 'Geologica', sans-serif;
+}

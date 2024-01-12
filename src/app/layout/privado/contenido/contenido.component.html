@@ -1,31 +1,3 @@
-<div class="text-center pt-2 pb-2 my-2" style="padding: 1rem;">
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <!-- Reemplaza 'ruta-a-tu-imagen' con la ruta real de tu imagen -->
-      <a class="navbar-brand mb-2" href="#"><img src="/assets/imagen/logoOpti.png" alt="Logo" width="140" height="50"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active"  routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
-          <a class="nav-link active" routerLink="/sinsesion/publicacion" onclick="return false" style="font-family: poppins, sans-serif;"> Publicaciones </a>
-          <a class="nav-link" href="#">Reportes</a>
-        </div>
-        <div class="container-fluid">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-success" type="submit" style="background-color: #756AB6; color: white;" >
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-</div>
-  <!--Fin de la barra de navegacion-->
 
 <router-outlet></router-outlet>

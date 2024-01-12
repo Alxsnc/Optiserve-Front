@@ -14,36 +14,20 @@
   <!-- MDB -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
 
-  
+  <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
 
-    .main-container {
-      border-radius: 20px;
-      overflow-y: auto; /* Añade desbordamiento vertical */
-      max-height: 80vh; /* Altura máxima de la sección, ajusta según sea necesario */
-    }
+</head>
 
-    .login-form {
-      border-radius: 50px;
-    }
-  </style>
-
- </head>
 <body>
 
-
-
 <section class="login-form" style="border-radius: 50px">
-  <div class="mask d-flex align-items-center h-100 gradient-custom">
+  <div class="mask d-flex align-items-center h-100 gradient-custom contenedor_general">
     <div class="container" style="border-radius: 20px;" >
       <div class="row justify-content-center" style="border-radius: 20px;">
-        <div class="col-12 col-xl-10">
-          <div class="card">
-            <div class="card-body p-5">
+        <div class="col-11 col-xl-15">
+          <div class="container-fluid">
+            <div class="container-fluid p-5">
 
 
               <div class="row d-flex align-items-center">
@@ -52,50 +36,51 @@
                   <img src="/assets/imagen/logoOpti.png" class="img-fluid" width="350" height="700"> <!-- Ajusté las dimensiones -->
                 </div>
                 <!--Modifica la imagen-->
-                <div class="col-md-6 col-xl-7">
+                <div class="col-md-7 col-xl-7">
                   <div class="text-center pt-md-5 pb-5 my-md-5" style="border-radius: 20px;">
                     <img src="/assets/imagen/login.jpg" class="img-fluid" width="400" height="350">
 
                   </div>
                 </div>
                 <!--Modifica el contenedor del formulario-->
-                <div class="col-md-6 col-xl-5 text-center"style="border-radius: 25px; background-color: #E5D4FF;padding: 1rem;">
-                  <h2 class="fw-bold mb-4" style="font-family: poppins, sans-serif;">Iniciar Sesión</h2>
+                <div class="col-md-6 col-xl-5 text-center  formulario"style="">
+                  <h2 class="fw-bold mb-4 titulo_iniciar">Iniciar Sesión</h2>
                     <!-- Agrega aquí los elementos del formulario -->
 
                     <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" style="font-family: poppins, sans-serif;">Email</label>
+                      <div class="mb-3 email">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
                         <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email Obligatorio</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" >Email Obligatorio</div>
                       </div>
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Contraseña</label>
+                      <div class="mb-3 contrasena">
+                        <label for="exampleFormControlInput1" class="form-label" >Contraseña</label>
                         <input formControlName="contrasena" [class.is-invalid]="f.contrasena.errors && f.contrasena.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Falta Contraseña</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" >Falta Contraseña</div>
                       </div>
 
-                      
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleComboBox" style="font-family: poppins, sans-serif;">Rol</label>
+
+                      <div class="mb-3 selec_Rol">
+                        <label for="exampleComboBox">Rol</label>
                         <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.selectedRol.invalid && f.selectedRol.touched">
-                          <option selected disabled hidden>Seleccione un rol</option>   
+                          <option selected disabled hidden>Seleccione un rol</option>
                           <option *ngFor="let role of roles" [ngValue]="role.value">
                             {{role.text}}
                           </option>
-                        </select> 
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Debe seleccionar un rol</div>                      
-                      </div>                      
-
-                      <div class="mb-3" style="text-align:center;padding: 1rem;">
-                        <button class="btn btn-success" style= "background-color: #940B92; color: white; font-family: poppins, sans-serif;">Ingresar</button>
+                        </select>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" >Debe seleccionar un rol</div>
                       </div>
 
-                      <div>
-                        <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false" style="font-family: poppins, sans-serif;"> Ingresa aquí </a>
+                      <div class="mb-3 ">
+                        <button class="btn btn-success btnIngresar ">Ingresar</button>
                       </div>
+
+                      <div class="registro">
+                        <label>¿No tienes cuenta?</label><a href="#" routerLink="/sinsesion/registro" onclick="return false"> Ingresa aquí </a>
+                      </div>
+
                         {{ myForm.value | json }}
                     </form>
 
