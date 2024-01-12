@@ -22,17 +22,16 @@ export class PublicacionComponent implements OnInit {
     return this.fb.group({
       id_publicacion:['',[Validators.required,Validators.pattern(/^[0-9]+$/)]],
       id_usuario:['',[Validators.required,Validators.pattern(/^[0-9]+$/)]],
-      titulo:['',[Validators.required,Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/),Validators.maxLength(100)]],
-      descripcion:['',[Validators.required,Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/),Validators.maxLength(300)]],
+      titulo:['',[Validators.maxLength(100)]],
+      descripcion:['',[Validators.maxLength(300)]],
       pago:['',[Validators.required,Validators.pattern(/^[0-9]+$/),Validators.maxLength(4)]],
-      fecha_publicacion:['',Validators.required],
-      id_categoria:['',[Validators.required,Validators.pattern(/^[0-9]+$/)]],
+      ciudad:['',[Validators.required,Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/),Validators.maxLength(20)]],
       categoria:['',[Validators.required,Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/),Validators.maxLength(20)]],
     });
   }
 
   public submitFormulario(){
-    
+
     if(this.myForm.invalid){
       Object.values(this.myForm.controls).forEach(control=>{control.markAllAsTouched()});
       return;

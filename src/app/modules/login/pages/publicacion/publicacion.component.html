@@ -85,26 +85,26 @@
 
                   <div class="mb-3" style="text-align: left;">
                     <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Título</label>
-                    <input formControlName="nombre" [class.is-invalid]="f.nombre.errors && f.nombre.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Nombre obligatorio solo ingrese letras</div>
+                    <input formControlName="nombre" [class.is-invalid]="f.titulo.errors && f.titulo.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Titulo del trabajo obligatorio</div>
                   </div>
 
                   <div class="mb-3" style="text-align: left;">
                     <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Descripción</label>
-                    <input formControlName="apellido" [class.is-invalid]="f.apellido.errors && f.apellido.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio, no ingrese números</div>
+                    <input formControlName="apellido" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Descripcion del trabajo obligatoria</div>
                   </div>
 
                   <div class="mb-3" style="text-align: left;">
                     <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Ciudad</label>
-                    <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Cedula obligatoria sin guión</div>
+                    <input formControlName="id_usuario" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Ciudad Obligatoria</div>
                   </div>
 
                   <div class="mb-3" style="text-align: left;">
                     <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Salario</label>
-                    <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email obligatorio</div>
+                    <input formControlName="email" [class.is-invalid]="f.pago.errors && f.pago.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Pago Obligatorio</div>
                   </div>
 
                   <div class="mb-3 selec_Rol">
