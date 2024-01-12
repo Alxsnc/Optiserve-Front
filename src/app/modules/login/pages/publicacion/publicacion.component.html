@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Publicaciones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Iniciar Sesión</title>
 
-    <!-- Agrega la referencia al archivo CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOxq30pWlD5I1PQ7N3R4P4ZpB9aJiJlMy" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
+
+  <!-- MDB -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
+
 </head>
-<body>
 
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Contenido a la izquierda -->
-            <main role="main" class="col-md-6 ml-sm-auto col-lg-6 px-md-4">
-                <div class="container mt-3">
-                    <h1>Contenido de la Página</h1>
-                    <p>Este es un ejemplo de una página con una barra de navegación responsive a la derecha y contenido a la izquierda utilizando Bootstrap.</p>
-                    <!-- Puedes agregar más contenido aquí -->
-                </div>
-            </main>
 
-            <!-- Barra de navegación responsive a la derecha -->
-            <nav class="col-md-6 col-lg-6 d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                Crear publicaciones
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Tus publicaciones
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Publicaciones Eliminadas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+<!-- Barra de navegacion -->
+<nav class="navbar navbar-expand-lg navbar-light BarraNav-principal">
+  <div class="container-fluid">
+    <a class="navbar-brand mb-2" href="#"><img src="/assets/imagen/logoOpti.png" alt="Logo" width="140" height="50"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
+        <a class="nav-link active" routerLink="/sinsesion/publicacion" onclick="return false">Publicaciones</a>
+        <a class="nav-link" href="#">Reportes</a>
+        <a class="nav-link" href="#">Mis contratos</a>
+        <a class="nav-link" href="cerrarSesion()">Salir</a>
+      </div>
 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+      <div class="search-container">
+        <input type="text" class="form-control me-2 search-input" placeholder="Buscar">
+        <button class="btn btn-success search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
     </div>
-
-    <!-- Agrega la referencia al archivo JavaScript de Bootstrap (opcional, pero necesario para algunas funcionalidades) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-JdZ1WpFQW5pE5JusR5miF5Zf3fVMbweG4L82+q0HqbXVk2Zl91zZt2aIflaoYXxM" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOxq30pWlD5I1PQ7N3R4P4ZpB9aJiJlMy" crossorigin="anonymous"></script>
-</body>
-</html>
+  </div>
+</nav>
+<!-- Fin de la barra de navegacion -->

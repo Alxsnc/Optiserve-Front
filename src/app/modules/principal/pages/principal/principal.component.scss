@@ -21,3 +21,30 @@ body, html {
   padding: 0;
   box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  position: fixed;
+  top: 0; /* Puedes ajustar este valor según sea necesario */
+  right: 170px; /* Coloca el contenedor en el extremo derecho */
+  margin: 20px;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  width: 400px
+}
+
+.search-button {
+  padding: 8px 12px;
+  background-color: #756AB6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
