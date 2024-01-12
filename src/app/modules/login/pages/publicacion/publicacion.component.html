@@ -83,33 +83,33 @@
 
                 <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
-                  <div class="mb-3" style="text-align: left;">
-                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Título</label>
+                  <div class="mb-3 titulo">
+                    <label for="exampleFormControlInput1" class="form-label">Título</label>
                     <input formControlName="nombre" [class.is-invalid]="f.titulo.errors && f.titulo.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Titulo del trabajo obligatorio</div>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" >Titulo del trabajo obligatorio</div>
                   </div>
 
-                  <div class="mb-3" style="text-align: left;">
-                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Descripción</label>
+                  <div class="mb-3 descripcion">
+                    <label for="exampleFormControlInput1" class="form-label">Descripción</label>
                     <input formControlName="apellido" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Descripcion del trabajo obligatoria</div>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Descripcion del trabajo obligatoria</div>
                   </div>
 
-                  <div class="mb-3" style="text-align: left;">
-                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Ciudad</label>
+                  <div class="mb-3 ciudad">
+                    <label for="exampleFormControlInput1" class="form-label">Ciudad</label>
                     <input formControlName="id_usuario" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Ciudad Obligatoria</div>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Ciudad Obligatoria</div>
                   </div>
 
-                  <div class="mb-3" style="text-align: left;">
-                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Salario</label>
+                  <div class="mb-3 salario">
+                    <label for="exampleFormControlInput1" class="form-label">Salario</label>
                     <input formControlName="email" [class.is-invalid]="f.pago.errors && f.pago.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Pago Obligatorio</div>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Pago Obligatorio</div>
                   </div>
 
-                  <div class="mb-3 selec_Rol">
+                  <div class="mb-3 selec_Rol categoria">
                     <label for="exampleComboBox">Categoria</label>
-                    <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.selectedRol.invalid && f.selectedRol.touched">
+                    <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.categoria.invalid && f.categoria.touched">
                       <option selected disabled hidden>Seleccione una Categoria</option>
                       <option value="opcion1">Electricidad</option>
                       <option value="opcion2">Plomeria</option>
