@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Iniciar Sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Publicaciones</title>
 
-  <!-- Font Awesome -->
+   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
   <!-- Google Fonts -->
@@ -17,7 +17,6 @@
 
 </head>
 
-
 <!-- Barra de navegacion -->
 <nav class="navbar navbar-expand-lg navbar-light BarraNav-principal">
   <div class="container-fluid">
@@ -28,9 +27,9 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
-        <a class="nav-link active" routerLink="/sinsesion/publicacion" onclick="return false">Publicaciones</a>
+        <a class="nav-link active" href="#" onclick="location.reload(); return false;">Publicaciones</a>
         <a class="nav-link" href="#">Reportes</a>
-        <a class="nav-link" href="#">Mis contratos</a>
+        <a class="nav-link" href="#">Contratos Aprobados</a>
         <a class="nav-link" href="cerrarSesion()">Salir</a>
       </div>
 
@@ -44,3 +43,103 @@
   </div>
 </nav>
 <!-- Fin de la barra de navegacion -->
+
+<body>
+
+  <div class="container-fluid divBarra">
+    <div class="row">
+        <!-- Barra de navegación responsive a la izquierda -->
+        <nav class="col-md-2 col-lg-2 d-md-block bg-light sidebar barra_Publicacion">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Crear publicaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Modificar publicaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Eliminar Publicaciones
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <!-- Agrega más enlaces según sea necesario -->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Contenido a la derecha -->
+        <main role="main" class="col-md-8 ml-sm-auto col-lg-9 px-md-4">
+            <div class="container mt-3">
+                <h1>Crear publicación</h1>
+
+                <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+
+                  <div class="mb-3" style="text-align: left;">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Título</label>
+                    <input formControlName="nombre" [class.is-invalid]="f.nombre.errors && f.nombre.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Nombre obligatorio solo ingrese letras</div>
+                  </div>
+
+                  <div class="mb-3" style="text-align: left;">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Descripción</label>
+                    <input formControlName="apellido" [class.is-invalid]="f.apellido.errors && f.apellido.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio, no ingrese números</div>
+                  </div>
+
+                  <div class="mb-3" style="text-align: left;">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Ciudad</label>
+                    <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Cedula obligatoria sin guión</div>
+                  </div>
+
+                  <div class="mb-3" style="text-align: left;">
+                    <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Salario</label>
+                    <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email obligatorio</div>
+                  </div>
+
+                  <div class="mb-3 selec_Rol">
+                    <label for="exampleComboBox">Categoria</label>
+                    <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.selectedRol.invalid && f.selectedRol.touched">
+                      <option selected disabled hidden>Seleccione una Categoria</option>
+                      <option value="opcion1">Electricidad</option>
+                      <option value="opcion2">Plomeria</option>
+                      <option value="opcion3">Salud y Cuidado Personal</option>
+                      <option value="opcion3">Eduación y Formación</option>
+                      <option value="opcion3">Arte y Entretenimiento</option>
+                      <option value="opcion3">Construccion</option>
+                      <option value="opcion3">Tecnologias de la Información</option>
+
+                    </select>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" >Debe seleccionar un rol</div>
+                  </div>
+
+                  <div class="mb-3" style="text-align:center;">
+                    <button class="btn btn-success botones"[disabled]="!myForm.valid">Publicar</button>
+                    <button class="btn btn-success botones"[disabled]="!myForm.valid">Cancelar</button>
+                  </div>
+
+
+
+                 </form>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+    <!-- Agrega la referencia al archivo JavaScript de Bootstrap (opcional, pero necesario para algunas funcionalidades) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-JdZ1WpFQW5pE5JusR5miF5Zf3fVMbweG4L82+q0HqbXVk2Zl91zZt2aIflaoYXxM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyOxq30pWlD5I1PQ7N3R4P4ZpB9aJiJlMy" crossorigin="anonymous"></script>
+</body>
+</html>

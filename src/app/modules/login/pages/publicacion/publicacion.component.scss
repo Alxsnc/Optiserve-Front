@@ -48,3 +48,28 @@ body, html {
   border-radius: 4px;
   cursor: pointer;
 }
+.divBarra{
+  color:#434242;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;  /* Añade este estilo para eliminar el relleno a la izquierda */
+  padding-right: 0;
+}
+
+.barra_Publicacion .nav-link{
+  padding: 2rem;
+  font-family: 'Geologica', sans-serif;
+  font-size: 17px;
+  text-align: left;
+  color:white;
+  background-color:#756AB6;
+}
+
+.botones{
+  background-color: #940B92;
+  color: white;
+  font-family: 'Geologica', sans-serif;
+  margin-right: 50px;
+}
+
+
