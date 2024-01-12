@@ -77,65 +77,60 @@
         </nav>
 
         <!-- Contenido a la derecha -->
-        <main role="main" class="col-md-8 ml-sm-auto col-lg-9 px-md-4">
-            <div class="container mt-3">
-                <h1>Crear publicación</h1>
+      <div div role="main" class="col-md-8 ml-sm-auto col-lg-9 px-md-4">
+        <div class="container mt-3">
+          <h1>Crear publicación</h1>
 
-                <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+          <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
-                  <div class="mb-3 titulo">
-                    <label for="exampleFormControlInput1" class="form-label">Título</label>
-                    <input formControlName="nombre" [class.is-invalid]="f.titulo.errors && f.titulo.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" >Titulo del trabajo obligatorio</div>
-                  </div>
-
-                  <div class="mb-3 descripcion">
-                    <label for="exampleFormControlInput1" class="form-label">Descripción</label>
-                    <input formControlName="apellido" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Descripcion del trabajo obligatoria</div>
-                  </div>
-
-                  <div class="mb-3 ciudad">
-                    <label for="exampleFormControlInput1" class="form-label">Ciudad</label>
-                    <input formControlName="id_usuario" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Ciudad Obligatoria</div>
-                  </div>
-
-                  <div class="mb-3 salario">
-                    <label for="exampleFormControlInput1" class="form-label">Salario</label>
-                    <input formControlName="email" [class.is-invalid]="f.pago.errors && f.pago.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback">Pago Obligatorio</div>
-                  </div>
-
-                  <div class="mb-3 selec_Rol categoria">
-                    <label for="exampleComboBox">Categoria</label>
-                    <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.categoria.invalid && f.categoria.touched">
-                      <option selected disabled hidden>Seleccione una Categoria</option>
-                      <option value="opcion1">Electricidad</option>
-                      <option value="opcion2">Plomeria</option>
-                      <option value="opcion3">Salud y Cuidado Personal</option>
-                      <option value="opcion3">Eduación y Formación</option>
-                      <option value="opcion3">Arte y Entretenimiento</option>
-                      <option value="opcion3">Construccion</option>
-                      <option value="opcion3">Tecnologias de la Información</option>
-
-                    </select>
-                    <div id="validationServerUsernameFeedback" class="invalid-feedback" >Debe seleccionar un rol</div>
-                  </div>
-
-                  <div class="mb-3" style="text-align:center;">
-                    <button class="btn btn-success botones"[disabled]="!myForm.valid">Publicar</button>
-                    <button class="btn btn-success botones"[disabled]="!myForm.valid">Cancelar</button>
-                  </div>
-
-
-
-                 </form>
-
+            <!-- Titulo -->
+            <div class="mb-3 titulo">
+              <label for="tituloInput" class="form-label">Título</label>
+              <input formControlName="titulo" [class.is-invalid]="f.titulo.errors && f.titulo.touched" type="text" class="form-control" id="tituloInput" placeholder="Ingresa tu título">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback" >Titulo del trabajo obligatorio</div>
             </div>
-        </main>
+
+            <!-- Descripcion -->
+            <div class="mb-3 descripcion">
+              <label for="descripcionInput" class="form-label">Descripción</label>
+              <input formControlName="descripcion" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="descripcionInput" placeholder="Ingresa tu descripción">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback">Descripción del trabajo obligatoria</div>
+            </div>
+
+            <!-- Ciudad -->
+            <div class="mb-3 ciudad">
+              <label for="ciudadInput" class="form-label">Ciudad</label>
+              <input formControlName="ciudad" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="ciudadInput" placeholder="Ingresa tu ciudad">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback">Ciudad Obligatoria</div>
+            </div>
+
+            <!-- Salario -->
+            <div class="mb-3 salario">
+              <label for="salarioInput" class="form-label">Salario</label>
+              <input formControlName="pago" [class.is-invalid]="f.pago.errors && f.pago.touched" type="text" class="form-control" id="salarioInput" placeholder="Ingresa tu salario">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback">Pago Obligatorio</div>
+            </div>
+
+            <!-- Categoria -->
+            <div class="mb-3 selec_Rol categoria">
+              <label for="categoriaSelect">Categoria</label>
+              <select formControlName="categoria" class="form-select" [class.is-invalid]="f.categoria.invalid && f.categoria.touched" id="categoriaSelect">
+                <!-- ... (Opciones de tu select aquí) ... -->
+              </select>
+              <div id="validationServerUsernameFeedback" class="invalid-feedback" >Debe seleccionar una categoría</div>
+            </div>
+
+            <div class="mb-3" style="text-align:center;">
+              <button class="btn btn-success botones" [disabled]="!myForm.valid">Publicar</button>
+              <button class="btn btn-success botones" [disabled]="!myForm.valid">Cancelar</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
     <!-- Agrega la referencia al archivo JavaScript de Bootstrap (opcional, pero necesario para algunas funcionalidades) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
