@@ -1,12 +1,12 @@
 .BarraNav-principal{
   background-color: #FF9933;
-
   width: 100%;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;  /* Añade este estilo para eliminar el relleno a la izquierda */
   padding-right: 0; /* Añade este estilo para eliminar el relleno a la derecha */
   box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
+
 }
 
 body, html {
@@ -74,19 +74,45 @@ body, html {
   color:#434242;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 0;  /* Añade este estilo para eliminar el relleno a la izquierda */
+  padding-left: 0;
   padding-right: 0;
+  height: auto;
+  width: auto;
+}
+.barra_Publicacion{
+  background: url('/assets/imagen/FONDO_CON_GRAFICA_1.png') center/cover no-repeat;
+  width: auto;
+  height: auto;
+  width: auto;
 }
 
 .barra_Publicacion .nav-link{
-  width: 100%;
-  height: 130px;
+ // width: 100%;
+  //height: 130px;
   padding: 2rem;
   font-family: 'Geologica', sans-serif;
   font-size: 17px;
   text-align: left;
   color:white;
-  background-color:#756AB6;
+  //background-color:#756AB6;
+  height: auto;
+  width: auto;
+}
+
+#barLateral .nav-link:hover{
+  color: white;
+  font-weight: bold;
+  background-color: #FF9933;
+  transition: background-color 0.3s ease;
+  font-size: 18px; /* Tamaño de fuente más pequeño */
+  width: 100%; /* Ancho al 100% del contenedor */
+  //padding: 2px;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+.nav-item{
+
 }
 
 .boton {
