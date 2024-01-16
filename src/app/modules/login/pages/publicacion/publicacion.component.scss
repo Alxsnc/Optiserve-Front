@@ -21,7 +21,27 @@ body, html {
   padding: 0;
   box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
 }
+.navLetras{
+  color: white;
 
+}
+#navbarNavAltMarkup{
+  color: white;
+}
+.navLetras .nav-link {
+  color: white;
+}
+.navLetras .nav-link.active {
+  color: white;
+  font-weight: bold;
+}
+.nav-link{
+  transition:color 0.3s ;
+}
+.navLetras .nav-link:hover {
+  color: white;
+  background-color:#FF9933 ;
+}
 .search-container {
   display: flex;
   align-items: center;

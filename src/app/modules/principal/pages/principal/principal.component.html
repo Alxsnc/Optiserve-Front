@@ -25,10 +25,11 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav navLetras">
         <a class="nav-link active" routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
-        <a class="nav-link active" routerLink="/sinsesion/publicacion" onclick="return false">Publicaciones</a>
+        <a class="nav-link" routerLink="/sinsesion/publicacion" onclick="return ">Publicaciones</a>
         <a class="nav-link" href="#">Reportes</a>
         <a class="nav-link" href="#">Mis contratos</a>
         <a class="nav-link" href="cerrarSesion()">Salir</a>
@@ -36,7 +37,7 @@
 
       <div class="search-container">
         <input type="text" class="form-control me-2 search-input" placeholder="Buscar">
-        <button class="btn btn-success search-button">
+        <button class="btn btn-warning search-button">
           <i class="fas fa-search"></i>
         </button>
       </div>
