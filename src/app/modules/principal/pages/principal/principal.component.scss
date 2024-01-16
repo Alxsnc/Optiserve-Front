@@ -1,5 +1,5 @@
 .BarraNav-principal{
-  background-color: #D9D7F1;
+  background-color: #006666;
 
   width: 100%;
   margin-left: 0;
@@ -7,6 +7,7 @@
   padding-left: 0;  /* Añade este estilo para eliminar el relleno a la izquierda */
   padding-right: 0; /* Añade este estilo para eliminar el relleno a la derecha */
   box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
+  color: white;
 }
 
 body, html {
@@ -21,6 +22,10 @@ body, html {
   padding: 0;
   box-sizing: border-box; /* Asegura que el ancho y alto incluyan el relleno y el borde */
 }
+.navLetras{
+  color: white;
+
+}
 
 .search-container {
   display: flex;
@@ -28,7 +33,7 @@ body, html {
   justify-content: flex-end; /* Alinea el contenido a la derecha */
   position: fixed;
   top: 0; /* Puedes ajustar este valor según sea necesario */
-  right: 170px; /* Coloca el contenedor en el extremo derecho */
+  right: 200px; /* Coloca el contenedor en el extremo derecho */
   margin: 20px;
 }
 
@@ -37,7 +42,7 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 8px;
-  width: 400px
+  width: 450px
 }
 
 .search-button {
