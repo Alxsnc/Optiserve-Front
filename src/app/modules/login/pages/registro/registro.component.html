@@ -10,111 +10,85 @@
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
 
   <!-- MDB -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css">
 
-  <style>
-    body {
-      padding-top: 56px; /* Altura de la barra de navegación */
-    }
-
-    .scrollable-container {
-      overflow-x: auto;
-      overflow-y: auto;
-      max-height: 110vh; /* Altura máxima del contenedor */
-    }
-
-    /* Estilo adicional para la barra de navegación */
-    .navbar-fixed {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      transition: top 0.3s; /* Animación para ocultar/mostrar la barra de navegación */
-    }
-
-    .navbar-fixed.show {
-      top: 0;
-    }
-
-    .navbar-fixed.hide {
-      top: -56px; /* Oculta la barra de navegación */
-    }
-  </style>
 </head>
 <body>
 
-<section class="login-form" style="border-radius: 50px">
+<section class="login-form">
   <div class="mask d-flex align-items-center h-100 gradient-custom">
-    <div class="container scrollable-container" style="border-radius: 20px;" >
-      <div class="row justify-content-center" style="border-radius: 20px;">
-        <div class="col-12 col-xl-10">
-          <div class="card">
-            <div class="card-body p-5">
-              <div class="row d-flex align-items-center"style="padding: 1rem;">
+    <div class="container scrollable-container">
+      <div class="row justify-content-center" >
+        <div class="col-12 col-xl-12 divContGrande">
+          <!--Contenedor de imagen y formulario-->
+          <div class="card contImagForm">
+           <div class="container">
+              <div class="row d-flex align-items-center scrollBorder">
 
-                <div class="text-center pt-2 pb-2 my-2" style="padding: 1rem;">
-                  <img src="/assets/imagen/logoOpti.png" class="img-fluid" width="350" height="700">
+                <!--div barra superior -->
+                <div class="text-center pt-2 pb-2 my-2 supBarr">
+                  <img src="/assets/imagen/LOGO_OPTISERVICE _HORIZONTAL.png" class="img-fluid imgLogo">
                 </div>
 
+                <!--Contenedor Imagen-->
                 <div class="container">
                   <div class="row">
                     <!-- Div a la Izquierda -->
-                    <div class="col-md-6">
-                      <div class="text-center pt-md-5 pb-5 my-md-5" style="border-radius: 20px;">
-                        <img src="/assets/imagen/registro.png" class="img-fluid" width="500" height="500">
+                    <div class="col-md-6 contImgCuadra">
+                      <div class="text-center pt-md-5 pb-5 my-md-5">
+                        <img src="/assets/imagen/new_registro.png" class="img-fluid" >
                       </div>
                     </div>
 
                     <!-- Div a la Derecha -->
-                    <div class="col-md-6" style="border-radius: 20px; background-color: #E5D4FF;padding: 1rem;">
+                    <div class="col-md-6 divForm">
 
-                      <h2 class="fw-bold mb-4" style="font-family: poppins, sans-serif; text-align: center;">Registrarse</h2>
+                      <h2 class="fw-bold mb-4 regisTitulo">Registrarse</h2>
 
                       <!--Aqui van los elementos del formulario-->
                      <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Nombre</label>
+                      <div class="mb-3 nombre">
+                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
                         <input formControlName="nombre" [class.is-invalid]="f.nombre.errors && f.nombre.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Nombre obligatorio solo ingrese letras</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Nombre obligatorio solo ingrese letras</div>
                       </div>
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Apellido</label>
+                      <div class="mb-3 apellido">
+                        <label for="exampleFormControlInput1" class="form-label">Apellido</label>
                         <input formControlName="apellido" [class.is-invalid]="f.apellido.errors && f.apellido.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu apellido">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Apellido obligatorio, no ingrese números</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Apellido obligatorio, no ingrese números</div>
                       </div>
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Cédula</label>
+                      <div class="mb-3 cedula">
+                        <label for="exampleFormControlInput1" class="form-label">Cédula</label>
                         <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Cedula obligatoria sin guión</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Cedula obligatoria sin guión</div>
                       </div>
 
-                      <div class="mb-3"style="text-align:left">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Fecha de Nacimiento  </label>
+                      <div class="mb-3 fechaNac">
+                        <label for="exampleFormControlInput1" class="form-label">Fecha de Nacimiento  </label>
                         <input formControlName="fecha_nac" [class.is-invalid]="f.fecha_nac.errors && f.fecha_nac.touched" type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa tu fecha de nacimiento">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Fecha de nacimiento obligatoria</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Fecha de nacimiento obligatoria</div>
                       </div>
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Email</label>
+                      <div class="mb-3 email">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
                         <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu email">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;">Email obligatorio</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Email obligatorio</div>
                       </div>
 
-                      <div class="mb-3" style="text-align: left;">
-                        <label for="exampleFormControlInput1" class="form-label" style="font-family: poppins, sans-serif;" >Contraseña</label>
+                      <div class="mb-3 contrasena">
+                        <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
                         <input formControlName="contrasena" [class.is-invalid]="f.contrasena.errors && f.contrasena.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback" style="font-family: poppins, sans-serif;" >Contraseña obligatoria, Use almenos un carácter especial</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Contraseña obligatoria, Use almenos un carácter especial</div>
                       </div>
 
                       <div class="mb-3" style="text-align:center;">
-                        <button class="btn btn-success"
-                                style="background-color: #940B92; color: white; font-family: poppins, sans-serif;"
-                                [disabled]="!myForm.valid">Registrarse</button>
+                        <button class="btn btn-success btnRegistro"[disabled]="!myForm.valid">Registrarse</button>
                       </div>
 
                       <div>

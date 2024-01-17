@@ -29,8 +29,7 @@
       <div class="navbar-nav navLetras">
         <a class="nav-link" routerLink="/sesion/principal" aria-current="page" href="#">Inicio</a>
         <a class="nav-link active" routerLink="/sinsesion/publicacion" onclick="return ">Publicaciones</a>
-        <a class="nav-link" href="#">Reportes</a>
-        <a class="nav-link" href="#">Mis contratos</a>
+        <a class="nav-link" href="#">Mi Perfil</a>
         <a class="nav-link" href="cerrarSesion()">Salir</a>
       </div>
 
@@ -60,12 +59,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            Modificar publicaciones
+                            Publicaciones activas
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            Eliminar Publicaciones
+                            Publicaciones cerradas
                         </a>
                     </li>
                     <li class="nav-item">
@@ -96,6 +95,12 @@
               <label for="descripcionInput" class="form-label">Descripción</label>
               <input formControlName="descripcion" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="descripcionInput" placeholder="Ingresa tu descripción">
               <div id="validationServerUsernameFeedback" class="invalid-feedback">Descripción del trabajo obligatoria</div>
+            </div>
+
+            <div class="mb-3 provincia">
+              <label for="ciudadInput" class="form-label">Provincia</label>
+              <input formControlName="ciudad" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="ciudadInput" placeholder="Ingresa tu ciudad">
+              <div id="validationServerUsernameFeedback" class="invalid-feedback">Provincia Obligatoria</div>
             </div>
 
             <!-- Ciudad -->

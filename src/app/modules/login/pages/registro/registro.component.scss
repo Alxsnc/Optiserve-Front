@@ -1,0 +1,102 @@
+.scrollable-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 110vh; /* Altura máxima del contenedor */
+  border-radius:20px;
+  color: white;
+}
+
+/* Estilo adicional para la barra de navegación */
+.navbar-fixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: top 0.3s; /* Animación para ocultar/mostrar la barra de navegación */
+}
+
+.navbar-fixed.show {
+  top: 0;
+}
+
+.navbar-fixed.hide {
+  top: -56px; /* Oculta la barra de navegación */
+}
+.scrollBorder{
+  padding: 1rem;
+}
+
+.subBarr{
+  padding: 1rem;
+}
+
+.imgLogo{
+  width:350px;
+  height:100px;
+}
+
+.contImgCuadra{
+  width: 600px;
+  height: 600px;
+  border-radius: 20px;
+}
+
+.divContGrande{
+  color: white;
+}
+
+.divForm{
+  border-radius: 20px;
+  background-color: #006666;
+  padding: 1rem;
+  font-family: 'Geologica', sans-serif;
+  color: white;
+}
+
+.regisTitulo{
+  font-family: 'Geologica', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.invalid-feedback{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  }
+
+.divForm .nombre label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+.divForm .apellido label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+.divForm .cedula label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+.divForm .fechaNac label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+.divForm .email label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+.divForm .contrasena label{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+  color: white !important;
+}
+
+.btnRegistro{
+  background: url('/assets/imagen/BOTON_6.png') center/cover no-repeat;
+  color: white;
+  font-family: 'Geologica', sans-serif;
+}
