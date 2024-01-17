@@ -56,14 +56,14 @@
                         <div id="validationServerUsernameFeedback" class="invalid-feedback" >Email Obligatorio</div>
                       </div>
 
-                      <div class="mb-3 contrasena">
+                      <div class="mb-3 password">
                         <label for="exampleFormControlInput1">Contraseña</label>
-                        <input formControlName="contrasena" [class.is-invalid]="f.contrasena.errors && f.contrasena.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
+                        <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu contraseña">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback" >Falta Contraseña</div>
                       </div>
 
 
-                      <div class="mb-3 selec_Rol">
+                      <div class="mb-3 select_Rol">
                         <label for="exampleComboBox">Rol</label>
                         <select formControlName="selectedRol" class="form-select" [class.is-invalid]="f.selectedRol.invalid && f.selectedRol.touched">
                           <option selected disabled hidden>Seleccione un rol</option>
@@ -81,8 +81,6 @@
                       <div class="registro">
                         <label>¿No tienes cuenta?</label><a class="a_link" href="#" routerLink="/sinsesion/registro" onclick="return false"> Ingresa aquí </a>
                       </div>
-
-                        {{ myForm.value | json }}
                     </form>
 
                 </div>

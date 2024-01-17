@@ -29,7 +29,7 @@ export class Login2Component implements OnInit {
   private createMyForm(): FormGroup {
     return this.fb.group({
       email: ['', [Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
-      contrasena: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]],
       selectedRol: ['', [Validators.required]],
     });
   }
@@ -46,6 +46,11 @@ export class Login2Component implements OnInit {
     this.authService.getUser(enteredUser)
       .subscribe(
         (response) => {
+          // Almacena el token en el localStorage
+          localStorage.setItem('token', response.token);
+
+          this.authService.decodeToken();
+
           // Si la autenticación es exitosa, redirige a la página principal
           this.routerprd.navigateByUrl("/sesion/principal");
         },
@@ -54,7 +59,7 @@ export class Login2Component implements OnInit {
           alert("Usuario o contraseña inválido");
         }
       );
-  }
+    }
 
   get f(): any {
     return this.myForm.controls;

@@ -10,47 +10,48 @@ import { RegistroService } from 'src/app/shared/servicios/registro.service';
 })
 export class RegistroComponent implements OnInit {
 
-  public myForm!:FormGroup;
+  public myForm!: FormGroup;
 
   constructor(
-    private fb:FormBuilder,
-    private routerprd:Router,
-    private registroService:RegistroService) { }
+    private fb: FormBuilder,
+    private routerprd: Router,
+    private registroService: RegistroService) { }
 
   ngOnInit(): void {
-    this.myForm=this.createMyForm();
+    this.myForm = this.createMyForm();
   }
 
-  private createMyForm():FormGroup{
+  private createMyForm(): FormGroup {
     return this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/)]],
-      apellido:['',[Validators.required, Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/)]],
-      id_usuario:['',[Validators.required, Validators.pattern(/^[0-9]+$/), Validators.minLength(10),Validators.maxLength(10)]],
-      fecha_nac:['',Validators.required],
-      email:['',[Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
-      contrasena:['',[Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]]
+      apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/)]],
+      id_usuario: ['', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.minLength(10), Validators.maxLength(10)]],
+      fecha_nacimiento: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]]
     });
   }
 
-  public submitFormulario(){
-    if(this.myForm.invalid){
-      Object.values(this.myForm.controls).forEach(control=>{control.markAllAsTouched()});
+  public submitFormulario() {
+    if (this.myForm.invalid) {
+      Object.values(this.myForm.controls).forEach(control => { 
+        control.markAllAsTouched() });
       return;
     }
-    
+
     let usuario = this.myForm.value;
 
     console.trace(usuario);
 
     this.registroService.registrarUsuario(usuario).subscribe();
-    
+
     alert("Usuario registrado con éxito");
-    
+
     this.routerprd.navigateByUrl("/login");
 
   }
 
-  public get f():any{
+  public get f(): any {
     return this.myForm.controls;
   }
 
