@@ -99,4 +99,23 @@
   background: url('/assets/imagen/BOTON_6.png') center/cover no-repeat;
   color: white;
   font-family: 'Geologica', sans-serif;
+  align-items: center;
+  text-align: center;
+}
+
+.tieneCuenta {
+  font-family: poppins, sans-serif;
+  text-align: left;
+  color: white;
+}
+
+.tieneCuenta a {
+  color: #ff9933; /* Cambia "#ff0000" al color deseado, puede ser un nombre de color o un código hexadecimal */
+  /* Otras propiedades opcionales, como cambiar el color al pasar el ratón, por ejemplo: */
+  /* transition: color 0.3s ease-in-out; */
+}
+
+/* Opcional: Cambiar el color al pasar el ratón (hover) */
+.tieneCuenta a:hover {
+  color: #CC6666; /* Cambia "#00ff00" al color deseado al pasar el ratón sobre el enlace */
 }

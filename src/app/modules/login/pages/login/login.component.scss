@@ -59,13 +59,19 @@ body, html {
 
 }
 
-
-.registro{
-  font-family: 'Geologica', sans-serif;
+.registro {
+  font-family: poppins, sans-serif;
   text-align: left;
-  padding: 1rem;
   color: white;
 }
-a.link{
-  color: white;
+
+.registro a {
+  color: #ff9933; /* Cambia "#ff0000" al color deseado, puede ser un nombre de color o un código hexadecimal */
+  /* Otras propiedades opcionales, como cambiar el color al pasar el ratón, por ejemplo: */
+  /* transition: color 0.3s ease-in-out; */
+}
+
+/* Opcional: Cambiar el color al pasar el ratón (hover) */
+.registro a:hover {
+  color: #CC6666; /* Cambia "#00ff00" al color deseado al pasar el ratón sobre el enlace */
 }
