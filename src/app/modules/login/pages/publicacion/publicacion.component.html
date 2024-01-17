@@ -116,14 +116,20 @@
             <div class="mb-3 selec_Rol categoria">
               <label for="categoriaSelect">Categoria</label>
               <select formControlName="categoria" class="form-select" [class.is-invalid]="f.categoria.invalid && f.categoria.touched" id="categoriaSelect">
-                <!-- ... (Opciones de tu select aquí) ... -->
+                <option value="opcion1">Electricidad</option>
+                <option value="opcion2">Plomeria</option>
+                <option value="opcion3">Salud y Cuidado PErsonal</option>
+                <option value="opcion1">Educacion y Formacion</option>
+                <option value="opcion2">Arte y Entretenimiento</option>
+                <option value="opcion3">Construccion</option>
+                <option value="opcion3">Tecnologias de la información</option>
               </select>
               <div id="validationServerUsernameFeedback" class="invalid-feedback" >Debe seleccionar una categoría</div>
             </div>
 
-            <div class="mb-3 boton">
-              <button class="btn btn botones" [disabled]="!myForm.valid">Publicar</button>
-              <button class="btn btn botones" [disabled]="!myForm.valid">Cancelar</button>
+            <div class="mb-3 boton conBoton">
+              <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
+              <button class="btn btn botones btnCancelar" [disabled]="!myForm.valid">Cancelar</button>
             </div>
 
           </form>
