@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrearPublicacionService } from 'src/app/shared/servicios/crearPublicacion.service';
+import { AuthService } from 'src/app/shared/servicios/auth.service';
 
 @Component({
   selector: 'app-publicacion',
@@ -27,7 +28,8 @@ export class PublicacionComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private routerprd: Router,
-    private crearPublicacionService: CrearPublicacionService
+    private crearPublicacionService: CrearPublicacionService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -53,7 +55,7 @@ export class PublicacionComponent implements OnInit {
       return;
   }
   
-  this.myForm.addControl('id_usuario', this.fb.control(localStorage.getItem('id_usuario')));
+  this.myForm.addControl('id_usuario', this.fb.control(this.authService.getUserInfo().id_usuario));
 
   let publicacion = this.myForm.value;
 

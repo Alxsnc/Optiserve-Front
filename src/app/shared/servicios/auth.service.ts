@@ -18,36 +18,41 @@ export class AuthService {
         private router: Router,
     ) { }
 
-    getUser(usuario: any): Observable<any> {
+    //Metodo para la peticion al backend
+    loginUser(usuario: any): Observable<any> {
         return this.http.post<any>(this.urlEndPoint, usuario);
     }
 
+    // Método para decodificar el token y almacenarlo en el localStorage
     decodeToken(): void {
         this.tk = localStorage.getItem('token') || '';
 
         // Decodificar el payload del token
-        const decodedToken = JSON.parse(atob(this.tk.split('.')[1]));
+        const userInfo = JSON.parse(atob(this.tk.split('.')[1]));
 
-        // Almacena los datos en el localStorage o donde lo necesites
-        localStorage.setItem('id_usuario', decodedToken.id_usuario);
-        localStorage.setItem('nombre', decodedToken.nombre);
-        localStorage.setItem('apellido', decodedToken.apellido);
-        localStorage.setItem('email', decodedToken.email);
-        localStorage.setItem('idRol', decodedToken.id_rol);
-        localStorage.setItem('nombreRol', decodedToken.nombre_rol);
+        // Almacenar el objeto JSON en el localStorage
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-        // Hacer lo que necesites con los datos obtenidos del token
-        console.log('ID del usuario:', localStorage.getItem('id_usuario'));
-        console.log('Nombre:', localStorage.getItem('nombre'));
-        console.log('Apellido:', localStorage.getItem('apellido'));
-        console.log('Email:', localStorage.getItem('email'));
-        console.log('ID del rol:', localStorage.getItem('idRol'));
-        console.log('Nombre del rol:', localStorage.getItem('nombreRol'));
+         // Hacer lo que necesites con los datos obtenidos del token
+         console.log('Información del usuario:', localStorage.getItem('userInfo'));
 
+    }
+
+    // Método para obtener la información del usuario almacenada en el JSON
+    getUserInfo(): any {
+        const userInfoString = localStorage.getItem('userInfo');
+        console.log('Información del usuario:', userInfoString);
+        if (userInfoString) {
+            // Parsear la cadena JSON a un objeto JavaScript
+            return JSON.parse(userInfoString);
+        } else {
+            return null; 
+        }
     }
 
     logout(): void {
         localStorage.removeItem('token');
+        localStorage.removeItem('userInfo');
         this.router.navigate(['/login']);
     }
 }

@@ -99,7 +99,7 @@
 
             <div class="mb-3 provincia">
               <label for="ciudadInput" class="form-label">Provincia</label>
-              <input formControlName="ciudad" [class.is-invalid]="f.ciudad.errors && f.ciudad.touched" type="text" class="form-control" id="ciudadInput" placeholder="Ingresa tu ciudad">
+              <input formControlName="provincia" [class.is-invalid]="f.provincia.errors && f.provincia.touched" type="text" class="form-control" id="provinciaInput" placeholder="Ingresa tu provincia">
               <div id="validationServerUsernameFeedback" class="invalid-feedback">Provincia Obligatoria</div>
             </div>
 
@@ -133,7 +133,7 @@
               <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
               <button class="btn btn botones btnCancelar" [disabled]="!myForm.valid">Cancelar</button>
             </div>
-
+              {{ myForm.value | json }}
           </form>
 
         </div>

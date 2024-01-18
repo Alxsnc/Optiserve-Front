@@ -43,7 +43,7 @@ export class Login2Component implements OnInit {
     const enteredUser = this.myForm.value;
 
 
-    this.authService.getUser(enteredUser)
+    this.authService.loginUser(enteredUser)
       .subscribe(
         (response) => {
           // Almacena el token en el localStorage
