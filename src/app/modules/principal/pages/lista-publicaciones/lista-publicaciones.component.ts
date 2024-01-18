@@ -1,4 +1,4 @@
-import { CrearPublicacionService } from './../../shared/servicios/crearPublicacion.service';
+import { CrearPublicacionService } from '../../../../shared/servicios/crearPublicacion.service';
 import { Component, OnInit } from '@angular/core';
 
 

@@ -110,8 +110,11 @@ body, html {
   height: auto;
   width: auto;
 }
-.nav-item{
 
+#barLateral .nav-link.active{
+  color: white;
+  font-weight: bold;
+  background-color: #CC6666;
 }
 
 .boton {
@@ -119,7 +122,6 @@ body, html {
 }
 
 .botones {
-  background-color: #940B92;
   color: white;
   font-family: 'Geologica', sans-serif;
   margin-right: 50px;

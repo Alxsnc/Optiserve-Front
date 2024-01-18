@@ -5,11 +5,11 @@ import { AppComponent } from './app.component';
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ListaPublicacionesComponent } from './modules/lista-publicaciones/lista-publicaciones.component';
+import { ListaPublicacionesComponent } from './modules/principal/pages/lista-publicaciones/lista-publicaciones.component';
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent,
     SesionComponent,
     ContenidoComponent,
     ListaPublicacionesComponent,
