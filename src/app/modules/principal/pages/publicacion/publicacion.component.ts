@@ -13,14 +13,14 @@ export class PublicacionComponent implements OnInit {
   public myForm!: FormGroup;
 
   categorias = [
-    { text: 'Seleccione una categoria', value: '' }, 
-    { text: 'Electricidad', value: 'Electricidad' }, 
-    { text: 'Plomeria', value: 'Plomeria' },
-    { text: 'Salud y Cuidado Personal', value: 'Salud y Cuidado Personal' }, 
-    { text: 'Educación y Formación', value: 'Educación y Formación' }, 
-    { text: 'Arte y Entretenimiento', value: 'Arte y Entretenimiento' }, 
-    { text: 'Construcción', value: 'Construcción' }, 
-    { text: 'Tecnologías de la Información', value: 'Tecnologías de la Información' }, 
+    { text: 'Seleccione una categoria', value: '' },
+    { text: 'Electricidad', value: 'Electricidad' },
+    { text: 'Plomería', value: 'Plomería' },
+    { text: 'Salud y Cuidado Personal', value: 'Salud y Cuidado Personal' },
+    { text: 'Educación y Formación', value: 'Educación y Formación' },
+    { text: 'Arte y Entretenimiento', value: 'Arte y Entretenimiento' },
+    { text: 'Construcción', value: 'Construcción' },
+    { text: 'Tecnologías de la Información', value: 'Tecnologías de la Información' },
     { text: 'Otros', value: 'Otros' }]
 
   nombre_categoria: string = '';
@@ -54,7 +54,7 @@ export class PublicacionComponent implements OnInit {
       });
       return;
   }
-  
+
   this.myForm.addControl('id_usuario', this.fb.control(this.authService.getUserInfo().id_usuario));
 
   let publicacion = this.myForm.value;
@@ -66,7 +66,7 @@ export class PublicacionComponent implements OnInit {
   alert("Publicacion creada con éxito");
 
   this.routerprd.navigateByUrl("/sesion/principal");
-    
+
   }
 
   public get f(): any {

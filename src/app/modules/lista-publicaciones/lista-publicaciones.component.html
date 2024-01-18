@@ -1,0 +1,12 @@
+<!-- lista-publicaciones.component.html -->
+<div class="container mt-3">
+  <h1>Lista de Publicaciones</h1>
+
+  <ul class="list-group">
+    <li *ngFor="let publicacion of publicaciones" class="list-group-item">
+      <h5>{{ publicacion.titulo }}</h5>
+      <p>{{ publicacion.descripcion }}</p>
+      <!-- Agrega más detalles de la publicación según sea necesario -->
+    </li>
+  </ul>
+</div>

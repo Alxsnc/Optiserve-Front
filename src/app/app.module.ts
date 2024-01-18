@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaPublicacionesComponent } from './modules/lista-publicaciones/lista-publicaciones.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
     SesionComponent,
     ContenidoComponent,
+    ListaPublicacionesComponent,
   ],
   imports: [
     BrowserModule,

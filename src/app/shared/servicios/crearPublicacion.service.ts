@@ -14,4 +14,9 @@ export class CrearPublicacionService {
     registrarPublicacion(publicacion: any) {
         return this.http.post<any>(this.urlEndPoint, publicacion);
     }
+
+    //Actualizar ruta para obtener publicaciones
+    obtenerPublicaciones(){
+      return this.http.get<any[]>(ENV.apiPublicacionUrl + '/publicaciones');
+    }
 }
