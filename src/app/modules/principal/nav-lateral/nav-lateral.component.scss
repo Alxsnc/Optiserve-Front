@@ -1,0 +1,43 @@
+/* Estilos CSS para la barra lateral */
+.barra_Publicacion {
+  background: url('/assets/imagen/FONDO_CON_GRAFICA_1.png') center/cover no-repeat;
+  width: 250px;
+  margin: 0;
+  //height: auto;
+  height: 100vh;
+}
+
+.barra_Publicacion .nav-link {
+  width: 100%;
+  //padding: 2rem;
+  font-family: 'Geologica', sans-serif;
+  font-size: 17px;
+  text-align: left;
+  color: white;
+  height: 70px;
+}
+
+#barLateral .nav-link:hover {
+  color: white;
+  font-weight: bold;
+  background-color: #FF9933;
+  transition: background-color 0.3s ease;
+  font-size: 18px; /* Tamaño de fuente más pequeño */
+  width: 100%; /* Ancho al 100% del contenedor */
+  text-align: center;
+}
+
+#barLateral .nav-link.active,
+#barLateral .nav-link.router-link-active {
+  background-color: #CC6666 !important;
+  color: white !important;
+}
+/* Estilos CSS para el componente izquierdo */
+.componente-izquierda {
+  float: left;
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 120px; /* Ancho deseado para la barra lateral */
+  height: 100vh; /* Ocupará el 100% del alto de la ventana */
+}

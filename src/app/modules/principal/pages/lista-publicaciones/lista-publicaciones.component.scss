@@ -1,0 +1,24 @@
+.componente-derecha {
+  margin-left: 250px; /* Ajusta el margen según tus necesidades */
+  padding: 1rem;
+  /* Agrega otros estilos según tus necesidades */
+  height: 100vh; /* Ocupará el 100% de la altura del contenedor principal */
+}
+
+.botones button{
+  margin-left: 10px;
+}
+
+.list-group-item{
+  margin-bottom: 16px;
+}
+
+.btn.btn-primary{
+  background-color: #006666;
+}
+.btn.btn-secondary{
+  background-color: #666666;
+}
+.btn.btn-success{
+  background-color: #cc6666;
+}

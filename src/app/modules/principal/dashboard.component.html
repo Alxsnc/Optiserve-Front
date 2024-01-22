@@ -1,2 +1,8 @@
 <app-navbar></app-navbar>
+
+<!-- Utiliza *ngIf para condicionalmente mostrar app-nav-lateral -->
+<div *ngIf="mostrarNavLateral">
+  <app-nav-lateral></app-nav-lateral>
+</div>
+
 <router-outlet></router-outlet>

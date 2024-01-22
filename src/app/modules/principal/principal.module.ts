@@ -5,10 +5,11 @@ import { principalRoutingModule } from "./principal-routing.module";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { DashboardComponent } from "./dashboard.component";
 import { InicioComponent } from "./pages/inicio/inicio.component";
+import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 
 @NgModule({
     declarations:[
-    DashboardComponent,NavbarComponent,InicioComponent
+    DashboardComponent,NavbarComponent,InicioComponent, NavLateralComponent
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule]
 })

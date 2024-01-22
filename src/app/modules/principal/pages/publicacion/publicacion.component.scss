@@ -1,3 +1,10 @@
+.componente-derecha {
+  margin-left: 250px;
+  padding: 1rem;
+  height: 100vh;
+
+}
+
 .BarraNav-principal{
   background-color: #FF9933;
   width: 100%;
@@ -162,6 +169,7 @@ body, html {
   color: white;
   font-family: 'Geologica', sans-serif;
   text-align:center;
+  width: 200px;
 }
 .btnCancelar{
   background: url('/assets/imagen/BOTON_6.png') center/cover no-repeat;
@@ -169,4 +177,5 @@ body, html {
   color: white;
   font-family: 'Geologica', sans-serif;
   text-align:center;
+  width: 200px;
 }

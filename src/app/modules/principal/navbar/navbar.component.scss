@@ -1,3 +1,11 @@
+.componente-izquierda {
+  float: left;
+  width: 100px; /* O ajusta el ancho según tus necesidades */
+  padding: 1rem;
+  background-color: #f0f0f0;
+  /* Agrega otros estilos según tus necesidades */
+  height: 100%; /* Ocupará el 100% de la altura del contenedor principal */
+}
 .BarraNav-principal{
     background-color: #FF9933;
 
@@ -46,7 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end; /* Alinea el contenido a la derecha */
-    position: fixed;
+    position: relative;
     top: 0; /* Puedes ajustar este valor según sea necesario */
     right: 200px; /* Coloca el contenedor en el extremo derecho */
     margin: 20px;
@@ -68,4 +76,3 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
