@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light BarraNav-principal">
+    <div class="container-fluid">
+      <a class="navbar-brand mb-2" href="#"><img src="/assets/imagen/LOGO_OPTISERVICE _HORIZONTAL.png" alt="Logo" width="200" height="50"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+        <div class="navbar-nav navLetras">
+          <a class="nav-link" routerLink="/sesion/principal" routerLinkActive="active" aria-current="page">Inicio</a>
+          <a class="nav-link" routerLink="/sesion/publicacion" routerLinkActive="active">Publicaciones</a>
+          <a class="nav-link">Mi Perfil</a>
+          <a class="nav-link" (click)="cerrarSesion()">Salir</a>
+        </div>
+
+        <div class="search-container">
+          <input type="text" class="form-control me-2 search-input" placeholder="Buscar">
+          <button class="btn btn-warning search-button">
+            <i class="fas fa-search">Buscar</i>
+          </button>
+        </div>
+      </div>
+    </div>
+</nav>

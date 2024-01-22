@@ -1,14 +1,14 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { PrincipalComponent } from './pages/principal/principal.component';
 import { principalRoutingModule } from "./principal-routing.module";
-
-
+import { NavbarComponent } from "./navbar/navbar.component";
+import { DashboardComponent } from "./dashboard.component";
+import { InicioComponent } from "./pages/inicio/inicio.component";
 
 @NgModule({
-    declarations:[      
-    PrincipalComponent
+    declarations:[
+    DashboardComponent,NavbarComponent,InicioComponent
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule]
 })

@@ -41,18 +41,21 @@ export class AuthService {
     // Método para obtener la información del usuario almacenada en el JSON
     getUserInfo(): any {
         const userInfoString = localStorage.getItem('userInfo');
-        console.log('Información del usuario:', userInfoString);
-        if (userInfoString) {
+        console.log('Información del usuario desde el Servicio:', userInfoString);
+        if (userInfoString !== null) {
             // Parsear la cadena JSON a un objeto JavaScript
-            return JSON.parse(userInfoString);
+            const userInfo = JSON.parse(userInfoString); //NO TOCAAAR
+            return userInfo;
         } else {
-            return null; 
+            return null;
         }
     }
 
     logout(): void {
         localStorage.removeItem('token');
         localStorage.removeItem('userInfo');
+        alert("token: "+localStorage.getItem('token')+"\nUser: "+localStorage.getItem('userInfo'))
         this.router.navigate(['/login']);
+        console.trace('Cerrando sesión');
     }
 }

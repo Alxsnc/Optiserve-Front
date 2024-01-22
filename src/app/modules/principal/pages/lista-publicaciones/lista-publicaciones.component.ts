@@ -1,29 +1,32 @@
-import { CrearPublicacionService } from '../../../../shared/servicios/crearPublicacion.service';
+import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
+import { PublicacionService } from '../../../../shared/servicios/publicacion.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/shared/servicios/auth.service';
 
 @Component({
   selector: 'app-lista-publicaciones',
   templateUrl: './lista-publicaciones.component.html',
-  styleUrls: ['./lista-publicaciones.component.scss']
+  styleUrls: ['./lista-publicaciones.component.scss'],
 })
-export class ListaPublicacionesComponent implements OnInit{
-  publicaciones:any[]=[];
+export class ListaPublicacionesComponent implements OnInit {
+  publicaciones: Publicaciones[] = [];
+  publicacionesSubscription!: Subscription;
 
-  constructor(private crearPublicacionService:CrearPublicacionService){}
+  constructor(
+    private publicacionService: PublicacionService,
+    private authService: AuthService,
+    ) {}
 
   ngOnInit(): void {
-    this.obtenerPublicaciones();
+    this.publicacionesSubscription = this.publicacionService.obtenerPublicaciones(this.authService.getUserInfo()).subscribe(
+      (res) =>{
+        this.publicaciones = res.publicaciones;
+      }
+    )
+  }
+  ngOnDestroy(): void {
+    this.publicacionesSubscription?.unsubscribe()
   }
 
-  obtenerPublicaciones(){
-    this.crearPublicacionService.obtenerPublicaciones().subscribe(
-      (data)=>{
-        this.publicaciones=data;
-      },
-      (error)=>{
-        console.error('Error al obtener las publicaciones:',error);
-      }
-    );
-  }
 }

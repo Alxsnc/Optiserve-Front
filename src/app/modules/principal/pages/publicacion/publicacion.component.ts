@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CrearPublicacionService } from 'src/app/shared/servicios/crearPublicacion.service';
+import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class PublicacionComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private routerprd: Router,
-    private crearPublicacionService: CrearPublicacionService,
+    private publicacionService: PublicacionService,
     private authService: AuthService
   ) { }
 
@@ -61,7 +61,7 @@ export class PublicacionComponent implements OnInit {
 
   console.trace(publicacion);
 
-  this.crearPublicacionService.registrarPublicacion(publicacion).subscribe();
+  this.publicacionService.registrarPublicacion(publicacion).subscribe();
 
   alert("Publicacion creada con éxito");
 
