@@ -8,22 +8,25 @@ import { environment as ENV } from 'src/environments/environment.prod';
     providedIn: 'root'
 })
 export class PublicacionService {
-    eliminarPublicacion(id: string) {
-      throw new Error('Method not implemented.');
-    }
 
-    constructor(private http: HttpClient ) { }
+  readonly urlBackEnd = ENV.apiHost + ENV.apiPublicacionUrl;
+
+  constructor(private http: HttpClient ) { }
 
     registrarPublicacion(publicacion: any) {
-        return this.http.post<any>(ENV.apiPublicacionUrl + '/nuevaPublicacion', publicacion);
+        return this.http.post<any>(this.urlBackEnd + ENV.apiRegistroPublicacionUrl, publicacion);
     }
 
     obtenerPublicaciones(user: any): Observable<PublicacionObject> {
-      return this.http.get<PublicacionObject>(ENV.apiPublicacionUrl + '/listaPublicaciones/' + user.id_usuario);
+      return this.http.get<PublicacionObject>(this.urlBackEnd + ENV.apiObtenerPublicacionesActivasUrl + user.id_usuario);
     }
 
-    obtenerPublicacionesCerradas(idUsuario:number):Observable<PublicacionObject>{
-      return this.http.get<PublicacionObject>(ENV.apiPublicacionUrl+'/publicacionesCerradas/'+idUsuario);
+    obtenerPublicacionesCerradas(user: any):Observable<PublicacionObject>{
+      return this.http.get<PublicacionObject>(this.urlBackEnd + ENV.apiObtenerPublicacionesCerradasUrl + user.id_usuario);
+    }
+
+    eliminarPublicacion(publicacion: Publicaciones): Observable<any> {
+      return this.http.delete<any>(this.urlBackEnd + ENV.apiEliminarPublicacionUrl + publicacion.id_publicacion);
     }
 
 }

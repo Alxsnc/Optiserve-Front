@@ -1,5 +1,10 @@
 export const environment = {
   production: false,
-  apiAuthUrl: "http://localhost:4000/api/auth",
-  apiPublicacionUrl: "http://localhost:4000/api/publicaciones",
+  apiHost: "http://localhost:4000",
+  apiAuthUrl: "/api/auth",
+  apiPublicacionUrl: "/api/publicaciones",
+  apiRegistroPublicacionUrl: "/nuevaPublicacion",
+  apiObtenerPublicacionesActivasUrl: "/listaPublicaciones/activas/",
+  apiObtenerPublicacionesCerradasUrl: "/listaPublicaciones/cerradas/",
+  apiEliminarPublicacionUrl: "/eliminarPublicacion/",
 }

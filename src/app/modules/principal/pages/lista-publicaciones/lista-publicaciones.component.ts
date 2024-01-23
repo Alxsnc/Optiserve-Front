@@ -1,10 +1,11 @@
 import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
-import { PublicacionService } from '../../../../shared/servicios/publicacion.service';
+//import { PublicacionService } from '../../../../shared/servicios/publicacion.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 
 import Swal from 'sweetalert2';
+import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 
 
 @Component({
@@ -22,17 +23,24 @@ export class ListaPublicacionesComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
+    this.listaActivas();
+
+  }
+  ngOnDestroy(): void {
+    this.publicacionesSubscription?.unsubscribe()
+  }
+
+  listaActivas(){
+    this.publicacionesSubscription?.unsubscribe();
+
     this.publicacionesSubscription = this.publicacionService.obtenerPublicaciones(this.authService.getUserInfo()).subscribe(
       (res) =>{
         this.publicaciones = res.publicaciones;
       }
     )
   }
-  ngOnDestroy(): void {
-    this.publicacionesSubscription?.unsubscribe()
-  }
 
-  mostrarAlerta(){
+  mostrarAlerta(publicacion: Publicaciones){
     Swal.fire({
       title: '¿Está seguro de borrar esta publicación?',
       text: "¡Esta accion no se podra revertir!",
@@ -50,7 +58,8 @@ export class ListaPublicacionesComponent implements OnInit {
           icon: 'success'
         });
         // Aquí puedes poner la lógica para eliminar los datos si el usuario hizo clic en "Aceptar"
-        console.log('Eliminando publicación...');
+        this.publicacionService.eliminarPublicacion(publicacion).subscribe();
+        this.listaActivas();
       }
     });
   }

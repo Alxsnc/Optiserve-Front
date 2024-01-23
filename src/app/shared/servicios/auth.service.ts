@@ -10,7 +10,7 @@ import { environment as ENV } from 'src/environments/environment.prod';
 })
 
 export class AuthService {
-    private urlEndPoint: string = ENV.apiAuthUrl + '/singin';
+    private urlAuth: string = ENV.apiHost + ENV.apiAuthUrl + '/singin';
     private tk = '';
 
     constructor(
@@ -20,7 +20,7 @@ export class AuthService {
 
     //Metodo para la peticion al backend
     loginUser(usuario: any): Observable<any> {
-        return this.http.post<any>(this.urlEndPoint, usuario);
+        return this.http.post<any>(this.urlAuth, usuario);
     }
 
     // Método para decodificar el token y almacenarlo en el localStorage

@@ -6,6 +6,7 @@ import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaPublicacionesComponent } from './modules/principal/pages/lista-publicaciones/lista-publicaciones.component';
+import { ListaPubCerradasComponent } from './modules/principal/lista-pub-cerradas/lista-pub-cerradas.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ListaPublicacionesComponent } from './modules/principal/pages/lista-pub
     SesionComponent,
     ContenidoComponent,
     ListaPublicacionesComponent,
+    ListaPubCerradasComponent,
   ],
   imports: [
     BrowserModule,

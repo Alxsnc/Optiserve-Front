@@ -3,16 +3,19 @@
   <div class="container mt-3">
     <h1>Lista de Publicaciones Cerradas</h1>
     <ul class="list-group">
-      <li *ngFor="let publicacion of publicacionesCerradas" class="list-group-item">
+      <li *ngFor="let publicacion of publicaciones" class="list-group-item">
         <div class="d-flex flex-row mb-2 justify-content-between">
           <div>
             <h5>{{ publicacion.titulo }}</h5>
             <p>{{ publicacion.descripcion }}</p>
           </div>
-          
+
         </div>
       </li>
     </ul>
   </div>
 
+
 </div>
+
+

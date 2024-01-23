@@ -1,8 +1,8 @@
 import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
-import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
+import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/shared/servicios/auth.service';
 })
 
 export class ListaPubCerradasComponent implements OnInit {
-  publicacionesCerradas: Publicaciones[]=[];
+  publicaciones: Publicaciones[]=[];
   publicacionesCerradasSubscription!: Subscription;
 
   constructor(
@@ -22,11 +22,13 @@ export class ListaPubCerradasComponent implements OnInit {
 
 
    ngOnInit(): void {
-     this.publicacionesCerradasSubscription = this.publicacionService.obtenerPublicacionesCerradas(this.authService.getUserInfo().id_usuario).subscribe(
+     this.publicacionesCerradasSubscription = this.publicacionService.obtenerPublicacionesCerradas(this.authService.getUserInfo()).subscribe(
        (res) => {
-         this.publicacionesCerradas = res.publicaciones;
+         this.publicaciones = res.publicaciones;
+         console.log(this.publicaciones);
        }
      )
+     console.log(this.publicaciones);
    }
 
    ngOnDestroy(): void {
