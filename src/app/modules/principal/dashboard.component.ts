@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   private actualizarMostrarNavLateral(): void {
     const rutaActual = this.router.routerState.snapshot.url;
-    this.mostrarNavLateral = rutaActual.includes('/publicacion') || rutaActual.includes('/ListaPublicaciones');
+    this.mostrarNavLateral = rutaActual.includes('/publicacion') || rutaActual.includes('/ListaPublicaciones')|| rutaActual.includes('/ListaPubCerradas');
 
     // Guardar el estado en el LocalStorage
     this.guardarEstadoNavLateral();

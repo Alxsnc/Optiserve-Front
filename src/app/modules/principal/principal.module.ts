@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard.component";
 import { InicioComponent } from "./pages/inicio/inicio.component";
 import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 
+
 @NgModule({
     declarations:[
     DashboardComponent,NavbarComponent,InicioComponent, NavLateralComponent

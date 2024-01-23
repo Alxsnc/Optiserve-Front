@@ -8,6 +8,9 @@ import { environment as ENV } from 'src/environments/environment.prod';
     providedIn: 'root'
 })
 export class PublicacionService {
+    eliminarPublicacion(id: string) {
+      throw new Error('Method not implemented.');
+    }
 
     constructor(private http: HttpClient ) { }
 
@@ -17,6 +20,10 @@ export class PublicacionService {
 
     obtenerPublicaciones(user: any): Observable<PublicacionObject> {
       return this.http.get<PublicacionObject>(ENV.apiPublicacionUrl + '/listaPublicaciones/' + user.id_usuario);
+    }
+
+    obtenerPublicacionesCerradas(idUsuario:number):Observable<PublicacionObject>{
+      return this.http.get<PublicacionObject>(ENV.apiPublicacionUrl+'/publicacionesCerradas/'+idUsuario);
     }
 
 }

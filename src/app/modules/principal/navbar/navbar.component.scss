@@ -5,6 +5,7 @@
   background-color: #f0f0f0;
   /* Agrega otros estilos según tus necesidades */
   height: 100%; /* Ocupará el 100% de la altura del contenedor principal */
+  font-family: 'Geologica', sans-serif;
 }
 .BarraNav-principal{
     background-color: #FF9933;
@@ -16,7 +17,9 @@
     padding-right: 0; /* Añade este estilo para eliminar el relleno a la derecha */
     box-sizing: border-box; /* Asegura que el ancho incluye el relleno y el borde */
     color: white;
-  }
+    font-family: 'Geologica', sans-serif;
+
+}
 
   .div_navbar {
     width: 100%;
@@ -35,12 +38,12 @@
   .navLetras .nav-link {
     color: white;
   }
-  .navLetras .nav-link.active {
+  /*.navLetras .nav-link.active {
     color: white;
     font-weight: bold;
     font-family: 'Geologica', sans-serif;
     background-color: #666666;
-  }
+  }*/
   .nav-link{
     transition:color 0.3s ;
   }
@@ -48,6 +51,7 @@
     color: white;
     background-color:#CC6666 ;
     font-family: 'Geologica', sans-serif;
+    font-weight: bold;
   }
 
   .search-container {
