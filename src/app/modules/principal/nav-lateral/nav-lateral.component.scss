@@ -20,7 +20,11 @@
 #barLateral .nav-link:hover {
   color: white;
   font-weight: bold;
-  background-color: #FF9933;
+  //background-color: #FF9933;
+
+  background: url('/assets/imagen/BOTON_5.png') left/cover no-repeat;
+  width: 200px;
+  border:2px solid #FF9933;
   transition: background-color 0.3s ease;
   font-size: 18px; /* Tamaño de fuente más pequeño */
   width: 100%; /* Ancho al 100% del contenedor */

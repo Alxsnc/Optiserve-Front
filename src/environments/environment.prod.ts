@@ -6,5 +6,5 @@ export const environment={
   apiRegistroPublicacionUrl: "/nuevaPublicacion",
   apiObtenerPublicacionesActivasUrl: "/listaPublicaciones/activas/",
   apiObtenerPublicacionesCerradasUrl: "/listaPublicaciones/cerradas/",
-  apiEliminarPublicacionUrl: "/eliminarPublicacion/",
+  apiEliminarPublicacionUrl: "/eliminarPublicacion/"
 }

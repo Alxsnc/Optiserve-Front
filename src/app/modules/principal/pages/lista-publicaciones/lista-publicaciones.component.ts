@@ -1,8 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
 import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
-//import { PublicacionService } from '../../../../shared/servicios/publicacion.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
+import{Router} from '@angular/router';
 
 import Swal from 'sweetalert2';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
@@ -16,16 +17,27 @@ import { PublicacionService } from 'src/app/shared/servicios/publicacion.service
 export class ListaPublicacionesComponent implements OnInit {
   publicaciones: Publicaciones[] = [];
   publicacionesSubscription!: Subscription;
+  //id: number;
+
 
   constructor(
     private publicacionService: PublicacionService,
     private authService: AuthService,
-    ) {}
+    private router:Router,
+    //private aRouter: ActivatedRoute
+    ) {
+     /* this.id= Number(aRouter.snapshot.paramMap.get('id'));
+      aRouter.snapshot.paramMap.get('id');
+      console.log(aRouter.snapshot.paramMap.get('id'))
+      console.log(aRouter.snapshot.paramMap.get('descripcion'))*/
+    }
+
 
   ngOnInit(): void {
     this.listaActivas();
 
   }
+
   ngOnDestroy(): void {
     this.publicacionesSubscription?.unsubscribe()
   }
@@ -39,6 +51,17 @@ export class ListaPublicacionesComponent implements OnInit {
       }
     )
   }
+
+  redirigirAModificar(publicacion: Publicaciones): void {
+    console.log('Datos a enviar:', publicacion);
+    this.router.navigate(['/sesion/Modificar', publicacion.id_publicacion], {
+      state: { datosPublicacion: publicacion }
+    }).then(
+      () => console.log('Navegación exitosa'),
+      (error) => console.error('Error durante la navegación:', error)
+    );
+  }
+
 
   mostrarAlerta(publicacion: Publicaciones){
     Swal.fire({
@@ -63,6 +86,9 @@ export class ListaPublicacionesComponent implements OnInit {
       }
     });
   }
+
+
+
 
 }
 

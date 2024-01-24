@@ -1,0 +1,23 @@
+body{
+  font-family: 'Geologica', sans-serif;
+  width: 700px;
+  margin: auto;
+}
+
+.conBoton{
+  text-align: center;
+}
+
+.btnPublicar {
+  font-family: 'Geologica', sans-serif;
+  margin-right: 50px;
+  background: url('/assets/imagen/BOTON_5.png') center/cover no-repeat;
+  width:  200px;
+}
+
+.btnCancelar {
+  font-family: 'Geologica', sans-serif;
+  margin-right: 50px;
+  background: url('/assets/imagen/BOTON_7.png') center/cover no-repeat;
+  width:  200px;
+}

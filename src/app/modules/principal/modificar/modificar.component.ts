@@ -1,15 +1,19 @@
+import { ActivatedRoute,RouterStateSnapshot } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
+import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
 
 @Component({
-  selector: 'app-publicacion',
-  templateUrl: './publicacion.component.html',
-  styleUrls: ['./publicacion.component.scss']
+  selector: 'app-modificar-publicacion',
+  templateUrl: './modificar.component.html',
+  styleUrls: ['./modificar.component.scss']
 })
-export class PublicacionComponent implements OnInit {
+
+export class ModificarComponent implements OnInit{
+
   public myForm!: FormGroup;
 
   categorias = [
@@ -24,16 +28,36 @@ export class PublicacionComponent implements OnInit {
     { text: 'Otros', value: 'Otros' }]
 
   nombre_categoria: string = '';
+  id:number;
+  //publicacion: Publicaciones[] = [];
+  publicacion: any;
 
   constructor(
     private fb: FormBuilder,
     private routerprd: Router,
     private publicacionService: PublicacionService,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private aRouter: ActivatedRoute,
+    private route:ActivatedRoute
+  ) {
+     this.id= Number(aRouter.snapshot.paramMap.get('id'));
+     console.log('idModificar: ',this.id)
+
+    }
 
   ngOnInit(): void {
     this.myForm = this.createMyForm();
+
+    this.route.paramMap.subscribe(params => {
+      const datosPublicacion = params.get('datosPublicacion');
+      if (datosPublicacion) {
+        this.publicacion = JSON.parse(datosPublicacion);
+        console.log('Datos de la publicación:', this.publicacion);
+      }
+    });
+
+    
+
   }
 
   private createMyForm(): FormGroup {
@@ -72,6 +96,5 @@ export class PublicacionComponent implements OnInit {
   public get f(): any {
     return this.myForm.controls;
   }
-
 
 }

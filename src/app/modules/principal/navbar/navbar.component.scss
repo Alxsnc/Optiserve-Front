@@ -49,7 +49,10 @@
   }
   .navLetras .nav-link:hover {
     color: white;
-    background-color:#CC6666 ;
+    background: url('/assets/imagen/BOTON_7.png') left/cover no-repeat;
+    width: auto;
+    border:2px solid #006666;
+    border-radius: 12%;
     font-family: 'Geologica', sans-serif;
     font-weight: bold;
   }
