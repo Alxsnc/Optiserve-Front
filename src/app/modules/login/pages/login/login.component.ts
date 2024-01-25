@@ -51,8 +51,12 @@ export class Login2Component implements OnInit {
 
           this.authService.decodeToken();
 
-          // Si la autenticación es exitosa, redirige a la página principal
-          this.routerprd.navigateByUrl("/sesion/principal");
+          //TODO: implementar la redireccion al empleado
+          if(this.authService.getUserInfo().id_rol === 2){
+            this.routerprd.navigateByUrl("/sesion/principal");
+          }
+
+
         },
         (error) => {
           // Si hay un error en la autenticación, muestra un mensaje de error

@@ -10,7 +10,7 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 const routes: Routes = [
   { path:'sinsesion', component:SesionComponent,loadChildren:()=>import('./modules/login/login.module').then(m=>m.loginModule)},
   { path:'sesion', component:ContenidoComponent,loadChildren:()=>import('./modules/principal/principal.module').then(m=>m.principalModule)},
-  { path:"**", redirectTo:'sinsesion/login2'}
+  { path:"**", redirectTo:'sinsesion/login'}
 ];
 
 @NgModule({

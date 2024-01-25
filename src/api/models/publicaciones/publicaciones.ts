@@ -15,3 +15,5 @@ export interface PublicacionObject {
   provincia:             string;
   titulo:                string;
  }
+
+export interface PublicacionDTO extends Omit<Publicaciones, 'id_empleador' | 'id_estado_publicacion' | 'id_publicacion'| 'fecha_modificacion' | 'fecha_publicacion' > {}

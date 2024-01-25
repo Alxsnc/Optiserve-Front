@@ -22,12 +22,12 @@ export class ListaPubCerradasComponent implements OnInit {
 
 
    ngOnInit(): void {
-     this.publicacionesCerradasSubscription = this.publicacionService.obtenerPublicacionesCerradas(this.authService.getUserInfo()).subscribe(
+    this.publicacionesCerradasSubscription = this.publicacionService.obtenerPublicacionesCerradas(this.authService.getUserInfo()).subscribe(
        (res) => {
          this.publicaciones = res.publicaciones;
          console.log(this.publicaciones);
        }
-     )
+    )
      console.log(this.publicaciones);
    }
 

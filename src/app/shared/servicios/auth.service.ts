@@ -33,9 +33,6 @@ export class AuthService {
         // Almacenar el objeto JSON en el localStorage
         localStorage.setItem('userInfo', JSON.stringify(userInfo));
 
-         // Hacer lo que necesites con los datos obtenidos del token
-         console.log('Información del usuario:', localStorage.getItem('userInfo'));
-
     }
 
     // Método para obtener la información del usuario almacenada en el JSON

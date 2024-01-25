@@ -6,7 +6,7 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { DashboardComponent } from "./dashboard.component";
 import { InicioComponent } from "./pages/inicio/inicio.component";
 import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
-import { ModificarComponent } from './modificar/modificar.component';
+
 
 
 @NgModule({
@@ -15,7 +15,6 @@ import { ModificarComponent } from './modificar/modificar.component';
     NavbarComponent,
     InicioComponent,
     NavLateralComponent,
-    ModificarComponent
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule]
 })

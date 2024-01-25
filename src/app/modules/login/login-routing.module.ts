@@ -7,7 +7,7 @@ import { Login2Component } from './pages/login/login.component';
 
 const rutas: Routes=[{
     path:'',children:[
-        {path:'login2',component:Login2Component},
+        {path:'login',component:Login2Component},
         {path:'registro',component:RegistroComponent},
         //{path:'publicacion',component:PublicacionComponent},
 

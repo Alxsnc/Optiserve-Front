@@ -25,8 +25,16 @@ export class PublicacionService {
       return this.http.get<PublicacionObject>(this.urlBackEnd + ENV.apiObtenerPublicacionesCerradasUrl + user.id_usuario);
     }
 
+    modificarPublicacion(id:number, publicacion: Publicaciones): Observable<any> {
+      return this.http.put<any>(this.urlBackEnd + ENV.apiModificarPublicacionUrl + id, publicacion);
+    }
+
     eliminarPublicacion(publicacion: Publicaciones): Observable<any> {
       return this.http.delete<any>(this.urlBackEnd + ENV.apiEliminarPublicacionUrl + publicacion.id_publicacion);
+    }
+
+    obtenerPublicacionById(id: number): Observable<Publicaciones> {
+      return this.http.get<Publicaciones>(this.urlBackEnd + ENV.apiObtenerPublicacionById + id);
     }
 
 }

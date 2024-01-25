@@ -7,4 +7,7 @@ export const environment = {
   apiObtenerPublicacionesActivasUrl: "/listaPublicaciones/activas/",
   apiObtenerPublicacionesCerradasUrl: "/listaPublicaciones/cerradas/",
   apiEliminarPublicacionUrl: "/eliminarPublicacion/",
+  apiCategoriasUrl: "/api/categorias/",
+  apiModificarPublicacionUrl: "/modificarPublicacion/",
+  apiObtenerPublicacionById: "/publicacionById/",
 }

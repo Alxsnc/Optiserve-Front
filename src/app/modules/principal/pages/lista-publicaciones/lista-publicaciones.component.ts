@@ -1,4 +1,3 @@
-import { ActivatedRoute } from '@angular/router';
 import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -17,25 +16,16 @@ import { PublicacionService } from 'src/app/shared/servicios/publicacion.service
 export class ListaPublicacionesComponent implements OnInit {
   publicaciones: Publicaciones[] = [];
   publicacionesSubscription!: Subscription;
-  //id: number;
 
 
   constructor(
     private publicacionService: PublicacionService,
-    private authService: AuthService,
-    private router:Router,
-    //private aRouter: ActivatedRoute
-    ) {
-     /* this.id= Number(aRouter.snapshot.paramMap.get('id'));
-      aRouter.snapshot.paramMap.get('id');
-      console.log(aRouter.snapshot.paramMap.get('id'))
-      console.log(aRouter.snapshot.paramMap.get('descripcion'))*/
-    }
+    private authService: AuthService
+    ) { }
 
 
   ngOnInit(): void {
     this.listaActivas();
-
   }
 
   ngOnDestroy(): void {
@@ -51,17 +41,6 @@ export class ListaPublicacionesComponent implements OnInit {
       }
     )
   }
-
-  redirigirAModificar(publicacion: Publicaciones): void {
-    console.log('Datos a enviar:', publicacion);
-    this.router.navigate(['/sesion/Modificar', publicacion.id_publicacion], {
-      state: { datosPublicacion: publicacion }
-    }).then(
-      () => console.log('Navegación exitosa'),
-      (error) => console.error('Error durante la navegación:', error)
-    );
-  }
-
 
   mostrarAlerta(publicacion: Publicaciones){
     Swal.fire({

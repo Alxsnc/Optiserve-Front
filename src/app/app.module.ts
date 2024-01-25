@@ -7,7 +7,7 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { HttpClientModule } from '@angular/common/http';
 import { ListaPublicacionesComponent } from './modules/principal/pages/lista-publicaciones/lista-publicaciones.component';
 import { ListaPubCerradasComponent } from './modules/principal/lista-pub-cerradas/lista-pub-cerradas.component';
-//import {ModificarComponent} from './modules/principal/modificar/modificar.component'
+
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ListaPubCerradasComponent } from './modules/principal/lista-pub-cerrada
     ContenidoComponent,
     ListaPublicacionesComponent,
     ListaPubCerradasComponent,
-    //ModificarComponent
+    
   ],
   imports: [
     BrowserModule,

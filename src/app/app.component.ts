@@ -10,6 +10,6 @@ import { environment } from 'src/environments/environment.prod';
 export class AppComponent {
   title = 'Optiservice-Front';
   public produccion = environment.production;
-  public variable = environment.apiAuthUrl;
+  //public variable = environment.apiAuthUrl;
 
 }

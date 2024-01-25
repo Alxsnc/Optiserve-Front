@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Geologica&display=swap" rel="stylesheet">
-
-</head>
-<body>
-  <div class="componente-derecha">
+<div class="componente-derecha">
     <div class="container-fluid divBarra">
         <div class="row">
             <!-- Contenido a la derecha -->
           <div div role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
             <div class="container mt-3">
-              <h1>Crear publicación</h1>
-
+              <ng-container *ngIf="isCreate; else tituloFormulario">
+                <h1>Crear publicación</h1>
+              </ng-container>
+              <ng-template #tituloFormulario>
+                <h1>Modificar publicación</h1>
+              </ng-template>
               <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
                 <!-- Titulo -->
@@ -57,10 +49,10 @@
                 <!-- Categoria -->
                 <div class="mb-3 categoria">
                   <label for="categoriaSelect">Categoria</label>
-                  <select formControlName="nombre_categoria" class="form-select" [class.is-invalid]="f.nombre_categoria.invalid && f.nombre_categoria.touched">
-                    <option selected disabled hidden>Seleccione una Categoría</option>
-                    <option *ngFor="let categoria of categorias" [ngValue]="categoria.value">
-                      {{categoria.text}}
+                  <select formControlName="id_categoria" class="form-select" [class.is-invalid]="f.id_categoria.invalid && f.id_categoria.touched">
+                    <option selected disabled hidden value="">Seleccione una Categoría</option>
+                    <option *ngFor="let categoria of categoriasList" [ngValue]="categoria.id_categoria">
+                      {{categoria.categoria}}
                     </option>
                   </select>
                   <div id="validationServerCategoriaFeedback" class="invalid-feedback" >Debe seleccionar una categoría</div>
@@ -70,15 +62,13 @@
                   <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
                   <button class="btn btn botones btnCancelar" [disabled]="!myForm.valid">Cancelar</button>
                 </div>
+
                   {{ myForm.value | json }}
+
               </form>
 
             </div>
           </div>
         </div>
     </div>
-    </div>
-
-
-</body>
-</html>
+  </div>
