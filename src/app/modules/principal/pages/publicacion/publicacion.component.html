@@ -59,8 +59,13 @@
                 </div>
 
                 <div class="mb-3 boton conBoton">
-                  <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
-                  <button class="btn btn botones btnCancelar" [disabled]="!myForm.valid">Cancelar</button>
+                  <ng-container *ngIf="isCreate; else botones">
+                    <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
+                  </ng-container>
+                  <ng-template #botones>
+                    <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
+                  </ng-template>
+                  <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/principal'">Cancelar</a>
                 </div>
 
                   {{ myForm.value | json }}
