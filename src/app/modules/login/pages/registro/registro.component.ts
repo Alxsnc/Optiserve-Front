@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';//jjjj
 import { RegistroService } from 'src/app/shared/servicios/registro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -34,7 +35,7 @@ export class RegistroComponent implements OnInit {
 
   public submitFormulario() {
     if (this.myForm.invalid) {
-      Object.values(this.myForm.controls).forEach(control => { 
+      Object.values(this.myForm.controls).forEach(control => {
         control.markAllAsTouched() });
       return;
     }
@@ -45,7 +46,13 @@ export class RegistroComponent implements OnInit {
 
     this.registroService.registrarUsuario(usuario).subscribe();
 
-    alert("Usuario registrado con éxito");
+    Swal.fire({
+      title: 'Usuario registrado con éxito',
+      icon: 'success',
+      text: 'El nuevo usuario ha sido registrado con éxito. ¡Bienvenido a OptiService!',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#006666'
+    })
 
     this.routerprd.navigateByUrl("/login");
 

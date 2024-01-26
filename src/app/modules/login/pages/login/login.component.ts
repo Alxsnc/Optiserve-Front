@@ -66,7 +66,13 @@ export class Login2Component implements OnInit {
         },
         (error) => {
           // Si hay un error en la autenticación, muestra un mensaje de error
-          alert("Usuario o contraseña inválido");
+          Swal.fire({
+            title: 'Usuario o contraseña inválido',
+            icon: 'error',
+            text: 'El usuario o la cantraseña no son correctos ingrese los datos de ingreso adecuados',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#006666'
+          })
         }
       );
     }
