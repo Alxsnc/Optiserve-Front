@@ -7,6 +7,7 @@ import { CategoriasService } from 'src/app/shared/servicios/categorias.service';
 import { Subscription } from 'rxjs';
 import { Categoria } from 'src/api/models/publicaciones/categoria';
 import { PublicacionDTO } from 'src/api/models/publicaciones/publicaciones';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-publicacion',
@@ -109,12 +110,24 @@ export class PublicacionComponent implements OnInit {
     console.trace(publicacion);
     if (this.isCreate) {
       this.publicacionService.registrarPublicacion(publicacion).subscribe();
-      alert('Publicacion creada con éxito');
+      Swal.fire({
+        title: 'Publicación Creada',
+        text: 'Acción realizada con éxito',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#006666'
+      })
       this.routerprd.navigateByUrl('/sesion/principal');
     }
     else{
       this.publicacionService.modificarPublicacion(this.idFromPath,publicacion).subscribe();
-      alert('Publicacion modificada con éxito');
+      Swal.fire({
+        title: 'Cambios Guardados',
+        text: 'Acción realizada con éxito',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#006666'
+      })
       this.routerprd.navigateByUrl('/sesion/principal');
     }
   }

@@ -57,7 +57,9 @@ export class ListaPublicacionesComponent implements OnInit {
         Swal.fire({
           title: 'Publicacion Borrada!',
           text: 'La publicacion ha sido borrada con exito.',
-          icon: 'success'
+          icon: 'success',
+          confirmButtonColor: '#006666',
+          confirmButtonText: "Aceptar"
         });
         // Aquí puedes poner la lógica para eliminar los datos si el usuario hizo clic en "Aceptar"
         this.publicacionService.eliminarPublicacion(publicacion).subscribe();
