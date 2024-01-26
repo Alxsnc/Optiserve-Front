@@ -51,7 +51,7 @@ export class AuthService {
     logout(): void {
         localStorage.removeItem('token');
         localStorage.removeItem('userInfo');
-        alert("token: "+localStorage.getItem('token')+"\nUser: "+localStorage.getItem('userInfo'))
+        //alert("token: "+localStorage.getItem('token')+"\nUser: "+localStorage.getItem('userInfo'))
         this.router.navigate(['/login']);
         console.trace('Cerrando sesión');
     }
