@@ -16,7 +16,6 @@ import { ListaPubCerradasComponent } from './modules/principal/lista-pub-cerrada
     ContenidoComponent,
     ListaPublicacionesComponent,
     ListaPubCerradasComponent,
-    
   ],
   imports: [
     BrowserModule,

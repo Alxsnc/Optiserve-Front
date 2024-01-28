@@ -5,6 +5,7 @@ import { ListaPublicacionesComponent } from "./pages/lista-publicaciones/lista-p
 import { InicioComponent } from "./pages/inicio/inicio.component";
 import { DashboardComponent } from "./dashboard.component";
 import { ListaPubCerradasComponent } from './lista-pub-cerradas/lista-pub-cerradas.component';
+import { PerfilComponent } from "./perfil/perfil.component";
 
 
 const rutas:Routes = [{
@@ -16,6 +17,7 @@ const rutas:Routes = [{
         {path:'editarPublicacion/:id',component:PublicacionComponent},
         {path:'ListaPublicaciones',component:ListaPublicacionesComponent},
         {path:'ListaPubCerradas',component:ListaPubCerradasComponent},
+        {path:'Perfil',component:PerfilComponent},
     ]
 }];
 @NgModule({

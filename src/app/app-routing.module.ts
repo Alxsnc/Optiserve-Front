@@ -1,10 +1,8 @@
 import { CanLoad } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes, CanActivateFn } from '@angular/router';
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
-
-
 
 
 const routes: Routes = [

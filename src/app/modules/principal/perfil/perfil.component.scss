@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  color:white;
+  font-family: 'Geologica', sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.left-container {
+  width: 300px;
+  height: 200px;
+  padding: 10px; /* Ajusta el espacio interno de la tarjeta según sea necesario */
+  margin-top: 30px;
+}
+
+
+
+.infoAdicional{
+  text-align: left;
+  margin-left: 30px;
+}
+
+.iconoPerfil{
+  margin-top: 70px;
+}
+
+.profile-icon {
+  margin-top: 100px;
+  width: 300px; /* Ajusta el tamaño del icono según sea necesario */
+  height: 300px;
+  //border-radius: 50%; /* Para hacer el icono redondo, ya que es una foto de perfil */
+  margin: 0 auto; /* Centra el icono horizontalmente */
+  display: block; /* Para centrar el icono correctamente */
+  margin-bottom: 40px;
+}
+
+.botones {
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+  font-family: 'Geologica', sans-serif;
+}
+.btnPublicar{
+  background: url('/assets/imagen/BOTON_5.png') center/cover no-repeat;
+  cursor: pointer;
+  color: white;
+  font-family: 'Geologica', sans-serif;
+  text-align:center;
+  width: 200px;
+  margin-left:200px ;
+  margin-right: 80px;
+}
+.btnCancelar{
+  background: url('/assets/imagen/BOTON_7.png') center/cover no-repeat;
+  cursor: pointer;
+  color: white;
+  font-family: 'Geologica', sans-serif;
+  text-align:center;
+  width: 200px;
+}
+
+
+/* ... Otros estilos ... */
+
+.rating {
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+.star {
+  color: white; /* Color inicial de las estrellas (puede ajustarse) */
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.star:hover {
+  color: #ff9933; /* Color al pasar el ratón por encima (puede ajustarse) */
+  transition: color 0.3s ease-in-out;
+}
+
+
+.right-container {
+  flex-grow: 1;
+  height: 200px;
+  margin-left: 50px;
+}
+.titulo{
+  margin-top: 1rem;
+  color: #434141;
+  font-family: 'Geologica', sans-serif;
+
+}
+
+
+
+.datosUsuario{
+  color:#434141;
+  margin-left: 20px;
+}
+
+.nombre{
+  font-family: 'Geologica', sans-serif;
+  text-align: left;
+}
+.apellido{
+  margin-top: 10px;
+  font-family: 'Geologica', sans-serif;
+}
+.cedula{
+  margin-top: 10px;
+  font-family: 'Geologica', sans-serif;
+}
+.fechaNacimiento{
+  margin-top: 10px;
+  font-family: 'Geologica', sans-serif;
+}
+.email{
+  margin-top: 10px;
+  font-family: 'Geologica', sans-serif;
+}
+
+
+

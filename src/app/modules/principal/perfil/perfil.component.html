@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="left-container">
+      <div class="iconoPerfil">
+        <img src="/assets/imagen/perfilIcon.png" alt="Foto de perfil" class="profile-icon">
+      </div>
+
+    </div>
+    <div class="right-container">
+      <h1 class="titulo">Perfil de Usuario</h1>
+      <form  form [formGroup]="myForm" class="datosUsuario">
+        <div class="nombre">
+          <label for="nombreInput" class="form-label">Nombre</label>
+          <input formControlName="nombre" [class.is-invalid]="f.nombre.errors && f.nombre.touched" type="text" class="form-control" id="nombreInput" placeholder="Ingresa tu nombre">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">Nombre obligatorio</div>
+        </div>
+
+        <div class="apellido">
+          <label for="apellidoInput" class="form-label">Apellido</label>
+          <input formControlName="apellido" [class.is-invalid]="f.apellido.errors && f.apellido.touched" type="text" class="form-control" id="apellidoInput" placeholder="Ingresa tu apellido">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">Apellido obligatorio</div>
+        </div>
+
+        <div class="cedula">
+          <label for="cedulaInput" class="form-label">Cédula</label>
+          <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="cedulaInput" placeholder="Ingresa tu cédula">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">Cédula obligatoria</div>
+        </div>
+
+        <div class="fechaNacimiento">
+          <label for="fechaNacimientoInput" class="form-label">Fecha de Nacimiento</label>
+          <input formControlName="fecha_nacimiento" [class.is-invalid]="f.fecha_nacimiento.errors && f.fecha_nacimiento.touched" type="text" class="form-control" id="FechaNacimientoInput" placeholder="Ingresa tu fecha de nacimiento">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">Fecha de nacimiento obligatoria</div>
+        </div>
+
+        <div class="email">
+          <label for="emailInput" class="form-label">Email</label>
+          <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="text" class="form-control" id="emailInput" placeholder="Ingresa tu email">
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">Email obligatorio</div>
+        </div>
+
+        <div class="mb-3 boton conBoton">
+          <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
+          <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>
