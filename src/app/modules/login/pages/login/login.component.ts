@@ -54,12 +54,6 @@ export class Login2Component implements OnInit {
           //TODO: implementar la redireccion al empleado
           if(this.authService.getUserInfo().id_rol === 2){
             this.routerprd.navigateByUrl("/sesion/principal");
-            Swal.fire({
-              title: 'Inicio de sesión exitoso.',
-              icon: 'success',
-              confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#006666'
-            })
           }
 
 
