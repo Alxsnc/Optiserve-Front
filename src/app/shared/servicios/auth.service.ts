@@ -11,6 +11,7 @@ import { environment as ENV } from 'src/environments/environment.prod';
 
 export class AuthService {
     private urlAuth: string = ENV.apiHost + ENV.apiAuthUrl + '/singin';
+    private urlBackEnd: string = '';
     private tk = '';
 
     constructor(

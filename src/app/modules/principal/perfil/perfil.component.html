@@ -34,9 +34,9 @@
           <div id="validationServerUsernameFeedback" class="invalid-feedback">Cédula obligatoria</div>
         </div>
 
-        <div class="fechaNacimiento">
-          <label for="fechaNacimientoInput" class="form-label">Fecha de Nacimiento</label>
-          <input formControlName="fecha_nacimiento" [class.is-invalid]="f.fecha_nacimiento.errors && f.fecha_nacimiento.touched" type="text" class="form-control" id="FechaNacimientoInput" placeholder="Ingresa tu fecha de nacimiento">
+        <div class="mb-3 fechaNacimiento">
+          <label for="exampleFormControlInput1" class="form-label">Fecha de Nacimiento  </label>
+          <input formControlName="fecha_nacimiento" [class.is-invalid]="f.fecha_nacimiento.errors && f.fecha_nacimiento.touched" type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa tu fecha de nacimiento">
           <div id="validationServerUsernameFeedback" class="invalid-feedback">Fecha de nacimiento obligatoria</div>
         </div>
 
@@ -47,7 +47,7 @@
         </div>
 
         <div class="mb-3 boton conBoton">
-          <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
+          <button class="btn btn botones btnPublicar" (click)="submitFormulario()" [disabled]="!myForm.valid">Modificar</button>
           <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
         </div>
 
