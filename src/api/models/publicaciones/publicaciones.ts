@@ -17,3 +17,5 @@ export interface PublicacionObject {
  }
 
 export interface PublicacionDTO extends Omit<Publicaciones, 'id_empleador' | 'id_estado_publicacion' | 'id_publicacion'| 'fecha_modificacion' | 'fecha_publicacion' > {}
+
+export interface PublicaDTO extends Omit<Publicaciones, 'id_empleador' | 'id_estado_publicacion'> {}

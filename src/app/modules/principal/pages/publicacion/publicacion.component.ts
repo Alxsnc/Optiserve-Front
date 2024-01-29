@@ -6,9 +6,15 @@ import { AuthService } from 'src/app/shared/servicios/auth.service';
 import { CategoriasService } from 'src/app/shared/servicios/categorias.service';
 import { Subscription } from 'rxjs';
 import { Categoria } from 'src/api/models/publicaciones/categoria';
-import { PublicacionDTO } from 'src/api/models/publicaciones/publicaciones';
-import Swal from 'sweetalert2';
 
+import Swal from 'sweetalert2';
+import { PublicaDTO } from 'src/api/models/publicaciones/publicaciones';
+
+enum Estado {
+  Crear = "Crear",
+  Modificar = "Modificar",
+  Mostrar = "Mostrar",
+}
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
@@ -16,8 +22,10 @@ import Swal from 'sweetalert2';
 })
 export class PublicacionComponent implements OnInit {
   public myForm!: FormGroup;
-  isCreate=true;
+  estado = Estado;
+  mode: string = Estado.Crear;
   idFromPath:number;
+  isDisabled: boolean = false;
 
   categoriasList: Categoria[] = [];
   categoriasSubscription!: Subscription;
@@ -31,18 +39,17 @@ export class PublicacionComponent implements OnInit {
     private categoriasService: CategoriasService
   ) {
     this.idFromPath = Number(aRouter.snapshot.paramMap.get('id'));
+    console.log(this.aRouter.snapshot.url[0].path);
   }
 
   ngOnInit(): void {
-    this.createOrModify();
     this.categoriasSubscription = this.categoriasService
       .getCategorias()
       .subscribe((res) => {
         this.categoriasList = res.data;
       });
     this.myForm = this.createMyForm();
-
-    // { "titulo": "", "descripcion": "", "pago": "", "provincia": "", "ciudad": "", "nombre_categoria": "" }
+    this.createOrModify();
   }
 
   ngOnDestroy(): void {
@@ -50,9 +57,15 @@ export class PublicacionComponent implements OnInit {
   }
 
   createOrModify(){
-    if (this.idFromPath !== 0) {
-      this.isCreate = false;
+    if (this.aRouter.snapshot.url[0].path === 'publicacion') {
+      this.mode = Estado.Crear;
+    } else if (this.aRouter.snapshot.url[0].path === 'editarPublicacion') {
+      this.mode = Estado.Modificar;
       this.getPublicacion(this.idFromPath);
+    } else if (this.aRouter.snapshot.url[0].path === 'gestionarPublicacion') {
+      this.mode = Estado.Mostrar;
+      this.getPublicacion(this.idFromPath);
+      this.myForm.disable();
     }
   }
 
@@ -107,8 +120,21 @@ export class PublicacionComponent implements OnInit {
       this.fb.control(this.authService.getUserInfo().id_usuario)
     );
     let publicacion = this.myForm.value;
+
+    // let publicacionTyped: PublicaDTO = {
+    //   titulo: publicacion.titulo,
+    //   descripcion: publicacion.descripcion,
+    //   pago: publicacion.pago,
+    //   provincia: publicacion.provincia,
+    //   ciudad: publicacion.ciudad,
+    //   id_categoria: publicacion.id_categoria,
+    //   id_publicacion: this.idFromPath,
+    //   fecha_modificacion: publicacion.fecha_modificacion,
+    //   fecha_publicacion: publicacion.fecha_publicacion,
+    // };
+
     console.trace(publicacion);
-    if (this.isCreate) {
+    if (this.mode === Estado.Crear) {
       this.publicacionService.registrarPublicacion(publicacion).subscribe();
       Swal.fire({
         title: 'Publicación Creada',
@@ -120,6 +146,7 @@ export class PublicacionComponent implements OnInit {
       this.routerprd.navigateByUrl('/sesion/principal');
     }
     else{
+      //publicacionTyped.id_publicacion = this.idFromPath;
       this.publicacionService.modificarPublicacion(this.idFromPath,publicacion).subscribe();
       Swal.fire({
         title: 'Cambios Guardados',

@@ -15,6 +15,7 @@ const rutas:Routes = [{
         {path:'principal',component:InicioComponent},
         {path:'publicacion',component:PublicacionComponent},
         {path:'editarPublicacion/:id',component:PublicacionComponent},
+        {path:'gestionarPublicacion/:id',component:PublicacionComponent},
         {path:'ListaPublicaciones',component:ListaPublicacionesComponent},
         {path:'ListaPubCerradas',component:ListaPubCerradasComponent},
         {path:'Perfil',component:PerfilComponent},

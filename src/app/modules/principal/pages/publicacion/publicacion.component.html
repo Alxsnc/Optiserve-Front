@@ -4,12 +4,15 @@
             <!-- Contenido a la derecha -->
           <div div role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
             <div class="container mt-3">
-              <ng-container *ngIf="isCreate; else tituloFormulario">
+              <ng-container *ngIf="mode == estado.Crear">
                 <h1>Crear publicación</h1>
               </ng-container>
-              <ng-template #tituloFormulario>
-                <h1>Modificar publicación</h1>
-              </ng-template>
+              <ng-container *ngIf="mode == estado.Modificar">
+                <h1>Editar publicación</h1>
+              </ng-container>
+              <ng-container *ngIf="mode == estado.Mostrar">
+                <h1>Información de la publicación</h1>
+              </ng-container>
               <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
 
                 <!-- Titulo -->
@@ -58,17 +61,25 @@
                   <div id="validationServerCategoriaFeedback" class="invalid-feedback" >Debe seleccionar una categoría</div>
                 </div>
 
-                <div class="mb-3 boton conBoton">
-                  <ng-container *ngIf="isCreate; else botones">
-                    <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
-                  </ng-container>
-                  <ng-template #botones>
-                    <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
-                  </ng-template>
-                  <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
-                </div>
+                <ng-container *ngIf="mode != estado.Mostrar">
+                  <div class="mb-3 boton conBoton">
+                    <ng-container *ngIf="mode == estado.Crear; else botones">
+                      <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
+                    </ng-container>
+                    <ng-template #botones>
+                      <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
+                    </ng-template>
+                    <ng-template #gestionPostulantes>
 
-                  {{ myForm.value | json }}
+                    </ng-template>
+                    <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
+
+                  </div>
+
+                  <!-- <app-lista-postulantes></app-lista-postulantes> -->
+
+                </ng-container>
+                  <!-- {{ myForm.value | json }} -->
 
               </form>
 
