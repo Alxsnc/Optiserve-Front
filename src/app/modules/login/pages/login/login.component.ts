@@ -16,6 +16,8 @@ export class Login2Component implements OnInit {
 
   selectedRol: string = '';
 
+
+
   constructor(
     private fb: FormBuilder,
     private routerprd: Router,
@@ -55,8 +57,11 @@ export class Login2Component implements OnInit {
           if(this.authService.getUserInfo().id_rol === 2){
             this.routerprd.navigateByUrl("/sesion/principal");
           }
-
-
+          else{ //redireccion a empleado
+            if(this.authService.getUserInfo().id_rol===3){
+              this.routerprd.navigateByUrl("/sesion/principal");
+            }
+          }
         },
         (error) => {
           // Si hay un error en la autenticación, muestra un mensaje de error
