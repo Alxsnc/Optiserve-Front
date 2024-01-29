@@ -12,7 +12,8 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
         <div class="navbar-nav navLetras">
           <a class="nav-link" routerLink="/sesion/principal" routerLinkActive="active" aria-current="page">Inicio</a>
-          <a class="nav-link" routerLink="/sesion/publicacion" routerLinkActive="active">Publicaciones</a>
+          <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/publicacion" routerLinkActive="active">Publicaciones</a>
+          <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratos" routerLinkActive="active">Contratos</a>
           <a class="nav-link" routerLink="/sesion/Perfil"routerLinkActive="active">Mi Perfil</a>
           <a class="nav-link" (click)="cerrarSesion()">Salir</a>
         </div>

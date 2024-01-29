@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import Swal from 'sweetalert2';
 import { RolService } from 'src/app/shared/servicios/rol.service';
@@ -9,7 +9,7 @@ import { RolService } from 'src/app/shared/servicios/rol.service';
   styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
   rol:number=0;
 
@@ -17,6 +17,12 @@ export class NavbarComponent {
     private authService :AuthService,
     private rolService:RolService
   ){}
+
+  ngOnInit(): void {
+    this.rolService.rol$.subscribe(rol=>{
+      this.rol=rol;
+    })
+  }
 
   public cerrarSesion() {
     Swal.fire({
