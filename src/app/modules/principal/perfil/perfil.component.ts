@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import { UserService } from 'src/app/shared/servicios/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-perfil',
@@ -67,17 +68,35 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  public submitFormulario(){
-    if (this.myForm.invalid) {
-      Object.values(this.myForm.controls).forEach((control) => {
-        control.markAllAsTouched();
-      });
-      return;
-    }
+  public submitFormulario() {
+    // Mostrar SweetAlert de confirmación
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Se modificarán los datos del usuario. ¿Estás seguro de continuar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#006666',
+      cancelButtonColor: '#cc6666',
+      confirmButtonText: 'Sí, modificar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Continuar con la modificación si el usuario confirma
+        if (this.myForm.invalid) {
+          Object.values(this.myForm.controls).forEach((control) => {
+            control.markAllAsTouched();
+          });
+          return;
+        }
 
-    let user = this.myForm.value;
-    this.userService.modificarUsuario(this.authService.getUserInfo().id_usuario, user).subscribe((data: any) => {
-      this.router.navigateByUrl('/sesion/principal');
+        let user = this.myForm.value;
+        this.userService
+          .modificarUsuario(this.authService.getUserInfo().id_usuario, user)
+          .subscribe((data: any) => {
+            this.router.navigateByUrl('/sesion/principal');
+          });
+      }
     });
   }
+
 }
