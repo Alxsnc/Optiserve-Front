@@ -56,4 +56,6 @@ export class AuthService {
         this.router.navigate(['/login']);
         console.trace('Cerrando sesión');
     }
+
+    
 }

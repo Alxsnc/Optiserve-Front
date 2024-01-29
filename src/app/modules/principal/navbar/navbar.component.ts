@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import Swal from 'sweetalert2';
+import { RolService } from 'src/app/shared/servicios/rol.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,11 @@ import Swal from 'sweetalert2';
 
 export class NavbarComponent {
 
+  rol:number=0;
+
   constructor(
     private authService :AuthService,
+    private rolService:RolService
   ){}
 
   public cerrarSesion() {

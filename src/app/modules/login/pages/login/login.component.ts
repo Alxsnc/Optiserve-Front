@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import Swal from 'sweetalert2';
+import { RolService } from 'src/app/shared/servicios/rol.service';
 @Component({
   selector: 'app-login2',
   templateUrl: './login.component.html',
@@ -21,7 +22,8 @@ export class Login2Component implements OnInit {
   constructor(
     private fb: FormBuilder,
     private routerprd: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private rolService:RolService
   ) { }
 
   ngOnInit(): void {
@@ -45,22 +47,19 @@ export class Login2Component implements OnInit {
     const enteredUser = this.myForm.value;
 
 
-    this.authService.loginUser(enteredUser)
-      .subscribe(
-        (response) => {
+    this.authService.loginUser(enteredUser).subscribe(
+      (response) => {
           // Almacena el token en el localStorage
           localStorage.setItem('token', response.token);
 
           this.authService.decodeToken();
 
-          //TODO: implementar la redireccion al empleado
-          if(this.authService.getUserInfo().id_rol === 2){
+          const userRole=this.authService.getUserInfo().id_rol;  //Almacena el tipo de roll
+          this.rolService.setRol(userRole);
+
+          //Redirecciona al empleado o al empleador
+          if(userRole===2 || userRole===3){
             this.routerprd.navigateByUrl("/sesion/principal");
-          }
-          else{ //redireccion a empleado
-            if(this.authService.getUserInfo().id_rol===3){
-              this.routerprd.navigateByUrl("/sesion/principal");
-            }
           }
         },
         (error) => {
