@@ -44,9 +44,9 @@
                     </div>
 
                     <!-- Div a la Derecha -->
-                    <div class="col-md-6 divForm">
+                    <div class="col-md-5 divForm">
 
-                      <h2 class="fw-bold mb-4 regisTitulo">Registrarse</h2>
+                      <h2 class="fw-bold mb-3 regisTitulo">Registrarse</h2>
 
                       <!--Aqui van los elementos del formulario-->
                      <form form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
@@ -66,7 +66,7 @@
                       <div class="mb-3 cedula">
                         <label for="exampleFormControlInput1" class="form-label">Cédula</label>
                         <input formControlName="id_usuario" [class.is-invalid]="f.id_usuario.errors && f.id_usuario.touched" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu cedula">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Cedula obligatoria sin guión</div>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Ingrese una cédula valida</div>
                       </div>
 
                       <div class="mb-3 fechaNacimiento">

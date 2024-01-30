@@ -3,6 +3,7 @@ export const environment={
   apiHost: "http://localhost:4000",
   apiAuthUrl: "/api/auth",
   apiPublicacionUrl: "/api/publicaciones",
+  apiEmpleadosUrl:"/api/empleado",
   apiUserUrl: "/api/usuarios",
   apiRegistroPublicacionUrl: "/nuevaPublicacion",
   apiObtenerPublicacionesActivasUrl: "/listaPublicaciones/activas/",
@@ -13,5 +14,5 @@ export const environment={
   apiObtenerPublicacionById: "/publicacionById/",
   apiGetUser: "/obtenerUsuario/",
   apiUpdateUser: "/editarUsuario/",
-
+  apiObtenerPublicacionesActivas: "/listaPublicacionesActivas/"
 }

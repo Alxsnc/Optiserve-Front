@@ -10,6 +10,7 @@ import { environment as ENV } from 'src/environments/environment.prod';
 export class PublicacionService {
 
   readonly urlBackEnd = ENV.apiHost + ENV.apiPublicacionUrl;
+  readonly urlBackEndEmpleado = ENV.apiHost + ENV.apiEmpleadosUrl;
 
   constructor(private http: HttpClient ) { }
 
@@ -36,5 +37,15 @@ export class PublicacionService {
     obtenerPublicacionById(id: number): Observable<Publicaciones> {
       return this.http.get<Publicaciones>(this.urlBackEnd + ENV.apiObtenerPublicacionById + id);
     }
+
+
+   obtenerPublicacionesActivas(idUsuario: number): Observable<PublicacionObject> {
+      return this.http.get<PublicacionObject>(this.urlBackEndEmpleado + ENV.apiObtenerPublicacionesActivas + idUsuario);
+    }
+
+    /*obtenerPublicacionesActivas(user: any):Observable<PublicacionObject>{
+      return this.http.get<PublicacionObject>(this.urlBackEndEmpleado + ENV.apiObtenerPublicacionesActivas + user.id_usuario);
+    }*/
+
 
 }

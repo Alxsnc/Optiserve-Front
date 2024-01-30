@@ -43,6 +43,7 @@ export class AuthService {
         if (userInfoString !== null) {
             // Parsear la cadena JSON a un objeto JavaScript
             const userInfo = JSON.parse(userInfoString); //NO TOCAAAR
+            console.log('Objeto de información del usuario:', userInfo);
             return userInfo;
         } else {
             return null;
@@ -57,5 +58,5 @@ export class AuthService {
         console.trace('Cerrando sesión');
     }
 
-    
+
 }

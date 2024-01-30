@@ -22,11 +22,13 @@ export class RegistroComponent implements OnInit {
     this.myForm = this.createMyForm();
   }
 
+
+
   private createMyForm(): FormGroup {
     return this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/)]],
       apellido: ['', [Validators.required, Validators.pattern(/^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/)]],
-      id_usuario: ['', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.minLength(10), Validators.maxLength(10)]],
+      id_usuario: ['', [Validators.required, Validators.pattern(/^[0-9]+$/), Validators.minLength(10), Validators.maxLength(10),this.registroService.validarCedula()]],
       fecha_nacimiento: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^\S+@\S+\.\S+$/)]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).*$/)]]
