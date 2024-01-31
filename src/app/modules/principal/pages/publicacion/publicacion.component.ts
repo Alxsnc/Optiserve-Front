@@ -39,7 +39,6 @@ export class PublicacionComponent implements OnInit {
     private categoriasService: CategoriasService
   ) {
     this.idFromPath = Number(aRouter.snapshot.paramMap.get('id'));
-    console.log(this.aRouter.snapshot.url[0].path);
   }
 
   ngOnInit(): void {

@@ -14,5 +14,8 @@ export const environment={
   apiObtenerPublicacionById: "/publicacionById/",
   apiGetUser: "/obtenerUsuario/",
   apiUpdateUser: "/editarUsuario/",
-  apiObtenerPublicacionesActivas: "/listaPublicacionesActivas/"
+  apiObtenerPublicacionesActivas: "/listaPublicacionesActivas/",
+  apiCrearPostulacion: "/postular",
+  apiCancelarPostulacion: "/cancelarPostulacion/",
+  apiListaPostulacionesPorUsuario: "/listaPostulaciones/",
 }

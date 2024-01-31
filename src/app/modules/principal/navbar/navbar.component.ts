@@ -1,28 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import Swal from 'sweetalert2';
-import { RolService } from 'src/app/shared/servicios/rol.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
-
-export class NavbarComponent implements OnInit{
-
-  rol:number=0;
+export class NavbarComponent implements OnInit {
+  rol = this.authService.getUserInfo().id_rol;
 
   constructor(
-    private authService :AuthService,
-    private rolService:RolService
-  ){}
+    private authService: AuthService,
+    
+  ) {}
 
-  ngOnInit(): void {
-    this.rolService.rol$.subscribe(rol=>{
-      this.rol=rol;
-    })
-  }
+  ngOnInit(): void {}
 
   public cerrarSesion() {
     Swal.fire({
@@ -33,15 +26,15 @@ export class NavbarComponent implements OnInit{
       confirmButtonColor: '#006666',
       cancelButtonColor: '#cc6666',
       confirmButtonText: 'Aceptar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title:'Sesión cerrada',
+          title: 'Sesión cerrada',
           text: 'Se ha cerrado la sesión con éxito.',
-          icon:'success',
+          icon: 'success',
           confirmButtonColor: '#006666',
-          confirmButtonText: 'Aceptar'
+          confirmButtonText: 'Aceptar',
         });
         this.authService.logout();
       }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import Swal from 'sweetalert2';
-import { RolService } from 'src/app/shared/servicios/rol.service';
+
 @Component({
   selector: 'app-login2',
   templateUrl: './login.component.html',
@@ -23,7 +23,7 @@ export class Login2Component implements OnInit {
     private fb: FormBuilder,
     private routerprd: Router,
     private authService: AuthService,
-    private rolService:RolService
+
   ) { }
 
   ngOnInit(): void {
@@ -54,13 +54,7 @@ export class Login2Component implements OnInit {
 
           this.authService.decodeToken();
 
-          const userRole=this.authService.getUserInfo().id_rol;  //Almacena el tipo de roll
-          this.rolService.setRol(userRole);
-
-          //Redirecciona al empleado o al empleador
-          if(userRole===2 || userRole===3){
-            this.routerprd.navigateByUrl("/sesion/principal");
-          }
+          this.routerprd.navigateByUrl("/sesion/principal");
         },
         (error) => {
           // Si hay un error en la autenticación, muestra un mensaje de error

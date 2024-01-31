@@ -25,10 +25,8 @@ export class ListaPubCerradasComponent implements OnInit {
     this.publicacionesCerradasSubscription = this.publicacionService.obtenerPublicacionesCerradas(this.authService.getUserInfo()).subscribe(
        (res) => {
          this.publicaciones = res.publicaciones;
-         console.log(this.publicaciones);
        }
     )
-     console.log(this.publicaciones);
    }
 
    ngOnDestroy(): void {

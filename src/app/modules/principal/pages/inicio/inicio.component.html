@@ -4,7 +4,6 @@
     <div *ngIf="rol === 2">
       <!-- Contenido a mostrar si id_rol es igual a 2 -->
       <h1>Bienvenido Empleador</h1>
-      <h1>Holi</h1>
       <p>Esto es una prueba de visualización</p>
     </div>
 
@@ -25,7 +24,8 @@
                   <p> {{ publicacion.descripcion }}</p>
                 </div>
                 <div class="botones">
-                  <button type="button" class="btn btn-primary" >Postular</button>
+                  <button type="button" class="btn btn-primary" (click)="postularAPublicacion(publicacion)" >Postular</button>
+                  <button type="button" class="btn btn-danger" (click)="cancelarPostulacion(publicacion)">Cancelar Postulación</button>
                 </div>
                </div>
              </div>
@@ -34,6 +34,8 @@
          </ul>
 
        </div>
+
+       {{ publicacionesActivas | json }}
 
        <ng-template #noPublicaciones>
          <!-- Mostrar un mensaje si no hay publicaciones -->
