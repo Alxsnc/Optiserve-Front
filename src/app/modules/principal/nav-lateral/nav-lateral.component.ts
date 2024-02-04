@@ -7,6 +7,9 @@ import { AuthService } from 'src/app/shared/servicios/auth.service';
   styleUrls: ['./nav-lateral.component.scss']
 })
 export class NavLateralComponent {
+
+  rol = this.authService.getUserInfo().id_rol;
+
   constructor(
     private authService :AuthService,
   ){}
