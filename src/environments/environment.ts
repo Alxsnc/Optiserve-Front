@@ -19,4 +19,5 @@ export const environment = {
   apiCancelarPostulacion: "/cancelarPostulacion/",
   apiListaPostulacionesPorUsuario: "/listaPostulaciones/",
   apiListaPostulantes: "/listaPostulantes/",
+  apiEstadoPostulacionAceptado:"/aceptarPostulacion/"
 }

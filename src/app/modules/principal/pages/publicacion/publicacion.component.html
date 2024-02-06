@@ -62,22 +62,47 @@
                 </div>
 
                 <ng-container *ngIf="mode != estado.Mostrar">
+
                   <div class="mb-3 boton conBoton">
+
                     <ng-container *ngIf="mode == estado.Crear; else botones">
                       <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Publicar</button>
                     </ng-container>
+
                     <ng-template #botones>
                       <button class="btn btn botones btnPublicar" [disabled]="!myForm.valid">Modificar</button>
                     </ng-template>
                     <ng-template #gestionPostulantes>
-
                     </ng-template>
+
                     <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
 
                   </div>
+
                 </ng-container>
-                  <app-lista-postulantes [publicacion] = "publicacion" ></app-lista-postulantes>
+
+                <ng-container *ngIf="mode == estado.Mostrar" >
+
+                  <h2 class="tituloPostu">Lista de Postulantes</h2>
+
+                  <div class="d-flex flex-row mb-2 justify-content-between">
+
+                    <div class="postulante">
+                      <app-lista-postulantes [publicacion] = "publicacion" ></app-lista-postulantes>
+
+                      <div class="botonesPostu">
+                        <button type="button" class="btn btn-primary" (click)="aceptarPostulacion()">Aceptar</button>
+                        <button type="button" class="btn btn-secondary" >Rechazar</button>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </ng-container>
+
               </form>
+
 
             </div>
           </div>

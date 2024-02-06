@@ -75,4 +75,11 @@ export class PublicacionService {
       this.urlBackEnd + ENV.apiListaPostulantes + idPublicacion
     );
   }
+
+  EstadoPostulacionAceptado(idPostulacion: number): Observable<any> {
+    return this.http.put<any>(
+      this.urlBackEnd + ENV.apiEstadoPostulacionAceptado + idPostulacion, {}
+    );
+  }
+
 }

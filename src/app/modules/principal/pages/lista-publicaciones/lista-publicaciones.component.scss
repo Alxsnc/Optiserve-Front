@@ -13,6 +13,9 @@
 
 .botones button{
   margin-left: 10px;
+  position:relative;
+  top:50%;
+  transform: translate(-50%);
 }
 
 .list-group-item{
@@ -27,4 +30,8 @@
 }
 .btn.btn-success{
   background-color: #cc6666;
+}
+.parrafoPubli
+{
+  width: 850px;
 }
