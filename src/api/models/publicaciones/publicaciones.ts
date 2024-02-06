@@ -1,8 +1,12 @@
-export interface PublicacionObject {
-  publicaciones: Publicaciones[];
+export interface PublicacionesObject {
+  publicaciones: Publicacion[];
  }
 
- export interface Publicaciones {
+ export interface PublicacionObject {
+  publicacion: Publicacion;
+ }
+
+ export interface Publicacion {
   ciudad:                string;
   descripcion:           string;
   fecha_modificacion:    Date;
@@ -16,6 +20,8 @@ export interface PublicacionObject {
   titulo:                string;
  }
 
-export interface PublicacionDTO extends Omit<Publicaciones, 'id_empleador' | 'id_estado_publicacion' | 'id_publicacion'| 'fecha_modificacion' | 'fecha_publicacion' > {}
+ export interface PublicacionDTO extends Omit<Publicacion, 'id_empleador' | 'id_estado_publicacion' | 'id_publicacion'| 'fecha_modificacion' | 'fecha_publicacion' > {}
 
-export interface PublicaDTO extends Omit<Publicaciones, 'id_empleador' | 'id_estado_publicacion'> {}
+ export interface PublicacionByID extends Omit<Publicacion, 'id_empleador' | 'id_estado_publicacion' | 'fecha_modificacion' | 'fecha_publicacion' > {}
+
+ export interface PublicaDTO extends Omit<Publicacion, 'id_empleador' | 'id_estado_publicacion'> {}

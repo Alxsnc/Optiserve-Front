@@ -1,1 +1,4 @@
-<p>lista-postulantes works!</p>
+<div class="card" *ngFor="let postulante of postulantes">
+<p>{{postulante.nombre}} {{postulante.apellido}}</p>
+<p>{{postulante.email}}</p>
+</div>

@@ -75,12 +75,8 @@
                     <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/ListaPublicaciones'">Cancelar</a>
 
                   </div>
-
-                  <!-- <app-lista-postulantes></app-lista-postulantes> -->
-
                 </ng-container>
-                  <!-- {{ myForm.value | json }} -->
-
+                  <app-lista-postulantes [publicacion] = "publicacion" ></app-lista-postulantes>
               </form>
 
             </div>

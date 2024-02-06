@@ -23,6 +23,6 @@ import { ListaPubCerradasComponent } from './modules/principal/lista-pub-cerrada
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -7,7 +7,6 @@ import { DashboardComponent } from "./dashboard.component";
 import { InicioComponent } from "./pages/inicio/inicio.component";
 import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { ListaPostulantesComponent } from './pages/publicacion/lista-postulantes/lista-postulantes.component';
 import { ContratosComponent } from './contratos/contratos.component';
 
 
@@ -19,11 +18,9 @@ import { ContratosComponent } from './contratos/contratos.component';
     InicioComponent,
     NavLateralComponent,
     PerfilComponent,
-    ListaPostulantesComponent,
     ContratosComponent,
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule],
-    exports:[ListaPostulantesComponent],
 
 })
 export class principalModule{

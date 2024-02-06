@@ -1,8 +1,8 @@
-import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
+import { Publicacion } from 'src/api/models/publicaciones/publicaciones';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
-import{Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 import Swal from 'sweetalert2';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
@@ -14,7 +14,7 @@ import { PublicacionService } from 'src/app/shared/servicios/publicacion.service
   styleUrls: ['./lista-publicaciones.component.scss'],
 })
 export class ListaPublicacionesComponent implements OnInit {
-  publicaciones: Publicaciones[] = [];
+  publicaciones: Publicacion[] = [];
   publicacionesSubscription!: Subscription;
 
 
@@ -42,7 +42,7 @@ export class ListaPublicacionesComponent implements OnInit {
     )
   }
 
-  mostrarAlerta(publicacion: Publicaciones): void {
+  mostrarAlerta(publicacion: Publicacion): void {
     Swal.fire({
       title: '¿Está seguro de borrar esta publicación?',
       text: "¡Esta acción no se podrá revertir!",

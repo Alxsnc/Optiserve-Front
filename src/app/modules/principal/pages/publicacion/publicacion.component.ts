@@ -4,11 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import { CategoriasService } from 'src/app/shared/servicios/categorias.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { Categoria } from 'src/api/models/publicaciones/categoria';
 
 import Swal from 'sweetalert2';
-import { PublicaDTO } from 'src/api/models/publicaciones/publicaciones';
+import { PublicacionByID } from 'src/api/models/publicaciones/publicaciones';
 
 enum Estado {
   Crear = "Crear",
@@ -19,6 +19,7 @@ enum Estado {
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
   styleUrls: ['./publicacion.component.scss'],
+
 })
 export class PublicacionComponent implements OnInit {
   public myForm!: FormGroup;
@@ -26,6 +27,8 @@ export class PublicacionComponent implements OnInit {
   mode: string = Estado.Crear;
   idFromPath:number;
   isDisabled: boolean = false;
+
+  publicacion!:PublicacionByID;
 
   categoriasList: Categoria[] = [];
   categoriasSubscription!: Subscription;
@@ -69,8 +72,9 @@ export class PublicacionComponent implements OnInit {
   }
 
   getPublicacion(id: number):void{
-    this.publicacionService.obtenerPublicacionById(id).subscribe((data:any)=>{
+    this.publicacionService.obtenerPublicacionById(id).subscribe((data)=>{
       this.myForm.patchValue(data.publicacion);
+      this.publicacion = data.publicacion;
     })
   }
 

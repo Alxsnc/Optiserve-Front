@@ -1,4 +1,4 @@
-import { Publicaciones } from 'src/api/models/publicaciones/publicaciones';
+import { Publicacion } from 'src/api/models/publicaciones/publicaciones';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
@@ -12,7 +12,7 @@ import { PublicacionService } from 'src/app/shared/servicios/publicacion.service
 })
 
 export class ListaPubCerradasComponent implements OnInit {
-  publicaciones: Publicaciones[]=[];
+  publicaciones: Publicacion[]=[];
   publicacionesCerradasSubscription!: Subscription;
 
   constructor(

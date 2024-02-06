@@ -1,51 +1,78 @@
-import { PublicacionObject, Publicaciones } from './../../../api/models/publicaciones/publicaciones';
+import {
+  PublicacionObject,
+  PublicacionesObject,
+  Publicacion
+} from './../../../api/models/publicaciones/publicaciones';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment as ENV } from 'src/environments/environment.prod';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class PublicacionService {
-
   readonly urlBackEnd = ENV.apiHost + ENV.apiPublicacionUrl;
   readonly urlBackEndEmpleado = ENV.apiHost + ENV.apiEmpleadosUrl;
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) {}
 
-    registrarPublicacion(publicacion: any) {
-        return this.http.post<any>(this.urlBackEnd + ENV.apiRegistroPublicacionUrl, publicacion);
-    }
+  registrarPublicacion(publicacion: any) {
+    return this.http.post<any>(
+      this.urlBackEnd + ENV.apiRegistroPublicacionUrl,
+      publicacion
+    );
+  }
 
-    obtenerPublicaciones(user: any): Observable<PublicacionObject> {
-      return this.http.get<PublicacionObject>(this.urlBackEnd + ENV.apiObtenerPublicacionesActivasUrl + user.id_usuario);
-    }
+  obtenerPublicaciones(user: any): Observable<PublicacionesObject> {
+    return this.http.get<PublicacionesObject>(
+      this.urlBackEnd + ENV.apiObtenerPublicacionesActivasUrl + user.id_usuario
+    );
+  }
 
-    obtenerPublicacionesCerradas(user: any):Observable<PublicacionObject>{
-      return this.http.get<PublicacionObject>(this.urlBackEnd + ENV.apiObtenerPublicacionesCerradasUrl + user.id_usuario);
-    }
+  obtenerPublicacionesCerradas(user: any): Observable<PublicacionesObject> {
+    return this.http.get<PublicacionesObject>(
+      this.urlBackEnd + ENV.apiObtenerPublicacionesCerradasUrl + user.id_usuario
+    );
+  }
 
-    modificarPublicacion(id:number, publicacion: Publicaciones): Observable<any> {
-      return this.http.put<any>(this.urlBackEnd + ENV.apiModificarPublicacionUrl + id, publicacion);
-    }
+  modificarPublicacion(
+    id: number,
+    publicacion: Publicacion
+  ): Observable<any> {
+    return this.http.put<any>(
+      this.urlBackEnd + ENV.apiModificarPublicacionUrl + id,
+      publicacion
+    );
+  }
 
-    eliminarPublicacion(publicacion: Publicaciones): Observable<any> {
-      return this.http.delete<any>(this.urlBackEnd + ENV.apiEliminarPublicacionUrl + publicacion.id_publicacion);
-    }
+  eliminarPublicacion(publicacion: Publicacion): Observable<any> {
+    return this.http.delete<any>(
+      this.urlBackEnd +
+        ENV.apiEliminarPublicacionUrl +
+        publicacion.id_publicacion
+    );
+  }
 
-    obtenerPublicacionById(id: number): Observable<Publicaciones> {
-      return this.http.get<Publicaciones>(this.urlBackEnd + ENV.apiObtenerPublicacionById + id);
-    }
+  obtenerPublicacionById(id: number): Observable<PublicacionObject> {
+    return this.http.get<PublicacionObject>(
+      this.urlBackEnd + ENV.apiObtenerPublicacionById + id
+    );
+  }
 
+  obtenerPublicacionesActivas(
+    idUsuario: number
+  ): Observable<PublicacionesObject> {
+    return this.http.get<PublicacionesObject>(
+      this.urlBackEndEmpleado + ENV.apiObtenerPublicacionesActivas + idUsuario
+    );
+  }
 
-   obtenerPublicacionesActivas(idUsuario: number): Observable<PublicacionObject> {
-      return this.http.get<PublicacionObject>(this.urlBackEndEmpleado + ENV.apiObtenerPublicacionesActivas + idUsuario);
-    }
-
-    /*obtenerPublicacionesActivas(user: any):Observable<PublicacionObject>{
-      return this.http.get<PublicacionObject>(this.urlBackEndEmpleado + ENV.apiObtenerPublicacionesActivas + user.id_usuario);
-    }*/
-
-
+  obtenerPostulantesPorPublicacion(
+    idPublicacion: number
+  ): Observable<any> {
+    return this.http.get<any>(
+      this.urlBackEnd + ENV.apiListaPostulantes + idPublicacion
+    );
+  }
 }
