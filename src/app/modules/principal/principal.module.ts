@@ -9,6 +9,8 @@ import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ListaPostulantesComponent } from './pages/publicacion/lista-postulantes/lista-postulantes.component';
 import { ContratosComponent } from './contratos/contratos.component';
+import { ContratosActivosComponent } from './contratos-activos/contratos-activos.component';
+import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerrados.component';
 
 
 
@@ -21,6 +23,8 @@ import { ContratosComponent } from './contratos/contratos.component';
     PerfilComponent,
     ListaPostulantesComponent,
     ContratosComponent,
+    ContratosActivosComponent,
+    ContratosCerradosComponent,
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule],
     exports:[ListaPostulantesComponent],

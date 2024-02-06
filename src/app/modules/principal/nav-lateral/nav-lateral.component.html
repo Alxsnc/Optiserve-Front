@@ -7,11 +7,11 @@
         <ul class="nav flex-column">
           <li class="nav-item" routerLinkActive="active">
             <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/publicacion">Crear publicaciones</a>
-            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratos">Contratos aceptados</a>
+            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratosActivos">Contratos activos</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/ListaPublicaciones">Publicaciones activas</a>
-            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratos">Contratos cerrados</a>
+            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratosCerrados">Contratos cerrados</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a *ngIf="rol===2"  class="nav-link" routerLink="/sesion/ListaPubCerradas">Publicaciones cerradas</a>
