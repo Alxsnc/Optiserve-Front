@@ -1,5 +1,5 @@
 import { Publicacion } from 'src/api/models/publicaciones/publicaciones';
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
 import {Router} from '@angular/router';

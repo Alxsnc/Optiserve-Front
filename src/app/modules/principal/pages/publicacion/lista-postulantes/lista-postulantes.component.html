@@ -1,4 +1,12 @@
 <div class="container" *ngFor="let postulante of postulantes">
-<h4>{{postulante.nombre}} {{postulante.apellido}}</h4>
-<p>{{postulante.email}}</p>
+
+  <div class="contenido">
+    <h4>{{postulante.nombre}} {{postulante.apellido}}</h4>
+    <p>{{postulante.email}}</p>
+  </div>
+  
+  <div class="botonesPostu">
+    <button type="button" class="btn btn-primary" (click)="aceptarPostulacion()">Aceptar</button>
+    <button type="button" class="btn btn-secondary" >Rechazar</button>
+  </div>
 </div>

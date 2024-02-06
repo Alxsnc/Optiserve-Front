@@ -81,6 +81,8 @@
 
                 </ng-container>
 
+                
+
                 <ng-container *ngIf="mode == estado.Mostrar" >
 
                   <h2 class="tituloPostu">Lista de Postulantes</h2>
@@ -89,11 +91,6 @@
 
                     <div class="postulante">
                       <app-lista-postulantes [publicacion] = "publicacion" ></app-lista-postulantes>
-
-                      <div class="botonesPostu">
-                        <button type="button" class="btn btn-primary" (click)="aceptarPostulacion()">Aceptar</button>
-                        <button type="button" class="btn btn-secondary" >Rechazar</button>
-                      </div>
                     </div>
 
 

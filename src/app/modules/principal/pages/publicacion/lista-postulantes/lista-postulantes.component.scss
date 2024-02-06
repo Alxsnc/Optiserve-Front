@@ -1,5 +1,41 @@
 .container {
-  width: 100%;
+  width: 70vw;
+  margin: 0 auto;
   padding: 10px;
   margin-bottom: 10px;
+  border: 2px solid #666666;
+  border-radius: 12px;
+  margin-left: 30px;
+  display: flex; /* Alinea los elementos hijos en una fila */
+  justify-content: space-between;
+}
+
+.contenido {
+  flex-grow: 1; /* Permite que el contenido ocupe todo el espacio disponible */
+}
+
+.botonesPostu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Estilo para los botones dentro del div botonesPostu */
+.botonesPostu button {
+  margin-left: 10px;
+  margin-right: 30px;
+  align-self: flex-end;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+
+}
+
+.btn.btn-primary {
+  background-color: #006666;
+}
+
+.btn.btn-secondary {
+  background-color: #cc6666;
 }
