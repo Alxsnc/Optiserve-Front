@@ -8,6 +8,8 @@ import { InicioComponent } from "./pages/inicio/inicio.component";
 import { NavLateralComponent } from './nav-lateral/nav-lateral.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ContratosComponent } from './contratos/contratos.component';
+import { ContratosActivosComponent } from './contratos-activos/contratos-activos.component';
+import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerrados.component';
 
 
 
@@ -19,6 +21,8 @@ import { ContratosComponent } from './contratos/contratos.component';
     NavLateralComponent,
     PerfilComponent,
     ContratosComponent,
+    ContratosActivosComponent,
+    ContratosCerradosComponent,
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule],
 

@@ -7,6 +7,8 @@ import { InicioComponent } from "./pages/inicio/inicio.component";
 import { DashboardComponent } from "./dashboard.component";
 import { ListaPubCerradasComponent } from './lista-pub-cerradas/lista-pub-cerradas.component';
 import { PerfilComponent } from "./perfil/perfil.component";
+import { ContratosActivosComponent } from './contratos-activos/contratos-activos.component';
+import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerrados.component';
 
 
 
@@ -21,7 +23,9 @@ const rutas:Routes = [{
         {path:'ListaPublicaciones',component:ListaPublicacionesComponent},
         {path:'ListaPubCerradas',component:ListaPubCerradasComponent},
         {path:'Perfil',component:PerfilComponent},
-        {path:'contratos',component:ContratosComponent}
+        {path:'contratos',component:ContratosComponent},
+        {path:'contratosActivos',component:ContratosActivosComponent},
+        {path:'contratosCerrados',component:ContratosCerradosComponent}
     ]
 }];
 @NgModule({
