@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment as ENV } from 'src/environments/environment.prod';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,17 @@ export class PostulacionService {
 
   cancelarPostulacion(id_postulacion: number) {
     return this.http.delete(this.postulacionUrl + ENV.apiCancelarPostulacion + id_postulacion);
+  }
+
+  estadoPostulacionAceptado(idPostulacion: number): Observable<any> {
+    return this.http.put<any>(
+      this.postulacionUrl + ENV.apiEstadoPostulacionAceptado + idPostulacion, {}
+    );
+  }
+
+  estadoPostulacionRechazado(idPostulacion: number): Observable<any> {
+    return this.http.put<any>(
+      this.postulacionUrl + ENV.apiEstadoPostulacionCancelada + idPostulacion, {}
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { PostulacionService } from 'src/app/shared/servicios/postulacion.service';
 import { Component, Input } from '@angular/core';
 import { PublicacionByID } from 'src/api/models/publicaciones/publicaciones';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
@@ -13,7 +14,10 @@ export class ListaPostulantesComponent {
 
   postulantes: any;
 
-  constructor(private publicacionService: PublicacionService) {}
+  constructor(
+    private publicacionService: PublicacionService,
+    private postulacionService: PostulacionService,
+  ) {}
 
   ngOnChanges(): void {
     this.listaPostulantes();
@@ -29,14 +33,7 @@ export class ListaPostulantesComponent {
     }
   }
 
-  aceptarPostulacion(): void {
-    // Obtener el id_postulacion del localStorage
-    const idPostulacion = localStorage.getItem('id_postulacion');
-    if (!idPostulacion) {
-      console.error('No se encontró id_postulacion en el localStorage');
-      return;
-    }
-
+  aceptarPostulacion(id_postulacion: number): void {
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Una vez aceptada la postulación, no podrás revertir esta acción',
@@ -45,55 +42,72 @@ export class ListaPostulantesComponent {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, estoy seguro',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.publicacionService.EstadoPostulacionAceptado(Number(idPostulacion)).subscribe(
-          response => {
-            // Manejar la respuesta si es necesario
-            console.log('La postulación ha sido aceptada correctamente');
-          },
-          error => {
-            // Manejar el error si ocurre
-            console.error('Error al aceptar la postulación:', error);
-          }
-        );
+        this.postulacionService
+          .estadoPostulacionAceptado(id_postulacion)
+          .subscribe(
+            (response) => {
+              // Manejar la respuesta si es necesario
+              Swal.fire({
+                title: 'Postulación Aceptada!',
+                text: response.message, // Utilizar el mensaje proporcionado por el backend
+                icon: 'success',
+                confirmButtonColor: '#006666',
+                confirmButtonText: 'Aceptar',
+              });
+            },
+            (error) => {
+              // Manejar el error si ocurre
+              Swal.fire({
+                title: 'Error al borrar la publicación',
+                text: error.error.error,
+                icon: 'error',
+                confirmButtonColor: '#cc6666',
+                confirmButtonText: 'Aceptar',
+              });
+            }
+          );
       }
     });
   }
 
-  cancelarPostulacion(): void {
-    // Obtener el id_postulacion del localStorage
-    const idPostulacion = localStorage.getItem('id_postulacion');
-    if (!idPostulacion) {
-      console.error('No se encontró id_postulacion en el localStorage');
-      return;
-    }
-
+  rechazarPostulacion(id_postulacion: number): void {
     Swal.fire({
       title: '¿Estás seguro?',
-      text: 'Una vez aceptada la postulación, no podrás revertir esta acción',
+      text: 'Una vez rechazada la postulación, no podrás revertir esta acción',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, estoy seguro',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.publicacionService.EstadoPostulacionCancelado(Number(idPostulacion)).subscribe(
-          response => {
-            // Manejar la respuesta si es necesario
-            console.log('La postulación ha sido cancelada correctamente');
-          },
-          error => {
-            // Manejar el error si ocurre
-            console.error('Error al cancelar la postulación:', error);
-          }
-        );
+        this.postulacionService
+          .estadoPostulacionRechazado(id_postulacion)
+          .subscribe(
+            (response) => {
+              Swal.fire({
+                title: 'Postulación Rechazada!',
+                text: response.message, // Utilizar el mensaje proporcionado por el backend
+                icon: 'success',
+                confirmButtonColor: '#006666',
+                confirmButtonText: 'Aceptar',
+              });
+            },
+            (error) => {
+              Swal.fire({
+                title: 'Error al borrar la publicación',
+                text: error.error.error,
+                icon: 'error',
+                confirmButtonColor: '#cc6666',
+                confirmButtonText: 'Aceptar',
+              });
+            }
+          );
       }
     });
   }
-
-
 }
