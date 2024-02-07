@@ -84,11 +84,11 @@ export class ListaPostulantesComponent {
         this.publicacionService.EstadoPostulacionCancelado(Number(idPostulacion)).subscribe(
           response => {
             // Manejar la respuesta si es necesario
-            console.log('La postulación ha sido aceptada correctamente');
+            console.log('La postulación ha sido cancelada correctamente');
           },
           error => {
             // Manejar el error si ocurre
-            console.error('Error al aceptar la postulación:', error);
+            console.error('Error al cancelar la postulación:', error);
           }
         );
       }
