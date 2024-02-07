@@ -25,7 +25,7 @@
                 <!-- Descripcion -->
                 <div class="mb-3 descripcion">
                   <label for="descripcionInput" class="form-label">Descripción</label>
-                  <input formControlName="descripcion" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" type="text" class="form-control" id="descripcionInput" placeholder="Ingresa tu descripción">
+                  <textarea formControlName="descripcion" [class.is-invalid]="f.descripcion.errors && f.descripcion.touched" class="form-control input-descripcion" id="descripcionInput" placeholder="Ingresa tu descripción"></textarea>
                   <div id="validationServerUsernameFeedback" class="invalid-feedback">Descripción del trabajo obligatoria</div>
                 </div>
 
@@ -81,7 +81,7 @@
 
                 </ng-container>
 
-                
+
 
                 <ng-container *ngIf="mode == estado.Mostrar" >
 

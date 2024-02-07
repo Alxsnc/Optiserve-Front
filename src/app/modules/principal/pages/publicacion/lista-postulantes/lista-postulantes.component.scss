@@ -8,6 +8,7 @@
   margin-left: 30px;
   display: flex; /* Alinea los elementos hijos en una fila */
   justify-content: space-between;
+  color: #666666;
 }
 
 .contenido {
@@ -30,6 +31,11 @@
   right: 10px;
   transform: translateY(-50%);
 
+}
+
+.label {
+  color: #4c4c4c; /* Define el color para el texto de las etiquetas */
+  font-weight:bolder;
 }
 
 .btn.btn-primary {

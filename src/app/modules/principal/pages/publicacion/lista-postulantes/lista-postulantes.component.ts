@@ -62,5 +62,38 @@ export class ListaPostulantesComponent {
     });
   }
 
+  cancelarPostulacion(): void {
+    // Obtener el id_postulacion del localStorage
+    const idPostulacion = localStorage.getItem('id_postulacion');
+    if (!idPostulacion) {
+      console.error('No se encontró id_postulacion en el localStorage');
+      return;
+    }
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Una vez aceptada la postulación, no podrás revertir esta acción',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, estoy seguro',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.publicacionService.EstadoPostulacionCancelado(Number(idPostulacion)).subscribe(
+          response => {
+            // Manejar la respuesta si es necesario
+            console.log('La postulación ha sido aceptada correctamente');
+          },
+          error => {
+            // Manejar el error si ocurre
+            console.error('Error al aceptar la postulación:', error);
+          }
+        );
+      }
+    });
+  }
+
 
 }

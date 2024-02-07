@@ -81,5 +81,10 @@ export class PublicacionService {
       this.urlBackEnd + ENV.apiEstadoPostulacionAceptado + idPostulacion, {}
     );
   }
+  EstadoPostulacionCancelado(idPostulacion: number): Observable<any> {
+    return this.http.put<any>(
+      this.urlBackEnd + ENV.apiEstadoPostulacionCancelada + idPostulacion, {}
+    );
+  }
 
 }
