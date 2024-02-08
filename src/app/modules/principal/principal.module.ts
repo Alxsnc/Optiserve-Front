@@ -21,8 +21,8 @@ import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerra
     NavLateralComponent,
     PerfilComponent,
     ContratosComponent,
-    ContratosActivosComponent,
     ContratosCerradosComponent,
+    ContratosActivosComponent, // Move ContratosActivosComponent to the declarations array
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule],
 

@@ -13,6 +13,7 @@ export class ListaPostulantesComponent {
   @Input() publicacion!: PublicacionByID;
 
   postulantes: any;
+  empleadosAceptados: any;
 
   constructor(
     private publicacionService: PublicacionService,
@@ -29,6 +30,7 @@ export class ListaPostulantesComponent {
         .obtenerPostulantesPorPublicacion(this.publicacion.id_publicacion)
         .subscribe((res) => {
           this.postulantes = res.data;
+          this.empleadosAceptados = res.aceptados;
         });
     }
   }
@@ -57,6 +59,7 @@ export class ListaPostulantesComponent {
                 confirmButtonColor: '#006666',
                 confirmButtonText: 'Aceptar',
               });
+              this.listaPostulantes();
             },
             (error) => {
               // Manejar el error si ocurre
@@ -96,6 +99,7 @@ export class ListaPostulantesComponent {
                 confirmButtonColor: '#006666',
                 confirmButtonText: 'Aceptar',
               });
+              this.listaPostulantes();
             },
             (error) => {
               Swal.fire({

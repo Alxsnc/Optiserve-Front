@@ -15,7 +15,7 @@ export class PostulacionService {
     return this.http.post(this.postulacionUrl + ENV.apiCrearPostulacion, postulacion);
   }
 
-  getPostulacionesByUser(id_usuario: number) {
+  getPostulacionesByUser(id_usuario: string) {
     return this.http.get(this.postulacionUrl + ENV.apiListaPostulacionesPorUsuario + id_usuario);
   }
 
@@ -33,5 +33,9 @@ export class PostulacionService {
     return this.http.put<any>(
       this.postulacionUrl + ENV.apiEstadoPostulacionCancelada + idPostulacion, {}
     );
+  }
+
+  listaContratosActivos(id_usuario: string) {
+    return this.http.get(this.postulacionUrl + ENV.apiListaContratosActivos + id_usuario);
   }
 }
