@@ -70,9 +70,15 @@
                       </div>
 
                       <div class="mb-3 fechaNacimiento">
-                        <label for="exampleFormControlInput1" class="form-label">Fecha de Nacimiento  </label>
+                        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                         <input formControlName="fecha_nacimiento" [class.is-invalid]="f.fecha_nacimiento.errors && f.fecha_nacimiento.touched" type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingresa tu fecha de nacimiento">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">Fecha de nacimiento obligatoria</div>
+
+                        <!-- Mostrar mensaje de error si la fecha de nacimiento no es válida -->
+                        <div *ngIf="f.fecha_nacimiento.errors && f.fecha_nacimiento.touched" class="invalid-feedback">
+                            <div *ngIf="f.fecha_nacimiento.errors.fechaActual">La fecha de nacimiento no puede ser mayor que la fecha actual.</div>
+                            <div *ngIf="f.fecha_nacimiento.errors.edadMinima">Debe tener un mínimo de 18 años.</div>
+                            <div *ngIf="f.fecha_nacimiento.errors.edadMaxima">Debe tener un máximo de 65 años.</div>
+                        </div>
                       </div>
 
                       <div class="mb-3 email">
