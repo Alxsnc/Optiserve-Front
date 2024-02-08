@@ -139,7 +139,9 @@
               </div>
             </div>
 
-            <ng-container *ngIf="mode != estado.Mostrar">
+            <ng-container
+              *ngIf="mode != estado.Mostrar; else gestionPostulantes"
+            >
               <div class="mb-3 boton conBoton">
                 <ng-container *ngIf="mode == estado.Crear; else botones">
                   <button
@@ -158,7 +160,6 @@
                     Modificar
                   </button>
                 </ng-template>
-                <ng-template #gestionPostulantes> </ng-template>
 
                 <a
                   class="btn btn botones btnCancelar"
@@ -167,11 +168,18 @@
                 >
               </div>
             </ng-container>
+            <ng-template #gestionPostulantes>
+              <!-- <button class="btn btn-warning" (click)="cerrarPublicacion(publicacion.id_publicacion)">
+                Cerrar Publicación
+              </button> -->
+            </ng-template>
+
+            <br /><br /><br />
 
             <ng-container *ngIf="mode == estado.Mostrar">
               <app-lista-postulantes
-                  [publicacion]="publicacion"
-                ></app-lista-postulantes>
+                [publicacion]="publicacion"
+              ></app-lista-postulantes>
             </ng-container>
           </form>
         </div>

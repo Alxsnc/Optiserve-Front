@@ -9,26 +9,26 @@ import { Categoria } from 'src/api/models/publicaciones/categoria';
 
 import Swal from 'sweetalert2';
 import { PublicacionByID } from 'src/api/models/publicaciones/publicaciones';
+import { CalificacionesService } from 'src/app/shared/servicios/calificaciones.service';
 
 enum Estado {
-  Crear = "Crear",
-  Modificar = "Modificar",
-  Mostrar = "Mostrar",
+  Crear = 'Crear',
+  Modificar = 'Modificar',
+  Mostrar = 'Mostrar',
 }
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
   styleUrls: ['./publicacion.component.scss'],
-
 })
 export class PublicacionComponent implements OnInit {
   public myForm!: FormGroup;
   estado = Estado;
   mode: string = Estado.Crear;
-  idFromPath:number;
+  idFromPath: number;
   isDisabled: boolean = false;
 
-  publicacion!:PublicacionByID;
+  publicacion!: PublicacionByID;
 
   categoriasList: Categoria[] = [];
   categoriasSubscription!: Subscription;
@@ -39,7 +39,8 @@ export class PublicacionComponent implements OnInit {
     private aRouter: ActivatedRoute,
     private publicacionService: PublicacionService,
     private authService: AuthService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private calificacionesService: CalificacionesService
   ) {
     this.idFromPath = Number(aRouter.snapshot.paramMap.get('id'));
   }
@@ -58,7 +59,7 @@ export class PublicacionComponent implements OnInit {
     this.categoriasSubscription?.unsubscribe();
   }
 
-  createOrModify(){
+  createOrModify() {
     if (this.aRouter.snapshot.url[0].path === 'publicacion') {
       this.mode = Estado.Crear;
     } else if (this.aRouter.snapshot.url[0].path === 'editarPublicacion') {
@@ -71,11 +72,48 @@ export class PublicacionComponent implements OnInit {
     }
   }
 
-  getPublicacion(id: number):void{
-    this.publicacionService.obtenerPublicacionById(id).subscribe((data)=>{
+  getPublicacion(id: number): void {
+    this.publicacionService.obtenerPublicacionById(id).subscribe((data) => {
       this.myForm.patchValue(data.publicacion);
       this.publicacion = data.publicacion;
-    })
+    });
+  }
+
+  cerrarPublicacion(id_publicacion: number) {
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: '¿Está seguro de que desea cerrar esta publicación?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.calificacionesService.cerrarPublicacion(id_publicacion).subscribe(
+          (response: any) => {
+            Swal.fire({
+              title: 'Publicación Cerrada',
+              text: response?.message, // Suponiendo que el backend retorna un mensaje en la respuesta
+              icon: 'success',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: '#006666',
+            });
+            this.routerprd.navigateByUrl('/sesion/principal');
+          },
+          (error) => {
+            Swal.fire({
+              title: 'Error',
+              text: error.message, // Suponiendo que el backend retorna un mensaje de error en la respuesta
+              icon: 'error',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: '#006666',
+            });
+          }
+        );
+      }
+    });
   }
 
   private createMyForm(): FormGroup {
@@ -144,24 +182,24 @@ export class PublicacionComponent implements OnInit {
         text: 'Acción realizada con éxito',
         icon: 'success',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#006666'
-      })
+        confirmButtonColor: '#006666',
+      });
       this.routerprd.navigateByUrl('/sesion/principal');
-    }
-    else{
+    } else {
       //publicacionTyped.id_publicacion = this.idFromPath;
-      this.publicacionService.modificarPublicacion(this.idFromPath,publicacion).subscribe();
+      this.publicacionService
+        .modificarPublicacion(this.idFromPath, publicacion)
+        .subscribe();
       Swal.fire({
         title: 'Cambios Guardados',
         text: 'Acción realizada con éxito',
         icon: 'success',
         confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#006666'
-      })
+        confirmButtonColor: '#006666',
+      });
       this.routerprd.navigateByUrl('/sesion/principal');
     }
   }
-
 
   public get f(): any {
     return this.myForm.controls;

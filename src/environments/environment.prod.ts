@@ -1,19 +1,26 @@
 export const environment={
   production:true,
   apiHost: "http://localhost:4000",
+  /**************************************************************************************************/
   apiAuthUrl: "/api/auth",
   apiPublicacionUrl: "/api/publicaciones",
   apiEmpleadosUrl:"/api/empleado",
   apiUserUrl: "/api/usuarios",
+  apiCalificacionesUrl: '/api/calificaciones',
+  /**************************************************************************************************/
   apiRegistroPublicacionUrl: "/nuevaPublicacion",
   apiObtenerPublicacionesActivasUrl: "/listaPublicaciones/activas/",
   apiObtenerPublicacionesCerradasUrl: "/listaPublicaciones/cerradas/",
   apiEliminarPublicacionUrl: "/eliminarPublicacion/",
+  /**************************************************************************************************/
   apiCategoriasUrl: "/api/categorias/",
+  /**************************************************************************************************/
   apiModificarPublicacionUrl: "/modificarPublicacion/",
   apiObtenerPublicacionById: "/publicacionById/",
+  /**************************************************************************************************/
   apiGetUser: "/obtenerUsuario/",
   apiUpdateUser: "/editarUsuario/",
+  /**************************************************************************************************/
   apiObtenerPublicacionesActivas: "/listaPublicacionesActivas/",
   apiCrearPostulacion: "/postular",
   apiCancelarPostulacion: "/cancelarPostulacion/",
@@ -22,5 +29,8 @@ export const environment={
   apiEstadoPostulacionAceptado:"/aceptarPostulacion/",
   apiEstadoPostulacionCancelada:"/rechazarPostulacion/",
   apiListaContratosActivos: "/listaContratosActivos/",
+  /**************************************************************************************************/
+  apiGenerarCalificacion: "/calificar",
+  apiCerrarPublicacion: "/verificarYCerrar/",
 
 }
