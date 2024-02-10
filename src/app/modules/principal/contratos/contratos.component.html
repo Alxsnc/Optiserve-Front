@@ -1,23 +1,34 @@
 <div class="componente-derecha">
   <div class="container-fluid divBarra">
-      <div class="row">
-        <div div role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
-          <div class="container mt-3">
-            <div *ngFor="let contrato of contratos">
+    <div class="row">
+      <div div role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
+        <div class="container mt-3">
+          <div *ngFor="let contrato of contratos">
+            <div class="card">
+              <div class="card-header">
+                <p>{{ contrato.publicacion.titulo }}</p>
+                <p>{{ contrato.publicacion.descripcion }}</p>
+                <p>
+                  {{ contrato.publicacion.empleador.usuario.nombre }}
+                  {{ contrato.publicacion.empleador.usuario.apellido }}
+                </p>
+                <p>{{ contrato.publicacion.empleador.id_usuario }}</p>
+                <p>{{ contrato.publicacion.empleador.usuario.email }}</p>
 
-              <div class="card">
-                <div class="card-header">
-                  <p>{{contrato.publicacion.titulo}}</p>
-                  <p>{{contrato.publicacion.descripcion}}</p>
-                  <p>{{contrato.publicacion.empleador.usuario.nombre}} {{contrato.publicacion.empleador.usuario.apellido}}</p>
-                  <p>{{contrato.publicacion.empleador.id_usuario}}</p>
-                  <p>{{contrato.publicacion.empleador.usuario.email}}</p>
+                <ng-container *ngIf="!contrato.publicacion.calificado">
+                  <button type="button" class="btn btn-primary" (click)="calificarEmpleador(contrato.publicacion.id_empleador, contrato.id_publicacion)">Calificar</button>
+                </ng-container>
+                <ng-container *ngIf="contrato.publicacion.calificado">
+                  <button type="button" class="btn btn-secondary" disabled>Calificado</button>
+                </ng-container>
 
+              </div>
+
+              {{ contrato | json }}
+            </div>
           </div>
-          <!-- {{contrato | json}} -->
         </div>
       </div>
+    </div>
   </div>
 </div>
-
-

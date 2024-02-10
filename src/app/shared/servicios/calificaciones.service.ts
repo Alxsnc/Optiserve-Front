@@ -12,11 +12,15 @@ export class CalificacionesService {
     private http: HttpClient,
   ) { }
 
-  generarCalificacion(calificacion: any) {
-    return this.http.post(this.calificacionesUrl + ENV.apiGenerarCalificacion, calificacion);
+  generarCalificacionEmpleado(calificacion: any) {
+    return this.http.post(this.calificacionesUrl + ENV.apiGenerarCalificacionEmpleado, calificacion);
+  }
+
+  generarCalificacionEmpleador(calificacion: any) {
+    return this.http.post(this.calificacionesUrl + ENV.apiGenerarCalificacionEmpleador, calificacion);
   }
 
   cerrarPublicacion(id_publicacion: number) {
-    return this.http.post(this.calificacionesUrl + ENV.apiCerrarPublicacion, {id_publicacion});
+    return this.http.put(this.calificacionesUrl + ENV.apiCerrarPublicacion + id_publicacion, null);
   }
 }

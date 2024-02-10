@@ -36,12 +36,20 @@
       </div>
 
       <div class="botonesPostu">
-        <button type="button" class="btn btn-primary">Calificar</button>
+        <ng-container *ngIf="!postulante.calificado" >
+          <button type="button" class="btn btn-primary" (click)="calificarEmpleado(postulante.id_postulante, postulante.id_postulacion)">Calificar</button>
+        </ng-container>
+        <ng-container *ngIf="postulante.calificado" >
+          <button type="button" class="btn btn-secondary" disabled>Calificado</button>
+        </ng-container>
+
       </div>
     </div>
   </div>
 </div>
 </ng-container>
+
+{{empleadosAceptados | json}}
 
 <ng-template #aceptadosEmpty>
   <p>Aún no ha aceptado postulantes.</p>

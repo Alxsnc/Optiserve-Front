@@ -81,37 +81,41 @@ export class PublicacionComponent implements OnInit {
 
   cerrarPublicacion(id_publicacion: number) {
     Swal.fire({
-      title: '¿Está seguro?',
-      text: '¿Está seguro de que desea cerrar esta publicación?',
+      title: '¿Estás seguro?',
+      text: 'Una vez aceptada la postulación, no podrás revertir esta acción',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, cerrar',
-      cancelButtonText: 'Cancelar'
+      confirmButtonText: 'Sí, estoy seguro',
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.calificacionesService.cerrarPublicacion(id_publicacion).subscribe(
-          (response: any) => {
-            Swal.fire({
-              title: 'Publicación Cerrada',
-              text: response?.message, // Suponiendo que el backend retorna un mensaje en la respuesta
-              icon: 'success',
-              confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#006666',
-            });
-            this.routerprd.navigateByUrl('/sesion/principal');
-          },
-          (error) => {
-            Swal.fire({
-              title: 'Error',
-              text: error.message, // Suponiendo que el backend retorna un mensaje de error en la respuesta
-              icon: 'error',
-              confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#006666',
-            });
-          }
-        );
+        this.calificacionesService
+          .cerrarPublicacion(id_publicacion)
+          .subscribe(
+            (response: any) => {
+              // Manejar la respuesta si es necesario
+              Swal.fire({
+                title: 'Postulación Cerrada!',
+                text: response.message, // Utilizar el mensaje proporcionado por el backend
+                icon: 'success',
+                confirmButtonColor: '#006666',
+                confirmButtonText: 'Aceptar',
+              });
+              this.routerprd.navigateByUrl('/sesion/principal');
+            },
+            (error) => {
+              // Manejar el error si ocurre
+              Swal.fire({
+                title: 'Error al cerrar la publicación',
+                text: error.error.message,
+                icon: 'error',
+                confirmButtonColor: '#cc6666',
+                confirmButtonText: 'Aceptar',
+              });
+            }
+          );
       }
     });
   }
@@ -185,7 +189,7 @@ export class PublicacionComponent implements OnInit {
         confirmButtonColor: '#006666',
       });
       this.routerprd.navigateByUrl('/sesion/principal');
-    } else {
+    } else if (this.mode === Estado.Modificar){
       //publicacionTyped.id_publicacion = this.idFromPath;
       this.publicacionService
         .modificarPublicacion(this.idFromPath, publicacion)

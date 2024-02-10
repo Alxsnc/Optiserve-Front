@@ -17,14 +17,10 @@
           <a class="nav-link" routerLink="/sesion/Perfil"routerLinkActive="active">Mi Perfil</a>
           <a class="nav-link" (click)="cerrarSesion()">Salir</a>
         </div>
-
-       <!-- Barra de busqueda
-         <div class="search-container">
-          <input type="text" class="form-control me-2 search-input" placeholder="Buscar">
-          <button class="btn btn-warning search-button">
-            <i class="fas fa-search">Buscar</i>
-          </button>
-        </div>-->
+        <div>
+          <a>Bienvenido, {{userName}}</a> <br>
+          <a>Rol: {{roleName}}</a>
+        </div>
       </div>
     </div>
 </nav>

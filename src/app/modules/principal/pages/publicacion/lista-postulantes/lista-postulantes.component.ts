@@ -3,6 +3,8 @@ import { Component, Input } from '@angular/core';
 import { PublicacionByID } from 'src/api/models/publicaciones/publicaciones';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 import Swal from 'sweetalert2';
+import { CalificacionesService } from 'src/app/shared/servicios/calificaciones.service';
+import { AuthService } from 'src/app/shared/servicios/auth.service';
 
 @Component({
   selector: 'app-lista-postulantes',
@@ -18,6 +20,8 @@ export class ListaPostulantesComponent {
   constructor(
     private publicacionService: PublicacionService,
     private postulacionService: PostulacionService,
+    private calificacionesService: CalificacionesService,
+    private authService: AuthService,
   ) {}
 
   ngOnChanges(): void {
@@ -61,16 +65,6 @@ export class ListaPostulantesComponent {
               });
               this.listaPostulantes();
             },
-            (error) => {
-              // Manejar el error si ocurre
-              Swal.fire({
-                title: 'Error al borrar la publicación',
-                text: error.error.error,
-                icon: 'error',
-                confirmButtonColor: '#cc6666',
-                confirmButtonText: 'Aceptar',
-              });
-            }
           );
       }
     });
@@ -94,24 +88,67 @@ export class ListaPostulantesComponent {
             (response) => {
               Swal.fire({
                 title: 'Postulación Rechazada!',
-                text: response.message, // Utilizar el mensaje proporcionado por el backend
+                text: response.message,
                 icon: 'success',
                 confirmButtonColor: '#006666',
                 confirmButtonText: 'Aceptar',
               });
               this.listaPostulantes();
             },
-            (error) => {
-              Swal.fire({
-                title: 'Error al borrar la publicación',
-                text: error.error.error,
-                icon: 'error',
-                confirmButtonColor: '#cc6666',
-                confirmButtonText: 'Aceptar',
-              });
-            }
           );
       }
     });
   }
+
+  calificarEmpleado(id_postulante: number, id_postulacion: number): void {
+    Swal.fire({
+      title: 'Calificar Empleado',
+      html: `
+        <div class="form-group">
+          <label for="calificacion">Calificación</label>
+          <select class="form-control" id="calificacion" name="calificacion">
+            <option value="1">1 - Muy malo</option>
+            <option value="2">2 - Malo</option>
+            <option value="3">3 - Regular</option>
+            <option value="4">4 - Bueno</option>
+            <option value="5">5 - Muy bueno</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comentario">Comentario</label>
+          <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
+        </div>
+      `,
+      showCancelButton: true,
+      confirmButtonColor: '#006666',
+      confirmButtonText: 'Calificar',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      showLoaderOnConfirm: true,
+      preConfirm: () => {
+        const calificacion = {
+          id_publicacion: this.publicacion.id_publicacion,
+          id_postulacion: id_postulacion,
+          puntuacion: (document.getElementById('calificacion') as HTMLInputElement).value,
+          comentario: (document.getElementById('comentario') as HTMLInputElement).value,
+          id_usuario_calificador: this.authService.getUserInfo().id_usuario_rol,
+          id_usuario_calificado: id_postulante,
+        };
+        return this.calificacionesService.generarCalificacionEmpleado(calificacion).toPromise();
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Calificación generada!',
+          text: 'La calificación ha sido generada con éxito',
+          icon: 'success',
+          confirmButtonColor: '#006666',
+          confirmButtonText: 'Aceptar',
+        });
+        this.listaPostulantes();
+      }
+    }
+    );
+  }
 }
+

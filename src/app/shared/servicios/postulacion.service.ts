@@ -38,4 +38,8 @@ export class PostulacionService {
   listaContratosActivos(id_usuario: string) {
     return this.http.get(this.postulacionUrl + ENV.apiListaContratosActivos + id_usuario);
   }
+
+  listaContratosCerrados(id_usuario: string) {
+    return this.http.get(this.postulacionUrl + ENV.apiListaContratosCerrados + id_usuario);
+  }
 }

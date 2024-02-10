@@ -9,10 +9,12 @@ import Swal from 'sweetalert2';
 })
 export class NavbarComponent implements OnInit {
   rol = this.authService.getUserInfo().id_rol;
+  userName = this.authService.getUserInfo().nombre;
+  roleName = this.authService.getUserInfo().nombre_rol;
 
   constructor(
     private authService: AuthService,
-    
+
   ) {}
 
   ngOnInit(): void {}

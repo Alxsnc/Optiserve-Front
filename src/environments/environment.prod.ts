@@ -29,8 +29,10 @@ export const environment={
   apiEstadoPostulacionAceptado:"/aceptarPostulacion/",
   apiEstadoPostulacionCancelada:"/rechazarPostulacion/",
   apiListaContratosActivos: "/listaContratosActivos/",
+  apiListaContratosCerrados: "/listaContratosCerrados/",
   /**************************************************************************************************/
-  apiGenerarCalificacion: "/calificar",
+  apiGenerarCalificacionEmpleado: "/calificarEmpleado",
+  apiGenerarCalificacionEmpleador: "/calificarEmpleador",
   apiCerrarPublicacion: "/verificarYCerrar/",
 
 }
