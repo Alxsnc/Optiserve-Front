@@ -29,4 +29,6 @@ export class ContratosCerradosComponent {
       });
   }
 
+  //TODO: Cambiar por estrellas, no por select. Promedio calificaciones
+
 }
