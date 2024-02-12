@@ -14,16 +14,15 @@
                   <ng-container *ngIf="contrato.id_publicacion == calificacion.id_publicacion && contrato.publicacion.calificado && contrato.calificado && contratos.length">
                     <div class="card">
                       <div class="card-header">
-                        <p>{{ contrato.publicacion.titulo }}</p>
-                        <p>{{ contrato.publicacion.descripcion }}</p>
-                        <p>
+                        <h4>{{ contrato.publicacion.titulo }}</h4>
+                        <p>Descripción: {{ contrato.publicacion.descripcion }}</p>
+                        <p>Empleador:
                           {{ contrato.publicacion.empleador.usuario.nombre }}
                           {{ contrato.publicacion.empleador.usuario.apellido }}
                         </p>
-                        <p>{{ contrato.publicacion.empleador.id_usuario }}</p>
-                        <p>{{ contrato.publicacion.empleador.usuario.email }}</p>
-                        <p>{{calificacion.puntuacion}}</p>
-                        <p>{{calificacion.comentario}}</p>
+                        <p>Email Empleador: {{ contrato.publicacion.empleador.usuario.email }}</p>
+                        <p>Calificación recibida: {{calificacion.puntuacion}}</p>
+                        <p>Comentario: {{calificacion.comentario}}</p>
                       </div>
 
                       <!-- {{ contrato | json }} -->

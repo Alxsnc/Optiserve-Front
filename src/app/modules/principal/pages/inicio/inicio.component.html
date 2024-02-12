@@ -13,15 +13,15 @@
        <h3>Publicaciones a las que se puede postular</h3>
 
        <div *ngIf="publicacionesActivas.length > 0; else noPublicaciones"  class="list-group-item">
-         <!-- Mostrar la lista de publicaciones -->
          <ul class="list-group">
            <li *ngFor="let publicacion of publicacionesActivas">
-             <!-- Aquí puedes mostrar la información de cada publicación -->
              <div class="d-flex flex-row mb-2 justify-content-between">
               <div class="publiIndividual">
                 <div class="contenido">
                   <h5>{{ publicacion.titulo }}</h5>
-                  <p> {{ publicacion.descripcion }}</p>
+                  <p> Descripción: {{ publicacion.descripcion }}</p>
+                  <p>Empleador: {{publicacion.empleador.usuario.nombre}} {{publicacion.empleador.usuario.apellido}}</p>
+                  <p>Email Empleador: {{publicacion.empleador.usuario.email}}</p>
                 </div>
                 <div class="botones">
                   <button type="button" class="btn btn-primary" (click)="postularAPublicacion(publicacion)" >Postular</button>
@@ -29,13 +29,12 @@
                 </div>
                </div>
              </div>
-             <!-- Agrega más campos según tus necesidades -->
            </li>
          </ul>
 
        </div>
 
-       {{ publicacionesActivas | json }}
+       <!-- {{ publicacionesActivas | json }} -->
 
        <ng-template #noPublicaciones>
          <!-- Mostrar un mensaje si no hay publicaciones -->

@@ -33,5 +33,6 @@ export const environment = {
   /**************************************************************************************************/
   apiGenerarCalificacionEmpleado: "/calificarEmpleado",
   apiGenerarCalificacionEmpleador: "/calificarEmpleador",
+  apiPromedioCalificaciones: "/promedioCalificaciones/",
   apiCerrarPublicacion: "/verificarYCerrar/",
 }

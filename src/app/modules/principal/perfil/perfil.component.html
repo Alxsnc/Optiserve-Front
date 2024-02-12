@@ -46,6 +46,11 @@
           <div id="validationServerUsernameFeedback" class="invalid-feedback">Email obligatorio</div>
         </div>
 
+        <div>
+          <br>
+          <p>Promedio de calificacion: {{promedio}}</p>
+        </div>
+
         <div class="mb-3 boton conBoton">
           <button class="btn btn botones btnPublicar" (click)="submitFormulario()" [disabled]="!myForm.valid">Modificar</button>
           <a class="btn btn botones btnCancelar" [routerLink]="'/sesion/principal'">Cancelar</a>

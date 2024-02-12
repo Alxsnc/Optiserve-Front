@@ -1,38 +1,49 @@
-
 <div class="componente-derecha">
   <div class="container-fluid divBarra">
     <div class="row">
       <div div role="main" class="col-md-9 ml-sm-auto col-lg-12 px-md-4">
         <div class="container mt-3">
           <h1>Lista de contratos activos</h1>
+
           <div *ngFor="let contrato of contratos">
-            <ng-container *ngIf="contrato.publicacion.calificado && !contrato.calificado; else sinContenido">
+            <ng-container
+              *ngIf="
+                (contrato.publicacion.calificado && !contrato.calificado) ||
+                (!contrato.publicacion.calificado && !contrato.calificado)
+              "
+            >
               <div class="card">
                 <div class="card-header">
-                  <p>{{ contrato.publicacion.titulo }}</p>
-                  <p>{{ contrato.publicacion.descripcion }}</p>
-                  <p>
+                  <h4>{{ contrato.publicacion.titulo }}</h4>
+                  <p>Descripción: {{ contrato.publicacion.descripcion }}</p>
+                  <p>Empleador:
                     {{ contrato.publicacion.empleador.usuario.nombre }}
                     {{ contrato.publicacion.empleador.usuario.apellido }}
                   </p>
-                  <p>{{ contrato.publicacion.empleador.id_usuario }}</p>
-                  <p>{{ contrato.publicacion.empleador.usuario.email }}</p>
+                  <p>Email Empleador: {{ contrato.publicacion.empleador.usuario.email }}</p>
 
                   <ng-container *ngIf="!contrato.publicacion.calificado">
-                    <button type="button" class="btn btn-primary" (click)="calificarEmpleador(contrato.publicacion.id_empleador, contrato.id_publicacion)">Calificar</button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="
+                        calificarEmpleador(
+                          contrato.publicacion.id_empleador,
+                          contrato.id_publicacion
+                        )
+                      "
+                    >
+                      Calificar
+                    </button>
                   </ng-container>
                   <ng-container *ngIf="contrato.publicacion.calificado">
-                    <button type="button" class="btn btn-secondary" disabled>Calificado</button>
+                    <button type="button" class="btn btn-secondary" disabled>
+                      Calificado
+                    </button>
                   </ng-container>
-
                 </div>
-
-                <!-- {{ contrato | json }} -->
               </div>
             </ng-container>
-            <ng-template #sinContenido>
-              <p>Sin contratos para calificar</p>
-            </ng-template>
           </div>
         </div>
       </div>

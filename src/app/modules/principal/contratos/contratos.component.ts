@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./contratos.component.scss'],
 })
 export class ContratosComponent {
-  contratos: any;
+  contratos: any[] = [];
 
   constructor(
     private postulacionService: PostulacionService,
@@ -43,6 +43,7 @@ export class ContratosComponent {
             <option value="4">4 - Bueno</option>
             <option value="5">5 - Muy bueno</option>
           </select>
+          <ngb-rating [max]="5"></ngb-rating>
         </div>
         <div class="form-group">
           <label for="comentario">Comentario</label>

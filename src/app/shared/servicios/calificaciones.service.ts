@@ -23,4 +23,8 @@ export class CalificacionesService {
   cerrarPublicacion(id_publicacion: number) {
     return this.http.put(this.calificacionesUrl + ENV.apiCerrarPublicacion + id_publicacion, null);
   }
+
+  promedioCalificaciones(id_usuario: number) {
+    return this.http.get(this.calificacionesUrl + ENV.apiPromedioCalificaciones + id_usuario);
+  }
 }
