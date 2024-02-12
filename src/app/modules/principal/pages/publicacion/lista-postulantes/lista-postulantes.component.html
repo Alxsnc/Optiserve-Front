@@ -1,22 +1,54 @@
 <h2 class="tituloPostu">Lista de Postulantes</h2>
-<ng-container *ngIf="postulantes && postulantes.length > 0; else postulantesEmpty">
+<ng-container
+  *ngIf="postulantes && postulantes.length > 0; else postulantesEmpty"
+>
   <div class="d-flex flex-row mb-2 justify-content-between">
-  <div class="postulante">
-    <div class="container" *ngFor="let postulante of postulantes">
+    <div class="postulante">
+      <div class="container" *ngFor="let postulante of postulantes">
+        <div class="contenido">
+          <h5>
+            <span class="label">Postulante:</span> {{ postulante.nombre }}
+            {{ postulante.apellido }}
+          </h5>
+          <h5><span class="label">Email:</span> {{ postulante.email }}</h5>
+          <ng-container
+            *ngIf="
+              postulante.promedio_calificaciones != 0;
+              else sinCalificacion
+            "
+          >
+            <h5>
+              <span class="label">Calificación promedio:</span>
+              {{ postulante.promedio_calificaciones }} de 5
+            </h5>
+          </ng-container>
+          <ng-template #sinCalificacion>
+            <h5>
+              <span class="label">Calificación promedio:</span> Sin calificación
+              aún.
+            </h5>
+          </ng-template>
+        </div>
 
-      <div class="contenido">
-        <h5><span class="label">Postulante:</span> {{postulante.nombre}} {{postulante.apellido}} </h5>
-        <h5><span class="label">Email:</span> {{postulante.email}}</h5>
-        <p></p>
-      </div>
-
-      <div class="botonesPostu">
-        <button type="button" class="btn btn-primary" (click)="aceptarPostulacion(postulante.id_postulacion)">Aceptar</button>
-        <button type="button" class="btn btn-secondary" (click)="rechazarPostulacion(postulante.id_postulacion)">Rechazar</button>
+        <div class="botonesPostu">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="aceptarPostulacion(postulante.id_postulacion)"
+          >
+            Aceptar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="rechazarPostulacion(postulante.id_postulacion)"
+          >
+            Rechazar
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </ng-container>
 
 <ng-template #postulantesEmpty>
@@ -24,35 +56,65 @@
 </ng-template>
 
 <h2 class="tituloPostu">Lista de Empleados Aceptados</h2>
-<ng-container *ngIf="empleadosAceptados && empleadosAceptados.length > 0; else aceptadosEmpty">
+<ng-container
+  *ngIf="
+    empleadosAceptados && empleadosAceptados.length > 0;
+    else aceptadosEmpty
+  "
+>
   <div class="d-flex flex-row mb-2 justify-content-between">
-  <div class="postulante">
-    <div class="container" *ngFor="let postulante of empleadosAceptados">
+    <div class="postulante">
+      <div class="container" *ngFor="let postulante of empleadosAceptados">
+        <div class="contenido">
+          <h5>
+            <span class="label">Postulante:</span> {{ postulante.nombre }}
+            {{ postulante.apellido }}
+          </h5>
+          <h5><span class="label">Email:</span> {{ postulante.email }}</h5>
+          <ng-container
+            *ngIf="
+              postulante.promedio_calificaciones != 0;
+              else sinCalificacion
+            "
+          >
+            <h5>
+              <span class="label">Calificación promedio:</span>
+              {{ postulante.promedio_calificaciones }} de 5
+            </h5>
+          </ng-container>
+          <ng-template #sinCalificacion>
+            <h5>
+              <span class="label">Calificación promedio:</span> Sin calificación
+              aún.
+            </h5>
+          </ng-template>
+        </div>
 
-      <div class="contenido">
-        <h5><span class="label">Postulante:</span> {{postulante.nombre}} {{postulante.apellido}} </h5>
-        <h5><span class="label">Email:</span> {{postulante.email}}</h5>
-        <p></p>
-      </div>
-
-      <div class="botonesPostu">
-        <ng-container *ngIf="!postulante.calificado" >
-          <button type="button" class="btn btn-primary" (click)="calificarEmpleado(postulante.id_postulante, postulante.id_postulacion)">Calificar</button>
-        </ng-container>
-        <ng-container *ngIf="postulante.calificado" >
-          <button type="button" class="btn btn-secondary" disabled>Calificado</button>
-        </ng-container>
-
+        <div class="botonesPostu">
+          <ng-container *ngIf="!postulante.calificado">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="
+                calificarEmpleado(
+                  postulante.id_postulante,
+                  postulante.id_postulacion
+                )
+              "
+            >
+              Calificar
+            </button>
+          </ng-container>
+          <ng-container *ngIf="postulante.calificado">
+            <button type="button" class="btn btn-secondary" disabled>
+              Calificado
+            </button>
+          </ng-container>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </ng-container>
-
-{{empleadosAceptados | json}}
-
 <ng-template #aceptadosEmpty>
   <p>Aún no ha aceptado postulantes.</p>
 </ng-template>
-
-

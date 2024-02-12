@@ -46,10 +46,14 @@
           <div id="validationServerUsernameFeedback" class="invalid-feedback">Email obligatorio</div>
         </div>
 
-        <div>
+        <ng-container *ngIf="promedio != 0; else sinCalificacion">
           <br>
-          <p>Promedio de calificacion: {{promedio}}</p>
-        </div>
+          <p>Calificación promedio: {{promedio}} de 5</p>
+        </ng-container>
+        <ng-template #sinCalificacion>
+          <br>
+          <p>Calificación promedio: Sin Calificación aún.</p>
+        </ng-template>
 
         <div class="mb-3 boton conBoton">
           <button class="btn btn botones btnPublicar" (click)="submitFormulario()" [disabled]="!myForm.valid">Modificar</button>

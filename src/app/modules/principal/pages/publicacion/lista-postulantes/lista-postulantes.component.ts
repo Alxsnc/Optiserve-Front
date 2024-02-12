@@ -5,6 +5,7 @@ import { PublicacionService } from 'src/app/shared/servicios/publicacion.service
 import Swal from 'sweetalert2';
 import { CalificacionesService } from 'src/app/shared/servicios/calificaciones.service';
 import { AuthService } from 'src/app/shared/servicios/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-postulantes',
@@ -12,6 +13,9 @@ import { AuthService } from 'src/app/shared/servicios/auth.service';
   styleUrls: ['./lista-postulantes.component.scss'],
 })
 export class ListaPostulantesComponent {
+  promedio: number | string = 0;
+  id_postulante: number = 0;
+  promedioSuscripcion: Subscription = new Subscription();
   @Input() publicacion!: PublicacionByID;
 
   postulantes: any;
@@ -38,6 +42,7 @@ export class ListaPostulantesComponent {
         });
     }
   }
+
 
   aceptarPostulacion(id_postulacion: number): void {
     Swal.fire({

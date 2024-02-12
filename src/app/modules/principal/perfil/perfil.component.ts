@@ -79,7 +79,7 @@ export class PerfilComponent implements OnInit {
     this.promedioSuscripcion = this.calificacionesService.promedioCalificaciones(this.authService.getUserInfo().id_usuario_rol).subscribe((res: any) => {
       this.promedio = res.data;
 
-      if(this.promedio === null){
+      if(this.promedio === 0 ){
         this.promedio = "Sin calificación";
       }
 
