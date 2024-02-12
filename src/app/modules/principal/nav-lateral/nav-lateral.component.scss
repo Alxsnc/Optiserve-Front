@@ -30,6 +30,17 @@
   width: 100%; /* Ancho al 100% del contenedor */
   text-align: center;
 }
+#barLateral .nav-link.active {
+  color: white;
+  font-weight: bold;
+  background: url('/assets/imagen/BOTON_5.png') left/cover no-repeat;
+  width: 200px;
+  border: 2px solid #FF9933;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+}
 
 #barLateral .nav-link.active,
 #barLateral .nav-link.router-link-active {
@@ -44,4 +55,17 @@
   padding: 0;
   width: 120px; /* Ancho deseado para la barra lateral */
   height: 100vh; /* Ocupará el 100% del alto de la ventana */
+}
+
+/*Responsive*/
+
+@media (max-width: 768px) {
+  .componente-izquierda {
+    width: 0; /* Oculta la barra lateral */
+  }
+
+  /* Estilos para el contenido principal cuando la barra lateral está oculta */
+  .content {
+    margin-left: 0; /* Ajusta el margen izquierdo para que el contenido principal ocupe toda la pantalla */
+  }
 }

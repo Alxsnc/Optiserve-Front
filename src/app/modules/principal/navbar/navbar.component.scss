@@ -37,13 +37,17 @@
   }
   .navLetras .nav-link {
     color: white;
+    margin-right: 10px;
   }
-  /*.navLetras .nav-link.active {
+  .navLetras .nav-link.active {
     color: white;
-    font-weight: bold;
+    background: url('/assets/imagen/BOTON_7.png') left/cover no-repeat;
+    width: auto;
+    border:2px solid #006666;
+    border-radius: 12%;
     font-family: 'Geologica', sans-serif;
-    background-color: #666666;
-  }*/
+    font-weight: bold;
+  }
   .nav-link{
     transition:color 0.3s ;
   }
@@ -82,4 +86,23 @@
     border: #666666;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  .datos {
+    font-family: 'Geologica', sans-serif;
+    color: white;
+    background-color: #006666;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+
+  .datos a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .datos b {
+    color: #FF9933;
   }

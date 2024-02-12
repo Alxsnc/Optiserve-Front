@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import { PublicacionService } from 'src/app/shared/servicios/publicacion.service';
 
 
+
+
 @Component({
   selector: 'app-lista-publicaciones',
   templateUrl: './lista-publicaciones.component.html',
@@ -110,6 +112,7 @@ export class ListaPublicacionesComponent implements OnInit {
   //     }
   //   });
   // }
+
 
 
 
