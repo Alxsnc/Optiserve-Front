@@ -6,15 +6,15 @@
       <div class="sidebar-sticky" id="barLateral">
         <ul class="nav flex-column">
           <li class="nav-item" routerLinkActive="active">
-            <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/publicacion">Crear publicaciones</a>
-            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratos">Contratos activos</a>
+            <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/publicacion" routerLinkActive="active">Crear publicaciones</a>
+            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratos" routerLinkActive="active">Contratos activos</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/ListaPublicaciones">Publicaciones activas</a>
-            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratosCerrados">Contratos cerrados</a>
+            <a *ngIf="rol===2" class="nav-link" routerLink="/sesion/ListaPublicaciones" routerLinkActive="active">Publicaciones activas</a>
+            <a *ngIf="rol===3" class="nav-link" routerLink="/sesion/contratosCerrados" routerLinkActive="active">Contratos cerrados</a>
           </li>
           <li class="nav-item" routerLinkActive="active">
-            <a *ngIf="rol===2"  class="nav-link" routerLink="/sesion/ListaPubCerradas">Publicaciones cerradas</a>
+            <a *ngIf="rol===2"  class="nav-link" routerLink="/sesion/ListaPubCerradas" routerLinkActive="active">Publicaciones cerradas</a>
 
           </li>
         </ul>

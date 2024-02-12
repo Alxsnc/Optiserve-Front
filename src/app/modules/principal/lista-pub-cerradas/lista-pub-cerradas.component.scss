@@ -5,3 +5,31 @@
   height: 100vh; /* Ocupará el 100% de la altura del contenedor principal */
 }
 
+.bordesPublicacion {
+  background-color: #666666;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  max-width: 80%; /* Establecer un ancho máximo */
+  margin: 0 auto; /* Centrar el contenedor */
+}
+
+.list-group-item {
+  margin-bottom: 16px;
+  max-width: 700px;
+
+  .d-flex {
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+
+  .parrafoPubli {
+    width: calc(100% - 250px); /* Establecer un ancho que deje espacio para los botones */
+    /* Ajusta el valor según el ancho total deseado menos el ancho de los botones */
+  }
+
+  .botones {
+    flex-shrink: 0; /* Evita que los botones se contraigan */
+  }
+}

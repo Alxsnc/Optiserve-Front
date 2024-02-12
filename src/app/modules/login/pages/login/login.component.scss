@@ -13,14 +13,15 @@ body, html {
 .login-form {
   border-radius: 50px;
 }
-.contenedor_general{
-}
 
 .formulario{
   border-radius: 25px;
   background-color: #006666;
   padding: 1rem;
   font-family: 'Geologica', sans-serif;
+}
+.text-center .img-fluid{
+  margin-top: 20px;
 }
 
 .titulo_iniciar{
@@ -74,4 +75,52 @@ body, html {
 /* Opcional: Cambiar el color al pasar el ratón (hover) */
 .registro a:hover {
   color: #CC6666; /* Cambia "#00ff00" al color deseado al pasar el ratón sobre el enlace */
+}
+
+/*Responsive*/
+
+@media (max-width: 768px) {
+  .row.d-flex.align-items-center {
+    display: flex;
+    flex-wrap: wrap; /* Asegura que los elementos se envuelvan en pantallas pequeñas */
+  }
+
+  .col-md-7.col-xl-7 {
+    flex-basis: 50%; /* Establece el ancho de la columna a la mitad */
+  }
+
+  .formulario {
+    flex-basis: 100%; /* Establece el ancho del formulario al 100% */
+    margin-top: 20px; /* Ajusta el margen superior del formulario */
+  }
+}
+
+@media (max-width: 320px) {
+  .formulario {
+    flex-basis: 100%; /* Establece el ancho del formulario al 100% */
+    margin-top: 20px; /* Ajusta el margen superior del formulario */
+  }
+
+  .col-md-7.col-xl-7 {
+    display: none; /* Oculta la columna con la imagen en pantallas pequeñas */
+  }
+
+  .img-fluid {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% */
+    margin-top: 20px; /* Ajusta el margen superior de la imagen */
+  }
+
+  .titulo_iniciar {
+    font-size: 1.2rem; /* Reduce el tamaño del título */
+  }
+
+  .email, .password, .select_Rol, .registro {
+    text-align: center; /* Centra los elementos */
+    color: white; /* Asegura que el texto sea visible en fondos oscuros */
+  }
+
+  .btnIngresar {
+    width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
+    margin-top: 1rem; /* Añade espacio superior al botón */
+  }
 }

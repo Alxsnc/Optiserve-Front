@@ -83,3 +83,22 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .datos {
+    font-family: 'Geologica', sans-serif;
+    color: white;
+    background-color: #006666;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+
+  .datos a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .datos b {
+    color: #FF9933;
+  }

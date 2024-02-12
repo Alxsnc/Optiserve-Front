@@ -1,37 +1,80 @@
 .componente-derecha {
-  margin-left: 250px; /* Ajusta el margen según tus necesidades */
+  margin-left: 250px;
   padding: 1rem;
-  /* Agrega otros estilos según tus necesidades */
-  height: 100vh; /* Ocupará el 100% de la altura del contenedor principal */
+  height: 100vh;
   font-family: 'Geologica', sans-serif;
 }
 
-.bordesPublicacion{
+.bordesPublicacion {
   background-color: #666666;
-
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  max-width: 80%; /* Establecer un ancho máximo */
+  margin: 0 auto; /* Centrar el contenedor */
 }
 
-.botones button{
-  margin-left: 10px;
-  position:relative;
-  top:50%;
-  transform: translate(-50%);
+.botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.list-group-item{
-  margin-bottom: 16px;
+.botones button {
+  flex: 1;
+  margin-right: 10px;
 }
 
-.btn.btn-primary{
+.btn.btn-primary {
   background-color: #006666;
+  border: 2px solid black;
+  cursor: pointer;
 }
-.btn.btn-secondary{
+
+.btn.btn-primary:hover {
+  background-color: white;
+  color: #006666;
+  border: 2px solid #006666;
+}
+
+.btn.btn-secondary {
   background-color: #666666;
+  border: 2px solid black;
 }
-.btn.btn-success{
+
+.btn.btn-secondary:hover {
+  background-color: white;
+  color: #666666;
+  border: 2px solid #666666;
+}
+
+.btn.btn-success {
   background-color: #cc6666;
+  border: 2px solid black;
 }
-.parrafoPubli
-{
-  width: 850px;
+
+.btn.btn-success:hover {
+  background-color: white;
+  color: #cc6666;
+  border: 2px solid #cc6666;
+}
+
+.list-group-item {
+  margin-bottom: 16px;
+  max-width: 900px;
+
+  .d-flex {
+    flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+
+  .parrafoPubli {
+    width: calc(100% - 250px); /* Establecer un ancho que deje espacio para los botones */
+    /* Ajusta el valor según el ancho total deseado menos el ancho de los botones */
+  }
+
+  .botones {
+    flex-shrink: 0; /* Evita que los botones se contraigan */
+  }
 }
