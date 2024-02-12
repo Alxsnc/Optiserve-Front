@@ -17,9 +17,11 @@ export class ListaPostulantesComponent {
   id_postulante: number = 0;
   promedioSuscripcion: Subscription = new Subscription();
   @Input() publicacion!: PublicacionByID;
+  @Input() isInfo!: boolean;
 
   postulantes: any;
   empleadosAceptados: any;
+  calificaciones: any;
 
   constructor(
     private publicacionService: PublicacionService,
@@ -35,10 +37,11 @@ export class ListaPostulantesComponent {
   listaPostulantes() {
     if (this.publicacion !== undefined) {
       this.publicacionService
-        .obtenerPostulantesPorPublicacion(this.publicacion.id_publicacion)
+        .obtenerPostulantesPorPublicacion(this.publicacion.id_publicacion, this.authService.getUserInfo().id_usuario_rol)
         .subscribe((res) => {
           this.postulantes = res.data;
           this.empleadosAceptados = res.aceptados;
+          this.calificaciones = res.calificaciones;
         });
     }
   }

@@ -15,6 +15,7 @@ enum Estado {
   Crear = 'Crear',
   Modificar = 'Modificar',
   Mostrar = 'Mostrar',
+  Info = 'Info',
 }
 @Component({
   selector: 'app-publicacion',
@@ -27,6 +28,7 @@ export class PublicacionComponent implements OnInit {
   mode: string = Estado.Crear;
   idFromPath: number;
   isDisabled: boolean = false;
+
 
   publicacion!: PublicacionByID;
 
@@ -52,14 +54,14 @@ export class PublicacionComponent implements OnInit {
         this.categoriasList = res.data;
       });
     this.myForm = this.createMyForm();
-    this.createOrModify();
+    this.controlDeReutilizacion();
   }
 
   ngOnDestroy(): void {
     this.categoriasSubscription?.unsubscribe();
   }
 
-  createOrModify() {
+  controlDeReutilizacion() {
     if (this.aRouter.snapshot.url[0].path === 'publicacion') {
       this.mode = Estado.Crear;
     } else if (this.aRouter.snapshot.url[0].path === 'editarPublicacion') {
@@ -67,6 +69,10 @@ export class PublicacionComponent implements OnInit {
       this.getPublicacion(this.idFromPath);
     } else if (this.aRouter.snapshot.url[0].path === 'gestionarPublicacion') {
       this.mode = Estado.Mostrar;
+      this.getPublicacion(this.idFromPath);
+      this.myForm.disable();
+    } else if (this.aRouter.snapshot.url[0].path === 'informacionPublicacion') {
+      this.mode = Estado.Info;
       this.getPublicacion(this.idFromPath);
       this.myForm.disable();
     }
@@ -165,18 +171,6 @@ export class PublicacionComponent implements OnInit {
       this.fb.control(this.authService.getUserInfo().id_usuario)
     );
     let publicacion = this.myForm.value;
-
-    // let publicacionTyped: PublicaDTO = {
-    //   titulo: publicacion.titulo,
-    //   descripcion: publicacion.descripcion,
-    //   pago: publicacion.pago,
-    //   provincia: publicacion.provincia,
-    //   ciudad: publicacion.ciudad,
-    //   id_categoria: publicacion.id_categoria,
-    //   id_publicacion: this.idFromPath,
-    //   fecha_modificacion: publicacion.fecha_modificacion,
-    //   fecha_publicacion: publicacion.fecha_publicacion,
-    // };
 
     console.trace(publicacion);
     if (this.mode === Estado.Crear) {

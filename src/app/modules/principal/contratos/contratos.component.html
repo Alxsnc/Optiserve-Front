@@ -8,8 +8,8 @@
           <div *ngFor="let contrato of contratos">
             <ng-container
               *ngIf="
-                (contrato.publicacion.calificado && !contrato.calificado) ||
-                (!contrato.publicacion.calificado && !contrato.calificado)
+                (!contrato.publicacion.calificado && contrato.calificacion_done) ||
+                (!contrato.publicacion.calificado && !contrato.calificacion_done)
               "
             >
               <div class="card">
@@ -22,7 +22,7 @@
                   </p>
                   <p>Email Empleador: {{ contrato.publicacion.empleador.usuario.email }}</p>
 
-                  <ng-container *ngIf="!contrato.publicacion.calificado">
+                  <ng-container *ngIf="!contrato.calificacion_done">
                     <button
                       type="button"
                       class="btn btn-primary"
@@ -36,7 +36,7 @@
                       Calificar
                     </button>
                   </ng-container>
-                  <ng-container *ngIf="contrato.publicacion.calificado">
+                  <ng-container *ngIf="contrato.calificacion_done">
                     <button type="button" class="btn btn-secondary" disabled>
                       Calificado
                     </button>

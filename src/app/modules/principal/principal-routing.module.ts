@@ -20,12 +20,14 @@ const rutas:Routes = [{
         {path:'publicacion',component:PublicacionComponent},
         {path:'editarPublicacion/:id',component:PublicacionComponent},
         {path:'gestionarPublicacion/:id',component:PublicacionComponent},
+        {path:'informacionPublicacion/:id',component:PublicacionComponent},
         {path:'ListaPublicaciones',component:ListaPublicacionesComponent},
         {path:'ListaPubCerradas',component:ListaPubCerradasComponent},
         {path:'Perfil',component:PerfilComponent},
         {path:'contratos',component:ContratosComponent},
         {path:'contratosActivos',component:ContratosActivosComponent},
-        {path:'contratosCerrados',component:ContratosCerradosComponent}
+        {path:'contratosCerrados',component:ContratosCerradosComponent},
+
     ]
 }];
 @NgModule({

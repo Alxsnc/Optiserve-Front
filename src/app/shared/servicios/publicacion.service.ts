@@ -3,7 +3,7 @@ import {
   PublicacionesObject,
   Publicacion
 } from './../../../api/models/publicaciones/publicaciones';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment as ENV } from 'src/environments/environment.prod';
@@ -69,10 +69,15 @@ export class PublicacionService {
   }
 
   obtenerPostulantesPorPublicacion(
-    idPublicacion: number
+    id_publicacion: number, id_empleador: number
   ): Observable<any> {
+    let params = new HttpParams();
+    params = params.append('id_publicacion', id_publicacion);
+    params = params.append('id_empleador', id_empleador);
     return this.http.get<any>(
-      this.urlBackEnd + ENV.apiListaPostulantes + idPublicacion
+      this.urlBackEnd + ENV.apiListaPostulantes, {params: params}
     );
   }
 }
+
+
