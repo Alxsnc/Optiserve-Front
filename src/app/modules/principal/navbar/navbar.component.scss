@@ -37,13 +37,17 @@
   }
   .navLetras .nav-link {
     color: white;
+    margin-right: 10px;
   }
-  /*.navLetras .nav-link.active {
+  .navLetras .nav-link.active {
     color: white;
-    font-weight: bold;
+    background: url('/assets/imagen/BOTON_7.png') left/cover no-repeat;
+    width: auto;
+    border:2px solid #006666;
+    border-radius: 12%;
     font-family: 'Geologica', sans-serif;
-    background-color: #666666;
-  }*/
+    font-weight: bold;
+  }
   .nav-link{
     transition:color 0.3s ;
   }
