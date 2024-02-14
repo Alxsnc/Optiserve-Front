@@ -32,7 +32,7 @@ export class ContratosComponent {
 
   calificarEmpleador(id_empleador: number, id_publicacion: number) {
     Swal.fire({
-      title: 'Calificar Empleado',
+      title: 'Calificar Empleador',
       html: `
         <div class="form-group">
           <label for="calificacion">Calificación</label>
