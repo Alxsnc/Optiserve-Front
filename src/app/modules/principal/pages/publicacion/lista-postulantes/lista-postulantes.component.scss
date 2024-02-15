@@ -45,3 +45,6 @@
 .btn.btn-secondary {
   background-color: #cc6666;
 }
+:host {
+  margin-bottom: 100px; // Ajusta este valor según la altura de tu footer
+}

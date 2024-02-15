@@ -3,13 +3,12 @@
   background: url('/assets/imagen/FONDO_CON_GRAFICA_1.png') center/cover no-repeat;
   width: 250px;
   margin: 0;
-  //height: auto;
   height: 100vh;
+  overflow-y: auto;
 }
 
 .barra_Publicacion .nav-link {
   width: 100%;
-  //padding: 2rem;
   font-family: 'Geologica', sans-serif;
   font-size: 17px;
   text-align: left;
@@ -20,14 +19,12 @@
 #barLateral .nav-link:hover {
   color: white;
   font-weight: bold;
-  //background-color: #FF9933;
-
   background: url('/assets/imagen/BOTON_5.png') left/cover no-repeat;
   width: 200px;
   border:2px solid #FF9933;
   transition: background-color 0.3s ease;
-  font-size: 18px; /* Tamaño de fuente más pequeño */
-  width: 100%; /* Ancho al 100% del contenedor */
+  font-size: 18px;
+  width: 100%;
   text-align: center;
 }
 #barLateral .nav-link.active {
@@ -59,13 +56,17 @@
 
 /*Responsive*/
 
+/* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
-  .componente-izquierda {
-    width: 0; /* Oculta la barra lateral */
+  .barra_Publicacion {
+    background-color: #006666;
+    width: 220px;
+    height: auto;
   }
+}
 
-  /* Estilos para el contenido principal cuando la barra lateral está oculta */
-  .content {
-    margin-left: 0; /* Ajusta el margen izquierdo para que el contenido principal ocupe toda la pantalla */
+@media (max-width: 320px) {
+  .componente-izquierda {
+    margin-left: 0;
   }
 }

@@ -19,13 +19,13 @@
               <div class="publiIndividual">
                 <div class="contenido">
                   <h5>{{ publicacion.titulo }}</h5>
-                  <p> Descripción: {{ publicacion.descripcion }}</p>
-                  <p>Empleador: {{publicacion.empleador.usuario.nombre}} {{publicacion.empleador.usuario.apellido}}</p>
-                  <p>Email Empleador: {{publicacion.empleador.usuario.email}}</p>
+                  <p> <b>Descripción:</b> {{ publicacion.descripcion }}</p>
+                  <p><b>Empleador:</b> {{publicacion.empleador.usuario.nombre}} {{publicacion.empleador.usuario.apellido}}</p>
+                  <p><b>Email Empleador:</b> {{publicacion.empleador.usuario.email}}</p>
                 </div>
                 <div class="botones">
                   <button type="button" class="btn btn-primary" (click)="postularAPublicacion(publicacion)" >Postular</button>
-                  <button type="button" class="btn btn-danger" (click)="cancelarPostulacion(publicacion)">Cancelar Postulación</button>
+                  <button type="button" class="btn btn-danger" (click)="cancelarPostulacion(publicacion)">Cancelar</button>
                 </div>
                </div>
              </div>
@@ -40,6 +40,7 @@
          <!-- Mostrar un mensaje si no hay publicaciones -->
          <p>No hay publicaciones activas en este momento.</p>
        </ng-template>
+
     </div>
 
   </div>

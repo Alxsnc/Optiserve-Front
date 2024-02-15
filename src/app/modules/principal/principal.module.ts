@@ -10,6 +10,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ContratosComponent } from './contratos/contratos.component';
 import { ContratosActivosComponent } from './contratos-activos/contratos-activos.component';
 import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerrados.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -22,7 +23,8 @@ import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerra
     PerfilComponent,
     ContratosComponent,
     ContratosCerradosComponent,
-    ContratosActivosComponent, // Move ContratosActivosComponent to the declarations array
+    ContratosActivosComponent,
+    FooterComponent, // Move ContratosActivosComponent to the declarations array
   ],
     imports:[CommonModule,FormsModule,ReactiveFormsModule,principalRoutingModule],
 

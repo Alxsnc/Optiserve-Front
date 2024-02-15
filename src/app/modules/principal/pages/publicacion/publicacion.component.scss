@@ -1,8 +1,9 @@
 .componente-derecha {
   margin-left: 250px;
   padding: 1rem;
-  height: 100vh;
   font-family: 'Geologica', sans-serif;
+  margin-bottom: 60px;
+  min-height: 100vh;
 }
 
 .BarraNav-principal{
@@ -205,8 +206,69 @@ body, html {
 
 
 /* Estilo para el componente app-lista-postulantes */
-app-lista-postulantes {
+app-lista-publicaciones {
   /* Ajusta el ancho según sea necesario */
-  width: 50%; /* Puedes ajustar este valor según tus necesidades */
+  width: 100%; /* Puedes ajustar este valor según tus necesidades */
+  max-height: calc(100vh - 100px); /* Altura máxima igual a la altura de la ventana menos la altura del footer y un espacio adicional */
+  overflow-y: auto; /* Añade scroll vertical si es necesario */
 }
 
+/*Responsive*/
+
+@media (max-width: 768px) {
+  .componente-derecha {
+    padding: 0.5rem; /* Ajusta el padding según sea necesario */
+    margin-bottom: 30px; /* Reduzca el margen inferior */
+  }
+  .container, .container-md, .container-sm {
+    max-width: 800px;
+  }
+  .col-md-9 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .botones{
+    text-align: center;
+    margin-bottom: 10px;
+    width: 120px;
+    margin-right: 10px;
+  }
+  .titulo {
+    font-size: 1.5rem; /* Tamaño de fuente más pequeño */
+  }
+
+  .form-label {
+    font-size: 0.8rem; /* Tamaño de fuente más pequeño para las etiquetas */
+  }
+}
+
+/* Estilos para pantallas aún más pequeñas (max-width: 320px) */
+@media (max-width: 320px) {
+
+  .componente-derecha {
+    padding: 0.5rem; /* Ajusta el padding según sea necesario */
+    margin-bottom: 10px; /* Reduzca el margen inferior */
+    margin-top: 70%;
+    margin-left: 0;
+  }
+  .search-container {
+    right: 20px; /* Ajusta el espacio a la derecha */
+    margin: 10px; /* Ajusta el margen */
+  }
+  .search-input {
+    width: 200px; /* Ajusta el ancho del input de búsqueda */
+  }
+  .container, .container-md, .container-sm {
+    max-width: 800px;
+  }
+  .col-md-9 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .botones{
+    text-align: center;
+    margin-bottom: 10px;
+    width: 120px;
+    margin-right: 10px;
+  }
+}

@@ -16,7 +16,13 @@ body {
   margin-top: 30px;
 }
 
-
+.componente-derecha {
+  margin-left: 250px;
+  padding: 1rem;
+  font-family: 'Geologica', sans-serif;
+  margin-bottom: 60px;
+  min-height: 100vh;
+}
 
 .infoAdicional{
   text-align: left;
@@ -24,7 +30,8 @@ body {
 }
 
 .iconoPerfil{
-  margin-top: 70px;
+  margin-top: 40%;
+  margin-left: 40%;
 }
 
 .profile-icon {
@@ -43,15 +50,16 @@ body {
   color: white;
   font-family: 'Geologica', sans-serif;
 }
+
 .btnPublicar{
   background: url('/assets/imagen/BOTON_5.png') center/cover no-repeat;
   cursor: pointer;
   color: white;
   font-family: 'Geologica', sans-serif;
   text-align:center;
-  width: 200px;
-  margin-left:218px ;
-  margin-right: 80px;
+  width: 180px;
+  margin-left: 30px ;
+  margin-right: 20px;
 }
 .btnCancelar{
   background: url('/assets/imagen/BOTON_7.png') center/cover no-repeat;
@@ -59,7 +67,7 @@ body {
   color: white;
   font-family: 'Geologica', sans-serif;
   text-align:center;
-  width: 200px;
+  width: 180px;
   border: 2px solid #006666;
 }
 
@@ -86,14 +94,18 @@ body {
 
 .right-container {
   flex-grow: 1;
-  height: 200px;
-  margin-left: 50px;
+  margin-left: 250px;
+  padding: 1rem;
+  font-family: 'Geologica', sans-serif;
+  margin-bottom: 60px;
+  min-height: 100vh;
+  margin-right: 20%;
 }
 .titulo{
   margin-top: 1rem;
   color: #434141;
   font-family: 'Geologica', sans-serif;
-
+  text-align: center;
 }
 
 

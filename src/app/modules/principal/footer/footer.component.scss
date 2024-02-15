@@ -1,0 +1,26 @@
+/* Footer */
+
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 100px; /* Altura del footer */
+  background-color: #FF9933;
+  flex-shrink: 0;
+  padding: 2vw;
+}
+
+footer .copyright{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+footer .copyright p{
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+

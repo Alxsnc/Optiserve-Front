@@ -1,0 +1,18 @@
+/* Establece el contenedor principal como un flex container */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establece la altura mínima del cuerpo para ocupar toda la pantalla */
+}
+
+/* Establece que el contenido principal (router-outlet) se expanda y ocupe el espacio restante */
+router-outlet {
+  flex: 1;
+  margin-bottom: 100px;
+}
+
+/* Fija el footer en la parte inferior de la pantalla */
+app-footer {
+  margin-top: auto; /* Mueve el footer hacia la parte inferior */
+  z-index: 1;
+}

@@ -9,6 +9,7 @@ import { ListaPubCerradasComponent } from './lista-pub-cerradas/lista-pub-cerrad
 import { PerfilComponent } from "./perfil/perfil.component";
 import { ContratosActivosComponent } from './contratos-activos/contratos-activos.component';
 import { ContratosCerradosComponent } from './contratos-cerrados/contratos-cerrados.component';
+import {FooterComponent} from './footer/footer.component';
 
 
 
