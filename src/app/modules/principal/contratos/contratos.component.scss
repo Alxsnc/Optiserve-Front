@@ -14,4 +14,18 @@
   height: auto;
   width: auto;
 }
+.card{
+  max-width: 700px;
+}
+.btn.btn-primary{
+  background: #006666;
+  border: 2px solid #006666;
+
+}
+.btn.btn-primary:hover{
+  background: white;
+  border: 2px solid #006666;
+  color: #006666;
+}
+
 

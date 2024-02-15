@@ -15,12 +15,12 @@
               <div class="card">
                 <div class="card-header">
                   <h4>{{ contrato.publicacion.titulo }}</h4>
-                  <p>Descripción: {{ contrato.publicacion.descripcion }}</p>
-                  <p>Empleador:
+                  <p><b>Descripción:</b> {{ contrato.publicacion.descripcion }}</p>
+                  <p><b>Empleador:</b>
                     {{ contrato.publicacion.empleador.usuario.nombre }}
                     {{ contrato.publicacion.empleador.usuario.apellido }}
                   </p>
-                  <p>Email Empleador: {{ contrato.publicacion.empleador.usuario.email }}</p>
+                  <p><b>Email Empleador:</b> {{ contrato.publicacion.empleador.usuario.email }}</p>
 
                   <ng-container *ngIf="!contrato.calificacion_done">
                     <button
