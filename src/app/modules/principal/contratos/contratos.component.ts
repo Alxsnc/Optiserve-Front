@@ -57,14 +57,23 @@ export class ContratosComponent {
       cancelButtonText: 'Cancelar',
       showLoaderOnConfirm: true,
       preConfirm: () => {
-        const calificacion = {
-          id_publicacion: id_publicacion,
-          puntuacion: (document.getElementById('calificacion') as HTMLInputElement).value,
-          comentario: (document.getElementById('comentario') as HTMLInputElement).value,
-          id_usuario_calificador: this.authService.getUserInfo().id_usuario_rol,
-          id_usuario_calificado: id_empleador,
-        };
-        return this.calificacionesService.generarCalificacionEmpleador(calificacion).toPromise();
+        // Verificar que los campos estén llenos
+        const calificacionInput = document.getElementById('calificacion') as HTMLSelectElement;
+        const comentarioInput = document.getElementById('comentario') as HTMLTextAreaElement;
+
+        if (!calificacionInput.value || !comentarioInput.value) {
+          Swal.showValidationMessage('Por favor, complete todos los campos.');
+          return false; // Devolver false cuando los campos no estén llenos
+        } else {
+          const calificacion = {
+            id_publicacion: id_publicacion,
+            puntuacion: calificacionInput.value,
+            comentario: comentarioInput.value,
+            id_usuario_calificador: this.authService.getUserInfo().id_usuario_rol,
+            id_usuario_calificado: id_empleador,
+          };
+          return this.calificacionesService.generarCalificacionEmpleador(calificacion).toPromise();
+        }
       },
     }).then((result) => {
       if (result.isConfirmed) {
@@ -77,8 +86,8 @@ export class ContratosComponent {
         });
         this.listaContratosActivos();
       }
-    }
-    );
+    });
   }
+
   }
 
